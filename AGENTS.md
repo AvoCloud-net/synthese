@@ -34,6 +34,7 @@ Kein echter Server — reines **Vite + Vanilla HTML/CSS/JS** (keine Frameworks).
 ## 4. Verbindliche Verträge — LESEN, dann befolgen
 
 - **[DATA-SCHEMA.md](DATA-SCHEMA.md)** — Datenstruktur, Funktions-Signaturen, DOM-IDs/Klassen. **Nie abweichen.**
+- **[FILE-OWNERSHIP.md](FILE-OWNERSHIP.md)** — welche Datei zu welchem Issue gehört + einheitliche Dateinamen. **Nur eigene Dateien ändern.** Jedes Issue hat unten eine `### Dateien`-Sektion.
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** — Git/PR-Ablauf (von `dev` abzweigen, PR **nach `dev`**, nie `main`).
 - **[TESTING.md](TESTING.md)** — was vor einem PR grün sein muss.
 - **[PLAN.md](PLAN.md)** — Gesamtplan, Rollen, Zeitplan.

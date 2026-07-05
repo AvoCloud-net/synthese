@@ -1,0 +1,180 @@
+/* ==========================================================================
+   avocloud · design tokens v1.0.0
+   mono-first + coral accent (LOUD)
+   Generated from tokens.json — edit there, then mirror here.
+   Light mode = :root defaults · Dark mode = html.dark overrides
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Quicksand:wght@300..700&display=swap');
+
+:root {
+  /* ---- coral ramp (mode-independent) ---- */
+  --avo-coral-50:  #FFEEEA;
+  --avo-coral-100: #FFD8CF;
+  --avo-coral-200: #FFB6A4;
+  --avo-coral-300: #FF9379;
+  --avo-coral-400: #FF7A5C;
+  --avo-coral-500: #FF6B4A;
+  --avo-coral-600: #ED5333;
+  --avo-coral-700: #C73D20;
+  --avo-coral-800: #9C2E16;
+  --avo-coral-900: #5F1C0D;
+
+  /* ---- semantic (mode-independent) ---- */
+  --avo-success: #46A758;
+  --avo-warning: #E0A33A;
+  --avo-error:   #DC3838;
+  --avo-info:    #3B82C4;
+
+  /* ---- roles · LIGHT (default) ---- */
+  --avo-bg:            #F2EFE6;
+  --avo-surface:       #E9E5D8;
+  --avo-border:        #DCD8CB;
+  --avo-text:          #141414;
+  --avo-text-muted:    #6B6B63;
+  --avo-primary:       #C73D20;
+  --avo-primary-hover: #ED5333;
+  --avo-primary-on:    #FFFFFF;
+  --avo-ascii:         #C73D20;
+  --avo-ascii-dim:     #6B6B63;
+
+  /* ---- typography ---- */
+  --avo-font-display: 'Syne', sans-serif;
+  --avo-font-body:    'Quicksand', sans-serif;
+  --avo-font-mono:    ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+
+  /* ---- radius ---- */
+  --avo-radius-sm: 8px;
+  --avo-radius-md: 11px;
+  --avo-radius-lg: 12px;
+  --avo-radius-xl: 18px;
+  --avo-radius-pill: 999px;
+
+  /* ---- space ---- */
+  --avo-space-1: 4px;  --avo-space-2: 8px;  --avo-space-3: 12px; --avo-space-4: 16px;
+  --avo-space-5: 24px; --avo-space-6: 32px; --avo-space-7: 48px; --avo-space-8: 64px;
+
+  /* ---- back-compat aliases (existing site uses these) ---- */
+  --card:   var(--avo-surface);
+  --border: var(--avo-border);
+}
+
+html.dark {
+  /* ---- roles · DARK ---- */
+  --avo-bg:            #0B0B0B;
+  --avo-surface:       #131313;
+  --avo-border:        #1E1E1E;
+  --avo-text:          #EDEDED;
+  --avo-text-muted:    #8A8A8A;
+  --avo-primary:       #FF6B4A;
+  --avo-primary-hover: #FF9379;
+  --avo-primary-on:    #0B0B0B;
+  --avo-ascii:         #FF6B4A;
+  --avo-ascii-dim:     #8A8A8A;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+body {
+  background: var(--avo-bg);
+  color: var(--avo-text);
+  font-family: var(--avo-font-body);
+}
+h1, h2, h3, h4 { font-family: var(--avo-font-display); font-weight: 800; }
+
+/* ==========================================================================
+   Brand components
+   ========================================================================== */
+
+/* coral highlight for key phrases in headlines: <span class="avo-hl">just run</span> */
+.avo-hl { color: var(--avo-primary); }
+
+/* mono kicker / eyebrow: prefix with "// " in markup */
+.avo-kicker {
+  font-family: var(--avo-font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--avo-primary);
+}
+
+/* primary button */
+.avo-btn {
+  display: inline-block;
+  padding: 9px 17px;
+  border-radius: var(--avo-radius-md);
+  font-family: var(--avo-font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  background: var(--avo-coral-500);
+  color: #fff;
+  border: 1.6px solid transparent;
+  transition: background 0.18s, transform 0.06s;
+}
+.avo-btn:hover { background: var(--avo-coral-600); }
+.avo-btn:active { transform: translateY(1px); }
+
+/* ghost button */
+.avo-btn-ghost {
+  background: transparent;
+  border-color: var(--avo-text);
+  color: var(--avo-text);
+}
+.avo-btn-ghost:hover { background: var(--avo-text); color: var(--avo-bg); }
+
+/* tag / badge (mono, coral) */
+.avo-tag {
+  display: inline-block;
+  font-family: var(--avo-font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: var(--avo-radius-pill);
+  background: var(--avo-primary);
+  color: var(--avo-primary-on);
+}
+
+/* link */
+.avo-link {
+  color: var(--avo-primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* card */
+.avo-card {
+  background: var(--avo-surface);
+  border: 1px solid var(--avo-border);
+  border-radius: var(--avo-radius-lg);
+  padding: var(--avo-space-4);
+}
+
+/* dashed divider */
+.avo-divider {
+  border: none;
+  border-top: 1px dashed var(--avo-border);
+  margin: var(--avo-space-5) 0;
+}
+
+/* animated gradient bar — recolored mono→coral */
+.avo-topbar {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--avo-coral-700), var(--avo-coral-500), var(--avo-coral-300), var(--avo-coral-500), var(--avo-coral-700));
+  background-size: 300% 100%;
+  animation: avo-bar 8s ease infinite;
+}
+@keyframes avo-bar {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ASCII canvas tint — JS reads these (see BRANDING.md §Motif) */
+:root      { --avo-ascii-glow: #C73D20; }
+html.dark  { --avo-ascii-glow: #FF6B4A; }

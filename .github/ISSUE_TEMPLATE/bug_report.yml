@@ -1,7 +1,7 @@
-name: "🐞 Bug melden"
-description: "Fehler im Kompendium melden"
-title: "bug: "
-labels: ["bug"]
+name: '🐞 Bug melden'
+description: 'Fehler im Kompendium melden'
+title: 'bug: '
+labels: ['bug']
 body:
   - type: markdown
     attributes:
@@ -11,17 +11,17 @@ body:
   - type: textarea
     id: what-happened
     attributes:
-      label: "Was ist passiert?"
-      description: "Kurz beschreiben, was schiefläuft."
-      placeholder: "Beim Klick auf eine Karte öffnet sich die Detail-Ansicht nicht."
+      label: 'Was ist passiert?'
+      description: 'Kurz beschreiben, was schiefläuft.'
+      placeholder: 'Beim Klick auf eine Karte öffnet sich die Detail-Ansicht nicht.'
     validations:
       required: true
 
   - type: textarea
     id: steps
     attributes:
-      label: "Schritte zum Reproduzieren"
-      description: "Wie kann man den Fehler nachstellen?"
+      label: 'Schritte zum Reproduzieren'
+      description: 'Wie kann man den Fehler nachstellen?'
       placeholder: |
         1. Seite öffnen
         2. Auf Karte "Brute-Force" klicken
@@ -32,15 +32,15 @@ body:
   - type: textarea
     id: expected
     attributes:
-      label: "Erwartetes Verhalten"
-      placeholder: "Die Detail-Ansicht sollte sich öffnen."
+      label: 'Erwartetes Verhalten'
+      placeholder: 'Die Detail-Ansicht sollte sich öffnen.'
     validations:
       required: true
 
   - type: dropdown
     id: area
     attributes:
-      label: "Betroffener Bereich"
+      label: 'Betroffener Bereich'
       options:
         - Cards
         - Suche
@@ -58,17 +58,17 @@ body:
   - type: input
     id: branch
     attributes:
-      label: "Branch / Commit"
-      description: "Auf welchem Branch? (z.B. dev, feature/xy)"
-      placeholder: "dev"
+      label: 'Branch / Commit'
+      description: 'Auf welchem Branch? (z.B. dev, feature/xy)'
+      placeholder: 'dev'
     validations:
       required: false
 
   - type: textarea
     id: console
     attributes:
-      label: "Konsolen-Fehler (F12)"
-      description: "Rote Fehler aus der Browser-Konsole hier einfügen."
+      label: 'Konsolen-Fehler (F12)'
+      description: 'Rote Fehler aus der Browser-Konsole hier einfügen.'
       render: shell
     validations:
       required: false
@@ -76,7 +76,7 @@ body:
   - type: dropdown
     id: browser
     attributes:
-      label: "Browser"
+      label: 'Browser'
       options:
         - Chrome
         - Firefox

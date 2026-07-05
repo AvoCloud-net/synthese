@@ -24,7 +24,7 @@ import { topics } from './data.js';
  */
 const activeFilters = {
   category: 'all',
-  difficulty: 'all'
+  difficulty: 'all',
 };
 
 /**

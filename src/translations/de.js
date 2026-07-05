@@ -14,7 +14,8 @@ export default {
 
   // Hero
   'hero.title': 'SYNTHESE',
-  'hero.subtitle': 'Baue ein interaktives Medien-Kompendium — als Team-Projekt oder allein. KI hilft dir beim Recherchieren und Strukturieren.',
+  'hero.subtitle':
+    'Baue ein interaktives Medien-Kompendium — als Team-Projekt oder allein. KI hilft dir beim Recherchieren und Strukturieren.',
   'hero.searchPlaceholder': 'Thema suchen...',
 
   // Onboarding — Progress
@@ -27,7 +28,8 @@ export default {
   'onboarding.team.eyebrow': 'KI Challenge',
   'onboarding.team.title': 'Willkommen im Team A',
   'onboarding.team.subtitle': 'SYNTHESE — Das interaktive Medien-Kompendium',
-  'onboarding.team.hook': 'Deine Aufgabe: Baue ein interaktives Medien-Kompendium — eine digitale Enzyklopädie, in der Studenten Themen wie HTML, CSS, Accessibility und mehr erkunden können. Wähle eine Rolle und starte.',
+  'onboarding.team.hook':
+    'Deine Aufgabe: Baue ein interaktives Medien-Kompendium — eine digitale Enzyklopädie, in der Studenten Themen wie HTML, CSS, Accessibility und mehr erkunden können. Wähle eine Rolle und starte.',
   'onboarding.team.cta': 'Wähle deine Rolle',
 
   // Onboarding — Role Section
@@ -38,23 +40,28 @@ export default {
   // Onboarding — Role Cards
   'onboarding.roles.frontend.title': 'Frontend Developer',
   'onboarding.roles.frontend.superpower': 'Du machst Wissen klickbar',
-  'onboarding.roles.frontend.short': 'Du kennst HTML, CSS & JS bereits. Du baust das Kartensystem, die Suche und Filter, die Lernen zum Erlebnis machen.',
+  'onboarding.roles.frontend.short':
+    'Du kennst HTML, CSS & JS bereits. Du baust das Kartensystem, die Suche und Filter, die Lernen zum Erlebnis machen.',
 
   'onboarding.roles.content.title': 'Content Author',
   'onboarding.roles.content.superpower': 'Du machst Komplexes einfach',
-  'onboarding.roles.content.short': 'Du kannst komplexe Themen einfach erklären. Du recherchierst und schreibst Artikel mit Beispielen und Visuals.',
+  'onboarding.roles.content.short':
+    'Du kannst komplexe Themen einfach erklären. Du recherchierst und schreibst Artikel mit Beispielen und Visuals.',
 
   'onboarding.roles.uiux.title': 'UI/UX Designer',
   'onboarding.roles.uiux.superpower': 'Du machst Information schön',
-  'onboarding.roles.uiux.short': 'Du kennst Design-Prinzipien und Figma. Du gestaltest Card-Layouts, Modal-Ansichten und das Leseerlebnis.',
+  'onboarding.roles.uiux.short':
+    'Du kennst Design-Prinzipien und Figma. Du gestaltest Card-Layouts, Modal-Ansichten und das Leseerlebnis.',
 
   'onboarding.roles.ai.title': 'AI Researcher',
   'onboarding.roles.ai.superpower': 'Du findest, was andere übersehen',
-  'onboarding.roles.ai.short': 'Du kannst wie ein Profi mit KI sprechen. Du nutzt AI-Tools zum Recherchieren, Fakten prüfen und gute Beispiele finden.',
+  'onboarding.roles.ai.short':
+    'Du kannst wie ein Profi mit KI sprechen. Du nutzt AI-Tools zum Recherchieren, Fakten prüfen und gute Beispiele finden.',
 
   'onboarding.roles.qa.title': 'QA & Testing Lead',
   'onboarding.roles.qa.superpower': 'Du zerstörst, um zu reparieren',
-  'onboarding.roles.qa.short': 'Du entdeckst Bugs vor allen anderen. Du testest jedes Feature und stellst sicher, dass das Kompendium auf allen Geräten läuft.',
+  'onboarding.roles.qa.short':
+    'Du entdeckst Bugs vor allen anderen. Du testest jedes Feature und stellst sicher, dass das Kompendium auf allen Geräten läuft.',
 
   // Onboarding — Mission Panel
   'onboarding.mission.heading': 'Deine Mission: {{role}}',
@@ -64,22 +71,27 @@ export default {
   'onboarding.mission.firstStepLabel': 'Erster Schritt — Starte JETZT',
 
   // Onboarding — Frontend Tasks
-  'onboarding.mission.frontend.task1': 'Baue das interaktive Kartensystem mit HTML, CSS und Vanilla JS.',
+  'onboarding.mission.frontend.task1':
+    'Baue das interaktive Kartensystem mit HTML, CSS und Vanilla JS.',
   'onboarding.mission.frontend.task2': 'Implementiere die Echtzeit-Suche und die Filter-Logik.',
   'onboarding.mission.frontend.task3': 'Sorge für eine responsive Darstellung auf allen Geräten.',
   'onboarding.mission.frontend.criteria1': 'Karten rendern korrekt mit data-attributen für Filter.',
   'onboarding.mission.frontend.criteria2': 'Suche filtert Themen in Echtzeit ohne Page-Reload.',
   'onboarding.mission.frontend.criteria3': 'Layout funktioniert auf Mobile, Tablet und Desktop.',
-  'onboarding.mission.frontend.firstStep': 'Öffne <code>src/js/modules/cards.js</code> und erstelle die <code>renderCards()</code>-Funktion.',
+  'onboarding.mission.frontend.firstStep':
+    'Öffne <code>src/js/modules/cards.js</code> und erstelle die <code>renderCards()</code>-Funktion.',
 
   // Onboarding — Content Tasks
   'onboarding.mission.content.task1': 'Recherchiere 6+ Medientechnik-Themen gründlich mit Quellen.',
-  'onboarding.mission.content.task2': 'Schreibe klare Artikel mit Beispielen, Visuals und Zusammenfassungen.',
+  'onboarding.mission.content.task2':
+    'Schreibe klare Artikel mit Beispielen, Visuals und Zusammenfassungen.',
   'onboarding.mission.content.task3': 'Erstelle Querverweise zwischen verwandten Themen.',
-  'onboarding.mission.content.criteria1': 'Jeder Artikel hat Summary, Volltext und praktische Beispiele.',
+  'onboarding.mission.content.criteria1':
+    'Jeder Artikel hat Summary, Volltext und praktische Beispiele.',
   'onboarding.mission.content.criteria2': 'Inhalte sind faktisch korrekt und mit Quellen belegt.',
   'onboarding.mission.content.criteria3': 'Sprache ist klar verständlich für 15-jährige Studenten.',
-  'onboarding.mission.content.firstStep': 'Wähle ein Thema und schreibe den ersten Artikel in <code>src/data/topics.js</code>.',
+  'onboarding.mission.content.firstStep':
+    'Wähle ein Thema und schreibe den ersten Artikel in <code>src/data/topics.js</code>.',
 
   // Onboarding — UI/UX Tasks
   'onboarding.mission.uiux.task1': 'Gestalte Card-Layouts und die visuelle Hierarchie im System.',
@@ -91,7 +103,8 @@ export default {
   'onboarding.mission.uiux.firstStep': 'Erstelle ein Figma-Board mit Card- und Modal-Komponenten.',
 
   // Onboarding — AI Researcher Tasks
-  'onboarding.mission.ai.task1': 'Nutze AI-Tools zum Recherchieren von Themen und Finden von Beispielen.',
+  'onboarding.mission.ai.task1':
+    'Nutze AI-Tools zum Recherchieren von Themen und Finden von Beispielen.',
   'onboarding.mission.ai.task2': 'Prüfe Fakten und cross-checke Quellen gründlich.',
   'onboarding.mission.ai.task3': 'Generiere Visuals und Zusammenfassungen, wo sie hilfreich sind.',
   'onboarding.mission.ai.criteria1': 'Alle AI-generierten Inhalte sind auf Fakten geprüft.',
@@ -106,12 +119,14 @@ export default {
   'onboarding.mission.qa.criteria1': 'Keine kritischen Bugs in Chrome, Firefox und Safari.',
   'onboarding.mission.qa.criteria2': 'Tastatur-Navigation funktioniert für alle Features.',
   'onboarding.mission.qa.criteria3': 'Lighthouse Accessibility-Score ist über 90.',
-  'onboarding.mission.qa.firstStep': 'Starte Lighthouse auf der aktuellen Seite und dokumentiere Issues.',
+  'onboarding.mission.qa.firstStep':
+    'Starte Lighthouse auf der aktuellen Seite und dokumentiere Issues.',
 
   // Onboarding — Workflow
   'onboarding.workflow.title': 'Der 3-Tage Workflow',
   'onboarding.workflow.day1.title': 'Tag 1: Recherche & Struktur',
-  'onboarding.workflow.day1.desc': 'Recherchiert Themen, verteilt Rollen und baut die erste Struktur.',
+  'onboarding.workflow.day1.desc':
+    'Recherchiert Themen, verteilt Rollen und baut die erste Struktur.',
   'onboarding.workflow.day2.title': 'Tag 2: Bauen & Schreiben',
   'onboarding.workflow.day2.desc': 'Schreibt Artikel, baut Features und integriert alles zusammen.',
   'onboarding.workflow.day3.title': 'Tag 3: Polieren & Präsentieren',
@@ -148,5 +163,5 @@ export default {
 
   // Footer
   'footer.credits': 'SYNTHESE — KI Challenge Team A',
-  'footer.evolutionLink': 'Evolution Showcase'
+  'footer.evolutionLink': 'Evolution Showcase',
 };

@@ -13,76 +13,76 @@ const ROLES = {
     tasks: [
       'onboarding.mission.frontend.task1',
       'onboarding.mission.frontend.task2',
-      'onboarding.mission.frontend.task3'
+      'onboarding.mission.frontend.task3',
     ],
     tech: ['HTML5', 'CSS3', 'Vanilla JS', 'Git'],
     criteria: [
       'onboarding.mission.frontend.criteria1',
       'onboarding.mission.frontend.criteria2',
-      'onboarding.mission.frontend.criteria3'
+      'onboarding.mission.frontend.criteria3',
     ],
-    firstStep: 'onboarding.mission.frontend.firstStep'
+    firstStep: 'onboarding.mission.frontend.firstStep',
   },
   content: {
     icon: 'ph-pencil-simple',
     tasks: [
       'onboarding.mission.content.task1',
       'onboarding.mission.content.task2',
-      'onboarding.mission.content.task3'
+      'onboarding.mission.content.task3',
     ],
     tech: ['Markdown', 'Figma', 'AI Tools', 'Google Docs'],
     criteria: [
       'onboarding.mission.content.criteria1',
       'onboarding.mission.content.criteria2',
-      'onboarding.mission.content.criteria3'
+      'onboarding.mission.content.criteria3',
     ],
-    firstStep: 'onboarding.mission.content.firstStep'
+    firstStep: 'onboarding.mission.content.firstStep',
   },
   uiux: {
     icon: 'ph-layout',
     tasks: [
       'onboarding.mission.uiux.task1',
       'onboarding.mission.uiux.task2',
-      'onboarding.mission.uiux.task3'
+      'onboarding.mission.uiux.task3',
     ],
     tech: ['Figma', 'CSS', 'Design Tokens', 'Accessibility'],
     criteria: [
       'onboarding.mission.uiux.criteria1',
       'onboarding.mission.uiux.criteria2',
-      'onboarding.mission.uiux.criteria3'
+      'onboarding.mission.uiux.criteria3',
     ],
-    firstStep: 'onboarding.mission.uiux.firstStep'
+    firstStep: 'onboarding.mission.uiux.firstStep',
   },
   ai: {
     icon: 'ph-brain',
     tasks: [
       'onboarding.mission.ai.task1',
       'onboarding.mission.ai.task2',
-      'onboarding.mission.ai.task3'
+      'onboarding.mission.ai.task3',
     ],
     tech: ['ChatGPT', 'Claude', 'Midjourney', 'Perplexity'],
     criteria: [
       'onboarding.mission.ai.criteria1',
       'onboarding.mission.ai.criteria2',
-      'onboarding.mission.ai.criteria3'
+      'onboarding.mission.ai.criteria3',
     ],
-    firstStep: 'onboarding.mission.ai.firstStep'
+    firstStep: 'onboarding.mission.ai.firstStep',
   },
   qa: {
     icon: 'ph-check-circle',
     tasks: [
       'onboarding.mission.qa.task1',
       'onboarding.mission.qa.task2',
-      'onboarding.mission.qa.task3'
+      'onboarding.mission.qa.task3',
     ],
     tech: ['DevTools', 'Lighthouse', 'WAVE', 'BrowserStack'],
     criteria: [
       'onboarding.mission.qa.criteria1',
       'onboarding.mission.qa.criteria2',
-      'onboarding.mission.qa.criteria3'
+      'onboarding.mission.qa.criteria3',
     ],
-    firstStep: 'onboarding.mission.qa.firstStep'
-  }
+    firstStep: 'onboarding.mission.qa.firstStep',
+  },
 };
 
 let currentRole = null;
@@ -124,23 +124,35 @@ function renderMission(roleKey) {
 
   const roleTitle = t(`onboarding.roles.${roleKey}.title`);
 
-  const tasksHtml = data.tasks.map((key, i) => `
+  const tasksHtml = data.tasks
+    .map(
+      (key, i) => `
     <li class="challenge-task-list__item">
       <span class="challenge-task-list__number">${i + 1}</span>
       <span>${t(key)}</span>
     </li>
-  `).join('');
+  `
+    )
+    .join('');
 
-  const techHtml = data.tech.map(tech => `
+  const techHtml = data.tech
+    .map(
+      (tech) => `
     <span class="challenge-tech-badge">${tech}</span>
-  `).join('');
+  `
+    )
+    .join('');
 
-  const criteriaHtml = data.criteria.map(key => `
+  const criteriaHtml = data.criteria
+    .map(
+      (key) => `
     <li class="challenge-criteria-item">
       <span class="challenge-criteria-item__check"><i class="ph ph-check" aria-hidden="true"></i></span>
       <span>${t(key)}</span>
     </li>
-  `).join('');
+  `
+    )
+    .join('');
 
   panel.innerHTML = `
     <div class="challenge-mission-panel__header">
@@ -177,7 +189,7 @@ function selectRole(roleKey) {
   saveRole(roleKey);
 
   // Update card states
-  document.querySelectorAll('.challenge-role-card').forEach(card => {
+  document.querySelectorAll('.challenge-role-card').forEach((card) => {
     const isSelected = card.dataset.role === roleKey;
     card.classList.toggle('is-selected', isSelected);
     if (isSelected) {
@@ -241,7 +253,7 @@ function reRenderOnLangChange() {
   }
 
   // Update role card text content (short + superpower)
-  document.querySelectorAll('.challenge-role-card').forEach(card => {
+  document.querySelectorAll('.challenge-role-card').forEach((card) => {
     const role = card.dataset.role;
     if (!role) return;
     const superpowerEl = card.querySelector('.challenge-role-card__superpower');
@@ -287,12 +299,15 @@ function triggerBadgeEarned(card) {
     const tx = Math.cos(angle) * velocity;
     const ty = Math.sin(angle) * velocity;
 
-    particle.animate([
-      { transform: 'translate(0,0) scale(1)', opacity: 1 },
-      { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 }
-    ], {
-      duration: 600 + Math.random() * 200,
-      easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-    }).onfinish = () => particle.remove();
+    particle.animate(
+      [
+        { transform: 'translate(0,0) scale(1)', opacity: 1 },
+        { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 },
+      ],
+      {
+        duration: 600 + Math.random() * 200,
+        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      }
+    ).onfinish = () => particle.remove();
   }
 }

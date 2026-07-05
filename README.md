@@ -18,6 +18,7 @@ npm run dev      # Dev-Server (öffnet /pages/index.html)
 ```
 
 Weitere Befehle:
+
 ```bash
 npm run build    # Produktions-Build nach dist/
 npm run preview  # Build lokal ansehen

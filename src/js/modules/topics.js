@@ -12,7 +12,7 @@ const TOPIC_CONTENT = {
       <p><strong>CMYK (Cyan, Magenta, Yellow, Key)</strong> ist das subtraktive Modell für Druck. Je mehr Farbe aufgetragen wird, desto dunkler das Ergebnis.</p>
       <h3>Praktischer Tipp</h3>
       <p>Designe immer im RGB für Digital und konvertiere erst am Ende für Druck. Nicht alle RGB-Farben sind im CMYK-Raum darstellbar!</p>
-    `
+    `,
   },
   'Codec Basics: Lossy vs Lossless': {
     category: 'Technik',
@@ -22,7 +22,7 @@ const TOPIC_CONTENT = {
       <p><strong>Lossless (verlustfrei):</strong> PNG, FLAC, ALAC — behält alle Daten. Größere Dateien, aber perfekte Qualität.</p>
       <h3>Wann was?</h3>
       <p>Für Web: Lossy (schneller Ladevorgang). Für Archivierung: Lossless (Zukunftssicherheit).</p>
-    `
+    `,
   },
   'Responsive Design Principles': {
     category: 'Design',
@@ -35,7 +35,7 @@ const TOPIC_CONTENT = {
         <li>Flexible Images (max-width: 100%)</li>
         <li>Media Queries (Breakpoints bei 640px, 768px, 1024px)</li>
       </ul>
-    `
+    `,
   },
   'Prepress & PDF/X Standards': {
     category: 'Technik',
@@ -45,7 +45,7 @@ const TOPIC_CONTENT = {
       <p><strong>PDF/X-4:</strong> Unterstützt Transparenzen und ICC-Profile. Flexibler, aber komplexer.</p>
       <h3>Wichtig: Beschnitt (Bleed)</h3>
       <p>Druckelemente, die bis zum Papierrand gehen, müssen 3mm über den Schnittrand hinausgehen!</p>
-    `
+    `,
   },
   'Typography Hierarchy': {
     category: 'Design',
@@ -57,7 +57,7 @@ const TOPIC_CONTENT = {
         <li><strong>Body:</strong> Lesbare Größe (16–18px), angemessener Zeilenabstand (1.5–1.7)</li>
         <li><strong>Caption/Meta:</strong> Klein, dezent, aber lesbar</li>
       </ul>
-    `
+    `,
   },
   'Color Theory for Web': {
     category: 'Grundlagen',
@@ -66,8 +66,8 @@ const TOPIC_CONTENT = {
       <p>Das 60-30-10-Regel: 60% Dominanzfarbe, 30% Sekundärfarbe, 10% Akzent.</p>
       <h3>Accessible Paletten</h3>
       <p>WCAG 2.1 AAA erfordert ein Kontrastverhältnis von 7:1 für Normaltext. Teste mit dem WebAIM Contrast Checker!</p>
-    `
-  }
+    `,
+  },
 };
 
 function openModal(title, html) {
@@ -144,7 +144,7 @@ export function initTopicCards() {
   });
 
   // Card click handlers
-  grid.querySelectorAll('.topic-card').forEach(card => {
+  grid.querySelectorAll('.topic-card').forEach((card) => {
     const title = card.querySelector('.topic-card__title')?.textContent?.trim();
     const readMore = card.querySelector('.topic-card__read-more');
 

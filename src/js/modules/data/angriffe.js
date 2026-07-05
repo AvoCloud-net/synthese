@@ -14,7 +14,8 @@ export default [
     related: ['fail2ban', 'ssh-hardening', 'rate-limiting-nginx'],
     de: {
       title: 'Brute-Force & Credential Stuffing',
-      summary: 'Angreifer probieren automatisiert Passwörter durch — so läuft der häufigste Angriff.',
+      summary:
+        'Angreifer probieren automatisiert Passwörter durch — so läuft der häufigste Angriff.',
       content: `
         <h3>Brute-Force</h3>
         <p>Ein Bot probiert tausende Passwörter pro Sekunde gegen einen Login (z.B. SSH, WordPress). Schwache Passwörter fallen in Sekunden.</p>
@@ -23,7 +24,8 @@ export default [
         <h3>Schutz</h3>
         <p>Lange Passwörter, 2FA, SSH-Key-only, und Tools wie fail2ban, die IPs nach zu vielen Fehlversuchen sperren.</p>
       `,
-      didYouKnow: 'Das Passwort "123456" taucht in geleakten Listen millionenfach auf und wird als Erstes probiert.'
+      didYouKnow:
+        'Das Passwort "123456" taucht in geleakten Listen millionenfach auf und wird als Erstes probiert.',
     },
     en: {
       title: 'Brute-Force & Credential Stuffing',
@@ -36,9 +38,10 @@ export default [
         <h3>Protection</h3>
         <p>Long passwords, 2FA, SSH key-only, and tools like fail2ban that ban IPs after too many failed attempts.</p>
       `,
-      didYouKnow: 'The password "123456" appears millions of times in leaked lists and is tried first.'
+      didYouKnow:
+        'The password "123456" appears millions of times in leaked lists and is tried first.',
     },
-    configs: []
+    configs: [],
   },
   {
     id: 'dos-ddos',
@@ -50,7 +53,8 @@ export default [
     related: ['rate-limiting-nginx', 'slowloris', 'nginx-reverse-proxy'],
     de: {
       title: 'DoS vs. DDoS',
-      summary: 'Server durch Überlastung lahmlegen — der Unterschied zwischen einem und tausenden Angreifern.',
+      summary:
+        'Server durch Überlastung lahmlegen — der Unterschied zwischen einem und tausenden Angreifern.',
       content: `
         <h3>DoS (Denial of Service)</h3>
         <p>Ein einzelner Rechner überflutet den Server mit Anfragen, bis er nicht mehr antwortet.</p>
@@ -59,11 +63,13 @@ export default [
         <h3>Amplification</h3>
         <p>Angreifer missbrauchen offene Dienste (DNS, NTP), um kleine Anfragen in riesige Antworten zu verwandeln — verstärkter Angriff.</p>
       `,
-      didYouKnow: 'Große DDoS-Angriffe erreichen über 1 Terabit pro Sekunde — genug, um ganze Rechenzentren zu überlasten.'
+      didYouKnow:
+        'Große DDoS-Angriffe erreichen über 1 Terabit pro Sekunde — genug, um ganze Rechenzentren zu überlasten.',
     },
     en: {
       title: 'DoS vs. DDoS',
-      summary: 'Taking a server down by overload — the difference between one and thousands of attackers.',
+      summary:
+        'Taking a server down by overload — the difference between one and thousands of attackers.',
       content: `
         <h3>DoS (Denial of Service)</h3>
         <p>A single machine floods the server with requests until it stops responding.</p>
@@ -72,8 +78,9 @@ export default [
         <h3>Amplification</h3>
         <p>Attackers abuse open services (DNS, NTP) to turn small requests into huge responses — an amplified attack.</p>
       `,
-      didYouKnow: 'Large DDoS attacks exceed 1 terabit per second — enough to overwhelm entire data centers.'
+      didYouKnow:
+        'Large DDoS attacks exceed 1 terabit per second — enough to overwhelm entire data centers.',
     },
-    configs: []
-  }
+    configs: [],
+  },
 ];

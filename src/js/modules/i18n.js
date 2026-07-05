@@ -56,7 +56,7 @@ export function loadTranslations(de, en) {
 }
 
 export function updateI18nAttributes() {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.dataset.i18n;
     if (!key) return;
     const text = t(key);
@@ -82,7 +82,7 @@ export function updateI18nAttributes() {
     }
   });
 
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+  document.querySelectorAll('[data-i18n-html]').forEach((el) => {
     const key = el.dataset.i18nHtml;
     if (key) el.innerHTML = t(key);
   });
@@ -97,7 +97,7 @@ export function initLanguageSwitcher() {
   const currentEl = document.getElementById('lang-current');
 
   function updateActive() {
-    options.forEach(opt => {
+    options.forEach((opt) => {
       opt.classList.toggle('is-active', opt.dataset.lang === currentLang);
     });
     if (currentEl) currentEl.textContent = currentLang.toUpperCase();
@@ -111,14 +111,14 @@ export function initLanguageSwitcher() {
     btn.setAttribute('aria-expanded', String(isOpen));
   });
 
-  options.forEach(opt => {
+  options.forEach((opt) => {
     opt.addEventListener('click', () => {
       const lang = opt.dataset.lang;
       if (lang && lang !== currentLang) {
         setLanguage(lang);
         updateActive();
         if (window.__i18nOnLangChange) {
-          window.__i18nOnLangChange.forEach(cb => cb(lang));
+          window.__i18nOnLangChange.forEach((cb) => cb(lang));
         }
       }
       wrapper.classList.remove('is-open');

@@ -8,13 +8,22 @@
   .challenge-onboarding {
     position: relative;
     padding: var(--space-20) 0;
-    background: linear-gradient(135deg, var(--challenge-primary-dark) 0%, var(--challenge-gray-900) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--challenge-primary-dark) 0%,
+      var(--challenge-gray-900) 100%
+    );
     overflow: hidden;
   }
 
   /* Topics section gets contrasting warm background */
   .section--topics {
-    background: linear-gradient(180deg, var(--bg-body) 0%, rgba(6, 182, 212, 0.03) 50%, var(--bg-body) 100%);
+    background: linear-gradient(
+      180deg,
+      var(--bg-body) 0%,
+      rgba(6, 182, 212, 0.03) 50%,
+      var(--bg-body) 100%
+    );
   }
 
   .challenge-onboarding::before {
@@ -86,7 +95,7 @@
   }
 
   .challenge-progress__step.is-active .challenge-progress__dot {
-    color: #FFFFFF;
+    color: #ffffff;
     background: linear-gradient(135deg, var(--challenge-accent), var(--challenge-accent-dark));
     border-color: var(--challenge-accent-light);
     box-shadow: 0 0 16px rgba(6, 182, 212, 0.35);
@@ -99,19 +108,23 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     background-size: 200% 100%;
     animation: challenge-shimmer 2s infinite;
     border-radius: inherit;
   }
 
   @keyframes challenge-shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
   }
 
   .challenge-progress__step.is-completed .challenge-progress__dot {
-    color: #FFFFFF;
+    color: #ffffff;
     background: linear-gradient(135deg, var(--challenge-success), var(--challenge-accent));
     border-color: var(--challenge-success);
   }
@@ -170,7 +183,7 @@
     font-size: var(--text-3xl);
     font-weight: 800;
     line-height: var(--leading-tight);
-    color: #FFFFFF;
+    color: #ffffff;
     margin-bottom: var(--space-3);
   }
 
@@ -200,7 +213,7 @@
     font-family: var(--font-display);
     font-size: var(--text-2xl);
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
     text-align: center;
     margin-bottom: var(--space-10);
   }
@@ -235,7 +248,10 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    transition:
+      transform var(--transition-base),
+      box-shadow var(--transition-base),
+      border-color var(--transition-base);
     cursor: pointer;
     width: 100%;
   }
@@ -243,8 +259,13 @@
   .challenge-role-card:hover {
     transform: translateY(-8px) scale(1.02);
     border-color: rgba(6, 182, 212, 0.35);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25), var(--shadow-glow-accent);
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    box-shadow:
+      0 12px 32px rgba(0, 0, 0, 0.25),
+      var(--shadow-glow-accent);
+    transition:
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
   }
 
   .challenge-role-card:focus-visible {
@@ -255,7 +276,9 @@
   .challenge-role-card.is-selected {
     transform: scale(1.02);
     border-color: var(--challenge-accent);
-    box-shadow: 0 0 30px rgba(6, 182, 212, 0.25), inset 0 0 0 1px rgba(6, 182, 212, 0.3);
+    box-shadow:
+      0 0 30px rgba(6, 182, 212, 0.25),
+      inset 0 0 0 1px rgba(6, 182, 212, 0.3);
     background: rgba(6, 182, 212, 0.08);
   }
 
@@ -265,11 +288,21 @@
   }
 
   @keyframes challenge-badge-earned {
-    0% { transform: scale(1.02); }
-    25% { transform: scale(1.08); }
-    50% { transform: scale(1.02); }
-    75% { transform: scale(1.05); }
-    100% { transform: scale(1.02); }
+    0% {
+      transform: scale(1.02);
+    }
+    25% {
+      transform: scale(1.08);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    75% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1.02);
+    }
   }
 
   .challenge-role-card__icon {
@@ -280,7 +313,7 @@
     height: 56px;
     border-radius: var(--radius-lg);
     font-size: var(--text-2xl);
-    color: #FFFFFF;
+    color: #ffffff;
     background: linear-gradient(135deg, var(--challenge-primary), var(--challenge-accent));
     box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
     margin-bottom: var(--space-4);
@@ -315,8 +348,13 @@
   }
 
   @keyframes challenge-icon-float {
-    0%, 100% { transform: scale(1.15) translateY(-4px); }
-    50% { transform: scale(1.15) translateY(-8px); }
+    0%,
+    100% {
+      transform: scale(1.15) translateY(-4px);
+    }
+    50% {
+      transform: scale(1.15) translateY(-8px);
+    }
   }
 
   .challenge-role-card:nth-child(2) .challenge-role-card__icon {
@@ -343,7 +381,7 @@
     font-family: var(--font-display);
     font-size: var(--text-lg);
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
     margin-bottom: var(--space-2);
   }
 
@@ -393,7 +431,9 @@
     opacity: 0;
     transform: translateY(20px);
     pointer-events: none;
-    transition: opacity var(--transition-slow), transform var(--transition-slow);
+    transition:
+      opacity var(--transition-slow),
+      transform var(--transition-slow);
   }
 
   .challenge-mission-panel.is-visible {
@@ -419,7 +459,7 @@
     height: 52px;
     border-radius: var(--radius-lg);
     font-size: var(--text-2xl);
-    color: #FFFFFF;
+    color: #ffffff;
     background: linear-gradient(135deg, var(--challenge-accent), var(--challenge-primary-light));
     box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
     flex-shrink: 0;
@@ -429,7 +469,7 @@
     font-family: var(--font-display);
     font-size: var(--text-2xl);
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   .challenge-mission-panel__label {
@@ -477,7 +517,9 @@
     font-size: var(--text-sm);
     line-height: var(--leading-relaxed);
     color: var(--challenge-gray-200);
-    transition: background var(--transition-fast), border-color var(--transition-fast);
+    transition:
+      background var(--transition-fast),
+      border-color var(--transition-fast);
   }
 
   .challenge-task-list__item:hover {
@@ -493,7 +535,7 @@
     height: 28px;
     border-radius: var(--radius-full);
     background: linear-gradient(135deg, var(--challenge-primary), var(--challenge-accent));
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: var(--text-xs);
     font-weight: 700;
     flex-shrink: 0;
@@ -609,7 +651,7 @@
     font-family: var(--font-display);
     font-size: var(--text-2xl);
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
     text-align: center;
     margin-bottom: var(--space-10);
   }
@@ -633,7 +675,12 @@
       left: 16.666%;
       right: 16.666%;
       height: 2px;
-      background: linear-gradient(90deg, var(--challenge-primary), var(--challenge-accent), var(--challenge-success));
+      background: linear-gradient(
+        90deg,
+        var(--challenge-primary),
+        var(--challenge-accent),
+        var(--challenge-success)
+      );
       border-radius: var(--radius-full);
     }
   }
@@ -657,7 +704,7 @@
     font-family: var(--font-display);
     font-size: var(--text-sm);
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
     background: linear-gradient(135deg, var(--challenge-primary), var(--challenge-accent));
     box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
     margin-bottom: var(--space-4);
@@ -678,7 +725,7 @@
     font-family: var(--font-display);
     font-size: var(--text-lg);
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
     margin-bottom: var(--space-2);
   }
 
@@ -707,8 +754,13 @@
   }
 
   @keyframes bounceDown {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(6px);
+    }
   }
 
   /* ── Dark Mode Adjustments ── */

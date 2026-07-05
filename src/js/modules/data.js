@@ -16,28 +16,23 @@ export const CATEGORIES = ['grundlagen', 'angriffe', 'schutz', 'infrastruktur'];
 export const DIFFICULTIES = ['easy', 'medium', 'hard'];
 
 /** Alle Themen, zusammengefügt aus den Kategorie-Dateien */
-export const topics = [
-  ...grundlagen,
-  ...angriffe,
-  ...schutz,
-  ...infrastruktur
-];
+export const topics = [...grundlagen, ...angriffe, ...schutz, ...infrastruktur];
 
 /** Thema nach ID finden → Topic | undefined */
 export function getTopicById(id) {
-  return topics.find(t => t.id === id);
+  return topics.find((t) => t.id === id);
 }
 
 /** Themen nach Kategorie filtern ('all' = alle) → Array<Topic> */
 export function getTopicsByCategory(category) {
   if (category === 'all') return topics;
-  return topics.filter(t => t.category === category);
+  return topics.filter((t) => t.category === category);
 }
 
 /** Themen nach Schwierigkeit filtern ('all' = alle) → Array<Topic> */
 export function getTopicsByDifficulty(difficulty) {
   if (difficulty === 'all') return topics;
-  return topics.filter(t => t.difficulty === difficulty);
+  return topics.filter((t) => t.difficulty === difficulty);
 }
 
 /**
@@ -47,11 +42,12 @@ export function getTopicsByDifficulty(difficulty) {
 export function searchTopics(query) {
   const q = query.trim().toLowerCase();
   if (!q) return topics;
-  return topics.filter(t =>
-    t.de.title.toLowerCase().includes(q) ||
-    t.de.summary.toLowerCase().includes(q) ||
-    t.en.title.toLowerCase().includes(q) ||
-    t.en.summary.toLowerCase().includes(q) ||
-    t.tags.some(tag => tag.toLowerCase().includes(q))
+  return topics.filter(
+    (t) =>
+      t.de.title.toLowerCase().includes(q) ||
+      t.de.summary.toLowerCase().includes(q) ||
+      t.en.title.toLowerCase().includes(q) ||
+      t.en.summary.toLowerCase().includes(q) ||
+      t.tags.some((tag) => tag.toLowerCase().includes(q))
   );
 }

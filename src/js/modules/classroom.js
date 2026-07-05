@@ -117,7 +117,7 @@ export function initMobileMenu() {
     toggle.setAttribute('aria-expanded', isOpen);
   });
 
-  nav.querySelectorAll('a').forEach(link => {
+  nav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       nav.classList.remove('active');
       toggle.classList.remove('active');
@@ -125,7 +125,7 @@ export function initMobileMenu() {
     });
   });
 
-  nav.querySelectorAll('[data-scroll-top]').forEach(link => {
+  nav.querySelectorAll('[data-scroll-top]').forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });

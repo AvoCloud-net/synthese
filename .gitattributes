@@ -1,0 +1,11 @@
+# Einheitliche Zeilenenden (Windows/Mac/Linux gemischt) → keine CRLF/LF-Konflikte
+* text=auto eol=lf
+
+# Binärdateien nicht anfassen
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.ico  binary
+*.woff binary
+*.woff2 binary

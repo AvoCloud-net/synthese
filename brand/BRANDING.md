@@ -20,7 +20,7 @@ one loud coral spark. Reads like a good terminal: precise, fast, a little playfu
 **Primary audience:** the Minecraft / gaming community (CraftAttack, servers,
 Discord) and people using the internal tools (Baxi, pwgen, qrgate, mail, …).
 
-**One-liner voice sample:** *"Tools that just **run**."*
+**One-liner voice sample:** _"Tools that just **run**."_
 
 ---
 
@@ -42,6 +42,7 @@ carried by the wordmark. Minimal, two-color, legible to 16px. Full kit + rules i
 muted (`--avo-text-muted`). Coral stays on the mark's cursor — keep the wordmark mono.
 
 **Usage rules:**
+
 - Clearspace = one bracket-width on all sides.
 - Min size: 16px (proven legible — coral cursor anchors it).
 - Variants: ink on light, cream on dark; cursor coral-700 on light / coral-500 on dark.
@@ -58,13 +59,13 @@ highlight words, ASCII glow, tags. Never wallpaper coral.
 
 ### Neutrals (the spine)
 
-| Role | Light | Dark |
-|------|-------|------|
-| bg | `#F2EFE6` cream | `#0B0B0B` black |
-| surface | `#E9E5D8` sand | `#131313` coal |
-| border | `#DCD8CB` | `#1E1E1E` |
-| text | `#141414` ink | `#EDEDED` snow |
-| text-muted | `#6B6B63` | `#8A8A8A` |
+| Role       | Light           | Dark            |
+| ---------- | --------------- | --------------- |
+| bg         | `#F2EFE6` cream | `#0B0B0B` black |
+| surface    | `#E9E5D8` sand  | `#131313` coal  |
+| border     | `#DCD8CB`       | `#1E1E1E`       |
+| text       | `#141414` ink   | `#EDEDED` snow  |
+| text-muted | `#6B6B63`       | `#8A8A8A`       |
 
 ### Coral ramp
 
@@ -79,14 +80,16 @@ highlight words, ASCII glow, tags. Never wallpaper coral.
 
 `success #46A758` · `warning #E0A33A` · `error #DC3838` · `info #3B82C4`
 
-> Error red is kept distinct from coral on purpose — coral is *brand*, red is *danger*.
+> Error red is kept distinct from coral on purpose — coral is _brand_, red is _danger_.
 
 ### Accessibility
+
 - Body text always ink/snow on bg — never coral on cream for paragraphs.
 - Coral text only at large/bold sizes; for small coral text on light use `700`.
 - Coral buttons use white text (`primary-on`); on dark, coral-on-black for inverted chips.
 
 ### Discord (Baxi)
+
 See [`tokens/baxi.py`](./tokens/baxi.py). Brand embed color = coral-500 (renders on
 Discord's dark UI). Semantic colors map 1:1 to the web.
 
@@ -94,11 +97,11 @@ Discord's dark UI). Semantic colors map 1:1 to the web.
 
 ## 4. Typography
 
-| Role | Font | Weight | Use |
-|------|------|--------|-----|
-| Display / Headings | **Syne** | 700 / 800 | h1–h4, wordmark, hero |
-| Body / UI | **Quicksand** | 300–700 | paragraphs, buttons, labels |
-| Mono | `ui-monospace` stack | — | code, ASCII motif, **kickers/eyebrows**, tags |
+| Role               | Font                 | Weight    | Use                                           |
+| ------------------ | -------------------- | --------- | --------------------------------------------- |
+| Display / Headings | **Syne**             | 700 / 800 | h1–h4, wordmark, hero                         |
+| Body / UI          | **Quicksand**        | 300–700   | paragraphs, buttons, labels                   |
+| Mono               | `ui-monospace` stack | —         | code, ASCII motif, **kickers/eyebrows**, tags |
 
 Import: `Syne:400,700,800` + `Quicksand:300..700` (Google Fonts).
 
@@ -135,10 +138,10 @@ Bilingual: **English + German** (site ships both — keep parity).
 **Do:** short declaratives. Verbs. "Open-source · since 2024." "Tools that just run."
 **Don't:** "revolutionary", "synergy", "best-in-class", emoji soup, exclamation spam.
 
-| Instead of | Write |
-|------------|-------|
+| Instead of                                  | Write                                       |
+| ------------------------------------------- | ------------------------------------------- |
 | "The ultimate all-in-one Discord solution!" | "A Discord bot that does the boring parts." |
-| "Leverage our powerful cloud platform" | "Small tools. They just run." |
+| "Leverage our powerful cloud platform"      | "Small tools. They just run."               |
 
 ---
 
@@ -160,11 +163,11 @@ All defined in [`tokens/avocloud.css`](./tokens/avocloud.css):
 
 ## 8. Using the tokens
 
-| File | For | How |
-|------|-----|-----|
-| `tokens/tokens.json` | source of truth | edit first |
+| File                  | For                    | How                                                                                                       |
+| --------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------- |
+| `tokens/tokens.json`  | source of truth        | edit first                                                                                                |
 | `tokens/avocloud.css` | website + any web tool | `@import` or paste; uses `:root` + `html.dark`. Back-compat aliases `--card` / `--border` already mapped. |
-| `tokens/baxi.py` | Baxi Discord bot | replace `config.Discord` color lines |
+| `tokens/baxi.py`      | Baxi Discord bot       | replace `config.Discord` color lines                                                                      |
 
 ---
 
@@ -174,6 +177,7 @@ Order: lock logo → website → Baxi → the rest. Each step = swap tokens, rep
 purple/pink/gold, verify light+dark.
 
 ### Website (`avocloud.net-website`)
+
 1. Drop `avocloud.css` in `assets/css/` (or merge into `main.css`).
 2. Replace hardcoded `#9333ea / #ec4899 / #eab308` → `var(--avo-primary)` etc.
 3. `main.js` ASCII: swap the `['#9333ea','#ec4899','#eab308']` array →
@@ -182,11 +186,13 @@ purple/pink/gold, verify light+dark.
 5. Apply `.avo-hl` to hero headline keyword. Update favicon/og once logo is final.
 
 ### Baxi (`BaxiBot/Baxi`)
+
 1. Replace `config.py` lines 7–11 with block from `tokens/baxi.py`.
 2. Re-host any colored icons at `avocloud.net/img/icons/` in new palette if tinted.
 3. Check embed legibility on Discord dark.
 
 ### Then: pwgen · qrgate · mail · discord · edugrade · craftattack · link
+
 Each: pull in `avocloud.css`, replace legacy colors, add kicker + ASCII motif where
 it fits. Keep components consistent.
 

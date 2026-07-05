@@ -73,14 +73,20 @@
   }
 
   /* --- Typography for print --- */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     page-break-after: avoid;
     page-break-inside: avoid;
     margin-top: 1rem !important;
     margin-bottom: 0.5rem !important;
   }
 
-  p, li {
+  p,
+  li {
     orphans: 3;
     widows: 3;
   }
@@ -131,15 +137,15 @@
   }
 
   a[href]::after {
-    content: " (" attr(href) ")";
+    content: ' (' attr(href) ')';
     font-size: 9pt;
     color: #555 !important;
     word-break: break-all;
   }
 
-  a[href^="javascript:"]::after,
-  a[href^="#"]::after {
-    content: "";
+  a[href^='javascript:']::after,
+  a[href^='#']::after {
+    content: '';
   }
 
   /* --- Tables --- */
@@ -150,7 +156,8 @@
     page-break-inside: avoid;
   }
 
-  th, td {
+  th,
+  td {
     border: 1pt solid #999 !important;
     padding: 0.4rem !important;
     text-align: left !important;

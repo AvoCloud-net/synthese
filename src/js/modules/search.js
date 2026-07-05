@@ -23,7 +23,10 @@ import { topics } from './data.js';
  * @param {string} containerSelector - Selector für den Input
  * @param {string} cardSelector - Selector für die zu filternden Cards
  */
-export function initSearch(containerSelector = '.challenge-search', cardSelector = '.challenge-topic-card') {
+export function initSearch(
+  containerSelector = '.challenge-search',
+  cardSelector = '.challenge-topic-card'
+) {
   // TODO: Implementiere die Initialisierung
   // 1. Query den Input
   // 2. Füge Event-Listener für 'input' hinzu

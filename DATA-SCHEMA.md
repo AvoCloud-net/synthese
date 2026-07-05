@@ -46,6 +46,7 @@ Jedes Thema ist ein Objekt mit **genau** diesen Feldern:
 ```
 
 **Regeln:**
+
 - **Pflichtfelder:** `id, category, difficulty, tags, related, de, en`. `image`/`icon`/`configs` optional (dann `''` bzw. `[]`).
 - `tags` ist **top-level**, NICHT in `de`/`en`. (Häufiger Fehler!)
 - `de` und `en` haben **dieselben Keys**: `title, summary, content, didYouKnow`.
@@ -77,14 +78,19 @@ js/modules/data.js      →  Barrel: fügt alle zusammen + Helper (NICHT anfasse
 Alle Feature-Module importieren **nur hier**:
 
 ```js
-import { topics, getTopicById, getTopicsByCategory,
-         getTopicsByDifficulty, searchTopics } from './data.js';
+import {
+  topics,
+  getTopicById,
+  getTopicsByCategory,
+  getTopicsByDifficulty,
+  searchTopics,
+} from './data.js';
 
-topics                          // Array<Topic> — alle Themen
-getTopicById(id)                // → Topic | undefined
-getTopicsByCategory(cat)        // cat='all' → alle; sonst gefiltert → Array<Topic>
-getTopicsByDifficulty(diff)     // diff='all' → alle; sonst gefiltert → Array<Topic>
-searchTopics(query)             // durchsucht title+summary+tags (de & en) → Array<Topic>
+topics; // Array<Topic> — alle Themen
+getTopicById(id); // → Topic | undefined
+getTopicsByCategory(cat); // cat='all' → alle; sonst gefiltert → Array<Topic>
+getTopicsByDifficulty(diff); // diff='all' → alle; sonst gefiltert → Array<Topic>
+searchTopics(query); // durchsucht title+summary+tags (de & en) → Array<Topic>
 ```
 
 ---
@@ -95,28 +101,28 @@ searchTopics(query)             // durchsucht title+summary+tags (de & en) → A
 
 ```js
 // cards.js         (Dev A)
-renderCards(containerSelector = '#topics-grid', data = topics)   // rendert Cards in Container
+renderCards((containerSelector = '#topics-grid'), (data = topics)); // rendert Cards in Container
 
 // search.js        (Dev A)
-initSearch(containerSelector = '.challenge-search', cardSelector = '.challenge-topic-card')
+initSearch((containerSelector = '.challenge-search'), (cardSelector = '.challenge-topic-card'));
 
 // filter.js        (Dev A)
-initFilter()          // liest .challenge-filter, filtert Cards
-resetFilters()        // setzt Filter zurück
+initFilter(); // liest .challenge-filter, filtert Cards
+resetFilters(); // setzt Filter zurück
 
 // topics.js        (Dev B) — Detail/Modal
-initTopicCards()      // hängt Klick→Detail an alle Cards
+initTopicCards(); // hängt Klick→Detail an alle Cards
 
 // bookmarks.js     (Dev B)
-getBookmarks()                 // → string[] (topic.id[])
-addBookmark(id) / removeBookmark(id) / toggleBookmark(id)   // localStorage-CRUD
-isBookmarked(id)               // → boolean
-initBookmarkButtons()          // hängt Buttons an
-renderBookmarks(containerSelector = '#bookmarks-list')
+getBookmarks(); // → string[] (topic.id[])
+addBookmark(id) / removeBookmark(id) / toggleBookmark(id); // localStorage-CRUD
+isBookmarked(id); // → boolean
+initBookmarkButtons(); // hängt Buttons an
+renderBookmarks((containerSelector = '#bookmarks-list'));
 
 // related.js       (Content/Lead)
-getRelatedTopics(currentTopicId, limit = 3)   // → Array<Topic>
-renderRelated(currentTopicId, containerSelector = '#related-topics')
+getRelatedTopics(currentTopicId, (limit = 3)); // → Array<Topic>
+renderRelated(currentTopicId, (containerSelector = '#related-topics'));
 ```
 
 **Regel:** braucht dein Modul was Neues von einem anderen? → **erst mit Owner absprechen**, dann Signatur hier ergänzen. Nie still ändern.
@@ -127,18 +133,19 @@ renderRelated(currentTopicId, containerSelector = '#related-topics')
 
 Feature-Module suchen Elemente über **diese** Selektoren. HTML (`index.html`, Lead) und JS müssen übereinstimmen:
 
-| Zweck | Selektor | Owner |
-|-------|----------|-------|
-| Card-Container | `#topics-grid` | Lead/HTML |
-| Einzelne Card | `.challenge-topic-card` (+ `data-id="<topic.id>"`) | Dev A |
-| Such-Input | `.challenge-search__input` | Dev A |
-| Filter-Container | `.challenge-filter` | Dev A |
-| Detail-Modal | `.challenge-modal` | Dev B |
-| Bookmark-Liste | `#bookmarks-list` | Dev B |
-| Related-Liste | `#related-topics` | Content |
-| "Keine Ergebnisse" | `.challenge-search__no-results` | Dev A |
+| Zweck              | Selektor                                           | Owner     |
+| ------------------ | -------------------------------------------------- | --------- |
+| Card-Container     | `#topics-grid`                                     | Lead/HTML |
+| Einzelne Card      | `.challenge-topic-card` (+ `data-id="<topic.id>"`) | Dev A     |
+| Such-Input         | `.challenge-search__input`                         | Dev A     |
+| Filter-Container   | `.challenge-filter`                                | Dev A     |
+| Detail-Modal       | `.challenge-modal`                                 | Dev B     |
+| Bookmark-Liste     | `#bookmarks-list`                                  | Dev B     |
+| Related-Liste      | `#related-topics`                                  | Content   |
+| "Keine Ergebnisse" | `.challenge-search__no-results`                    | Dev A     |
 
 **BEM-Namen für Cards** (fix, damit CSS + JS + Search zusammenpassen):
+
 ```
 .challenge-topic-card
   .challenge-topic-card__category
@@ -147,6 +154,7 @@ Feature-Module suchen Elemente über **diese** Selektoren. HTML (`index.html`, L
   .challenge-topic-card__difficulty
   .challenge-topic-card__bookmark
 ```
+
 Zustände: `.u-hidden` (Search/Filter verstecken), `.is-bookmarked`, `.is-active`.
 
 ---
@@ -165,7 +173,7 @@ Zustände: `.u-hidden` (Search/Filter verstecken), `.is-bookmarked`, `.is-active
 ## 7. Fixe Enums (Copy-Paste)
 
 ```js
-CATEGORIES  = ['grundlagen', 'angriffe', 'schutz', 'infrastruktur'];
+CATEGORIES = ['grundlagen', 'angriffe', 'schutz', 'infrastruktur'];
 DIFFICULTIES = ['easy', 'medium', 'hard'];
 CONFIG_LANGS = ['ini', 'bash', 'nginx', 'yaml', 'conf'];
 STORAGE_KEY_BOOKMARKS = 'synthese-bookmarks';

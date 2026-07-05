@@ -14,7 +14,8 @@ export default [
     related: ['nginx-reverse-proxy', 'ports-sockets'],
     de: {
       title: 'Docker-Grundlagen',
-      summary: 'Dienste isoliert in Containern betreiben — mehr Sicherheit und einfacheres Deployment.',
+      summary:
+        'Dienste isoliert in Containern betreiben — mehr Sicherheit und einfacheres Deployment.',
       content: `
         <h3>Image vs. Container</h3>
         <p>Ein <strong>Image</strong> ist die Vorlage (App + Abhängigkeiten). Ein <strong>Container</strong> ist eine laufende Instanz davon — isoliert vom Host.</p>
@@ -23,7 +24,8 @@ export default [
         <h3>Grundbefehle</h3>
         <p><code>docker run</code> startet einen Container, <code>docker ps</code> zeigt laufende, <code>docker logs</code> zeigt Ausgaben.</p>
       `,
-      didYouKnow: 'Container teilen sich den Kernel des Hosts — deshalb starten sie in Sekunden, während echte VMs Minuten brauchen.'
+      didYouKnow:
+        'Container teilen sich den Kernel des Hosts — deshalb starten sie in Sekunden, während echte VMs Minuten brauchen.',
     },
     en: {
       title: 'Docker Basics',
@@ -36,7 +38,8 @@ export default [
         <h3>Core commands</h3>
         <p><code>docker run</code> starts a container, <code>docker ps</code> lists running ones, <code>docker logs</code> shows output.</p>
       `,
-      didYouKnow: 'Containers share the host kernel — that is why they start in seconds while real VMs take minutes.'
+      didYouKnow:
+        'Containers share the host kernel — that is why they start in seconds while real VMs take minutes.',
     },
     configs: [
       {
@@ -45,9 +48,9 @@ export default [
         lang: 'bash',
         code: `docker run -d --name web -p 8080:80 nginx
 docker ps        # laufende Container
-docker logs web  # Ausgaben ansehen`
-      }
-    ]
+docker logs web  # Ausgaben ansehen`,
+      },
+    ],
   },
   {
     id: 'nginx-reverse-proxy',
@@ -68,11 +71,13 @@ docker logs web  # Ausgaben ansehen`
         <h3>proxy_pass</h3>
         <p>Die Direktive <code>proxy_pass</code> leitet Anfragen an einen internen Dienst (upstream) weiter.</p>
       `,
-      didYouKnow: 'Weil nur nginx nach außen offen ist, reduziert ein Reverse-Proxy die Angriffsfläche deiner Apps drastisch.'
+      didYouKnow:
+        'Weil nur nginx nach außen offen ist, reduziert ein Reverse-Proxy die Angriffsfläche deiner Apps drastisch.',
     },
     en: {
       title: 'nginx as a Reverse Proxy',
-      summary: 'A gate in front of your apps: nginx receives all requests and forwards them safely.',
+      summary:
+        'A gate in front of your apps: nginx receives all requests and forwards them safely.',
       content: `
         <h3>What is a reverse proxy?</h3>
         <p>nginx sits in front of your applications. Users only talk to nginx; the actual app stays internal and is not directly reachable from the internet.</p>
@@ -81,7 +86,8 @@ docker logs web  # Ausgaben ansehen`
         <h3>proxy_pass</h3>
         <p>The <code>proxy_pass</code> directive forwards requests to an internal service (upstream).</p>
       `,
-      didYouKnow: 'Because only nginx is exposed, a reverse proxy drastically reduces your apps\' attack surface.'
+      didYouKnow:
+        "Because only nginx is exposed, a reverse proxy drastically reduces your apps' attack surface.",
     },
     configs: [
       {
@@ -97,8 +103,8 @@ docker logs web  # Ausgaben ansehen`
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
   }
-}`
-      }
-    ]
-  }
+}`,
+      },
+    ],
+  },
 ];

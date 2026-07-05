@@ -14,7 +14,8 @@ export default [
     related: ['firewall-grundlagen', 'nginx-reverse-proxy'],
     de: {
       title: 'Ports & Sockets',
-      summary: 'Wie Dienste auf einem Server erreichbar werden — und warum jeder offene Port ein Risiko ist.',
+      summary:
+        'Wie Dienste auf einem Server erreichbar werden — und warum jeder offene Port ein Risiko ist.',
       content: `
         <h3>Was ist ein Port?</h3>
         <p>Ein Port ist eine nummerierte "Tür" auf deinem Server. Jeder Dienst lauscht auf einem Port: Web (80/443), SSH (22), Datenbank (z.B. 5432). Ein Socket = IP-Adresse + Port + Protokoll.</p>
@@ -23,7 +24,8 @@ export default [
         <h3>Sicherheits-Regel</h3>
         <p>Jeder offene Port ist eine Angriffsfläche. Öffne nur, was du wirklich brauchst. Prüfe offene Ports mit <code>ss -tulpn</code>.</p>
       `,
-      didYouKnow: 'Es gibt 65.535 Ports pro Protokoll. Die "well-known ports" 0–1023 sind für Standard-Dienste reserviert.'
+      didYouKnow:
+        'Es gibt 65.535 Ports pro Protokoll. Die "well-known ports" 0–1023 sind für Standard-Dienste reserviert.',
     },
     en: {
       title: 'Ports & Sockets',
@@ -36,7 +38,8 @@ export default [
         <h3>Security rule</h3>
         <p>Every open port is an attack surface. Only open what you truly need. Check open ports with <code>ss -tulpn</code>.</p>
       `,
-      didYouKnow: 'There are 65,535 ports per protocol. The "well-known ports" 0–1023 are reserved for standard services.'
+      didYouKnow:
+        'There are 65,535 ports per protocol. The "well-known ports" 0–1023 are reserved for standard services.',
     },
     configs: [
       {
@@ -44,9 +47,9 @@ export default [
         labelEn: 'Show open ports',
         lang: 'bash',
         code: `# Alle lauschenden TCP/UDP-Ports mit Prozess
-ss -tulpn`
-      }
-    ]
+ss -tulpn`,
+      },
+    ],
   },
   {
     id: 'ssh-grundlagen',
@@ -67,7 +70,8 @@ ss -tulpn`
         <h3>Schlüssel erstellen</h3>
         <p>Mit <code>ssh-keygen</code> erzeugst du ein Paar. Der öffentliche Schlüssel kommt in <code>~/.ssh/authorized_keys</code> auf dem Server.</p>
       `,
-      didYouKnow: 'Ein moderner ed25519-Schlüssel ist kürzer und sicherer als ein alter 2048-Bit-RSA-Schlüssel.'
+      didYouKnow:
+        'Ein moderner ed25519-Schlüssel ist kürzer und sicherer als ein alter 2048-Bit-RSA-Schlüssel.',
     },
     en: {
       title: 'SSH Basics',
@@ -80,7 +84,7 @@ ss -tulpn`
         <h3>Create a key</h3>
         <p>Use <code>ssh-keygen</code> to generate a pair. The public key goes into <code>~/.ssh/authorized_keys</code> on the server.</p>
       `,
-      didYouKnow: 'A modern ed25519 key is shorter and more secure than an old 2048-bit RSA key.'
+      didYouKnow: 'A modern ed25519 key is shorter and more secure than an old 2048-bit RSA key.',
     },
     configs: [
       {
@@ -89,8 +93,8 @@ ss -tulpn`
         lang: 'bash',
         code: `ssh-keygen -t ed25519 -C "dein@email.at"
 # Öffentlichen Schlüssel auf den Server kopieren:
-ssh-copy-id user@server-ip`
-      }
-    ]
-  }
+ssh-copy-id user@server-ip`,
+      },
+    ],
+  },
 ];

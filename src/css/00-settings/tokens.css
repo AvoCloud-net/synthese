@@ -7,30 +7,30 @@
        ============================================================ */
 
     /* Brand Colors */
-    --challenge-primary: #4F46E5;
-    --challenge-primary-light: #818CF8;
-    --challenge-primary-dark: #3730A3;
-    --challenge-accent: #06B6D4;
-    --challenge-accent-light: #67E8F9;
-    --challenge-accent-dark: #0891B2;
+    --challenge-primary: #4f46e5;
+    --challenge-primary-light: #818cf8;
+    --challenge-primary-dark: #3730a3;
+    --challenge-accent: #06b6d4;
+    --challenge-accent-light: #67e8f9;
+    --challenge-accent-dark: #0891b2;
 
     /* Semantic Colors */
-    --challenge-success: #10B981;
-    --challenge-warning: #F59E0B;
-    --challenge-error: #EF4444;
-    --challenge-info: #3B82F6;
+    --challenge-success: #10b981;
+    --challenge-warning: #f59e0b;
+    --challenge-error: #ef4444;
+    --challenge-info: #3b82f6;
 
     /* Neutral Scale */
-    --challenge-gray-50: #F8FAFC;
-    --challenge-gray-100: #F1F5F9;
-    --challenge-gray-200: #E2E8F0;
-    --challenge-gray-300: #CBD5E1;
-    --challenge-gray-400: #94A3B8;
-    --challenge-gray-500: #64748B;
+    --challenge-gray-50: #f8fafc;
+    --challenge-gray-100: #f1f5f9;
+    --challenge-gray-200: #e2e8f0;
+    --challenge-gray-300: #cbd5e1;
+    --challenge-gray-400: #94a3b8;
+    --challenge-gray-500: #64748b;
     --challenge-gray-600: #475569;
     --challenge-gray-700: #334155;
-    --challenge-gray-800: #1E293B;
-    --challenge-gray-900: #0F172A;
+    --challenge-gray-800: #1e293b;
+    --challenge-gray-900: #0f172a;
 
     /* Typography */
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -99,8 +99,8 @@
 
     /* Light Mode — Theme Mapping */
     --bg-body: var(--challenge-gray-50);
-    --bg-surface: #FFFFFF;
-    --bg-surface-elevated: #FFFFFF;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #ffffff;
     --bg-code: var(--challenge-gray-100);
     --bg-overlay: rgba(15, 23, 42, 0.5);
 
@@ -110,7 +110,7 @@
     --text-link: var(--challenge-primary);
     --text-link-hover: var(--challenge-primary-dark);
     --text-code: var(--challenge-gray-800);
-    --text-inverse: #FFFFFF;
+    --text-inverse: #ffffff;
 
     --border-color: var(--challenge-gray-200);
     --border-color-strong: var(--challenge-gray-300);

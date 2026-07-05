@@ -68,7 +68,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     background-size: 200% 100%;
     animation: challenge-shimmer 2s infinite;
   }
@@ -97,8 +97,13 @@
   }
 
   @keyframes challenge-level-pulse {
-    0%, 100% { box-shadow: 0 0 16px rgba(79, 70, 229, 0.3); }
-    50% { box-shadow: 0 0 24px rgba(79, 70, 229, 0.5); }
+    0%,
+    100% {
+      box-shadow: 0 0 16px rgba(79, 70, 229, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 24px rgba(79, 70, 229, 0.5);
+    }
   }
 
   /* XP Gain float animation */
@@ -111,15 +116,24 @@
     font-weight: 800;
     font-size: var(--text-xl);
     color: var(--challenge-primary);
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     animation: challenge-xp-float 1.5s ease forwards;
     z-index: 9999;
   }
 
   @keyframes challenge-xp-float {
-    0%   { opacity: 0; transform: translateY(0) scale(0.5); }
-    20%  { opacity: 1; transform: translateY(-10px) scale(1.2); }
-    100% { opacity: 0; transform: translateY(-60px) scale(1); }
+    0% {
+      opacity: 0;
+      transform: translateY(0) scale(0.5);
+    }
+    20% {
+      opacity: 1;
+      transform: translateY(-10px) scale(1.2);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-60px) scale(1);
+    }
   }
 
   html.dark-mode .challenge-xp {

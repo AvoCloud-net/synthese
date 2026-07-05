@@ -63,25 +63,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initScrollReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('u-reveal--visible');
-      }
-    });
-  }, { threshold: 0.1 });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('u-reveal--visible');
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
 
-  document.querySelectorAll('.u-reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.u-reveal').forEach((el) => observer.observe(el));
 
   // Stagger delay for role cards, tool cards, topic cards
   const staggerContainers = [
     '.challenge-role-grid',
     '.tools-grid',
     '.topics-grid',
-    '.challenge-workflow__timeline'
+    '.challenge-workflow__timeline',
   ];
 
-  staggerContainers.forEach(selector => {
+  staggerContainers.forEach((selector) => {
     const container = document.querySelector(selector);
     if (container) {
       const children = container.children;

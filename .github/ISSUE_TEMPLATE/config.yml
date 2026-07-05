@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "❓ Frage / Hilfe"
+    url: https://github.com/AvoCloud-net/synthese/blob/dev/CONTRIBUTING.md
+    about: "Git-/PR-Fragen? Erst die CONTRIBUTING.md lesen, dann Team-Lead fragen."

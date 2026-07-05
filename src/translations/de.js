@@ -141,6 +141,11 @@ export default {
   'topics.title': 'Themen',
   'topics.subtitle': 'Entdecke die Welt der Medientechnik',
 
+  // Bookmarks Section
+  'bookmarks.title': 'Meine Lesezeichen',
+  'bookmarks.subtitle': 'Gemerkte Themen zum schnellen Nachschlagen',
+  'bookmarks.empty': 'Noch keine Lesezeichen — klick auf das Lesezeichen-Symbol einer Karte.',
+
   // Footer
   'footer.credits': 'SYNTHESE — KI Challenge Team A',
   'footer.evolutionLink': 'Evolution Showcase'

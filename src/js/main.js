@@ -10,6 +10,14 @@ import { initMission } from './modules/mission.js';
 import { initXP } from './modules/xp.js';
 import { initTopicCards } from './modules/topics.js';
 
+// ── TEAM-MODULE (Schritt 1: hier den Import einkommentieren, wenn dein Modul fertig ist) ──
+// WICHTIG: import-Zeilen müssen HIER oben stehen, niemals in der Funktion unten.
+// import { renderCards } from './modules/cards.js';
+// import { initSearch } from './modules/search.js';
+// import { initFilter } from './modules/filter.js';
+// import { initBookmarkButtons, renderBookmarks } from './modules/bookmarks.js';
+// import { renderRelated } from './modules/related.js';
+
 import de from '../translations/de.js';
 import en from '../translations/en.js';
 
@@ -41,19 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize scroll reveal
   initScrollReveal();
 
-  // TODO: Team implementiert folgende Module (Importe auskommentiert bis implementiert):
-  // import { initSearch } from './modules/search.js';
-  // import { initFilter } from './modules/filter.js';
-  // import { renderCards } from './modules/cards.js';
-  // import { initBookmarkButtons } from './modules/bookmarks.js';
-  // import { renderRelated } from './modules/related.js';
-  // import { initReadingMode } from './modules/reading-mode.js';
-
-  // initSearch();
-  // initFilter();
-  // renderCards();
-  // initBookmarkButtons();
-  // initReadingMode();
+  // ── TEAM-MODULE AKTIVIEREN (Schritt 2: Aufruf einkommentieren, wenn dein Modul fertig ist) ──
+  // Regel: erst renderCards() (baut die Karten), DANN Suche/Filter/Bookmarks (arbeiten auf den Karten).
+  // Wer sein Modul fertig hat: passenden import OBEN + den passenden Aufruf HIER einkommentieren.
+  // renderCards();          // Issue #11 — muss zuerst laufen
+  // initSearch();           // Issue #14
+  // initFilter();           // Issue #16 / #17
+  // initBookmarkButtons();  // Issue #22
+  // renderBookmarks();      // Issue #23
+  // renderRelated wird aus dem Detail-Modal heraus aufgerufen (Issue #25), nicht hier.
 
   console.log('[SYNTHESE] Starter-Template geladen. Bereit für Team-Implementierung.');
 });

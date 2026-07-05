@@ -504,6 +504,17 @@
         </div>
       </div>
     </section>
+
+    <!-- Lesezeichen — Ausgabe-Ziel für renderBookmarks() (Issue #23) -->
+    <section class="section" id="bookmarks-section" aria-labelledby="bookmarks-title">
+      <div class="u-container">
+        <h2 id="bookmarks-title" class="section__title" data-i18n="bookmarks.title">Meine Lesezeichen</h2>
+        <p class="section__subtitle" data-i18n="bookmarks.subtitle">Gemerkte Themen zum schnellen Nachschlagen</p>
+
+        <!-- renderBookmarks() befüllt dieses Element. Leerzustand wird per JS gesetzt. -->
+        <div id="bookmarks-list" class="topics-grid" aria-live="polite"></div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->

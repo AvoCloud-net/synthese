@@ -141,6 +141,11 @@ export default {
   'topics.title': 'Topics',
   'topics.subtitle': 'Discover the world of media technology',
 
+  // Bookmarks Section
+  'bookmarks.title': 'My Bookmarks',
+  'bookmarks.subtitle': 'Saved topics for quick reference',
+  'bookmarks.empty': 'No bookmarks yet — click the bookmark icon on a card.',
+
   // Footer
   'footer.credits': 'SYNTHESE — AI Challenge Team A',
   'footer.evolutionLink': 'Evolution Showcase'

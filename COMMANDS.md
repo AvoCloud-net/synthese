@@ -13,7 +13,9 @@ cd synthese
 
 ## Bei GitHub anmelden (einmalig — damit du pushen kannst)
 
-Ohne Anmeldung kannst du `git pull` machen, aber **nicht pushen**. Einmal einrichten:
+Ohne Anmeldung kannst du `git pull` machen, aber **nicht pushen**. Einmal einrichten.
+
+### Variante A — mit `gh` (falls installiert)
 
 ```bash
 gh auth login
@@ -26,12 +28,26 @@ Antworten im Menü (mit Pfeiltasten wählen, Enter):
 3. Authenticate Git with your GitHub credentials? → **Yes** (Y)
 4. **Login with a web browser** → zeigt einen Code (z. B. `AB12-CD34`), Enter drücken → Browser öffnet → Code eingeben → **Authorize**.
 
-> Kein `gh` installiert? `sudo dnf install gh` (Fedora) bzw. `brew install gh` (Mac).
 > Prüfen ob angemeldet: `gh auth status`.
 
-Danach funktioniert `git push` ohne Passwort-Abfrage.
+### Variante B — ohne `gh` (z. B. Schul-PC)
 
-> **Wichtig:** Pushen geht erst, wenn der Team-Lead dich als **Collaborator** im Repo hinzugefügt hat. Melde dich einmal an (oben) und sag dem Lead deinen GitHub-Namen.
+Kein `gh` installiert und darfst nichts installieren? Dann per **Personal Access Token (PAT)** anmelden — das ist dein Passwort-Ersatz.
+
+1. Token erstellen: https://github.com/settings/tokens → **Generate new token (classic)** → Name z. B. `schul-pc`, Ablauf z. B. 90 Tage, Haken bei **`repo`** → **Generate token** → langen Code (`ghp_...`) **kopieren** (wird nur einmal gezeigt!).
+2. Git merkt sich den Token lokal:
+   ```bash
+   git config --global credential.helper store
+   ```
+3. Beim nächsten `git push` fragt Git nach Login:
+   - **Username:** dein GitHub-Name
+   - **Password:** den **Token** (`ghp_...`) einfügen — **nicht** dein GitHub-Passwort.
+
+Danach ist der Token gespeichert, `git push` fragt nicht mehr.
+
+> `gh` doch installierbar? `sudo dnf install gh` (Fedora) bzw. `brew install gh` (Mac) — dann Variante A.
+
+> **Wichtig:** Pushen geht erst, wenn der Team-Lead dich als **Collaborator** im Repo hinzugefügt hat. Sag dem Lead deinen GitHub-Namen.
 > Du pushst **immer auf deinen eigenen `feature/...`-Branch** — nie direkt auf `dev`. Ablauf: siehe „Git — täglicher Ablauf" unten.
 
 ## Setup (einmalig)
@@ -87,9 +103,9 @@ Dann auf GitHub **Pull Request → base `dev`** (NIE `main`), Issue verlinken: `
 
 ## Pull Request erstellen
 
-**Weg A — GitHub-Website:** Nach dem Push zeigt GitHub oben „Compare & pull request" → klicken. **base = `dev`** wählen (nicht `main`), Titel + kurze Beschreibung, ins Textfeld `Closes #<nr>` (schließt das Issue automatisch beim Merge) → **Create pull request**.
+**Weg A — GitHub-Website (geht immer, auch ohne `gh`):** Nach dem Push zeigt GitHub oben „Compare & pull request" → klicken. **base = `dev`** wählen (nicht `main`), Titel + kurze Beschreibung, ins Textfeld `Closes #<nr>` (schließt das Issue automatisch beim Merge) → **Create pull request**.
 
-**Weg B — Terminal (schneller):**
+**Weg B — Terminal (schneller, nur mit `gh`):**
 
 ```bash
 gh pr create --base dev --title "typ: kurze beschreibung" --body "Closes #<nr>"

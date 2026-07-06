@@ -195,17 +195,17 @@ export default [
     configs: [],
   },
   {
-  id: 'farbpsychologie',
-  category: 'farbe-typo',
-  difficulty: 'easy',
-  image: '',
-  icon: 'ph-lightbulb',
-  tags: ['farbe', 'psychologie', 'wirkung', 'emotion'],
-  related: ['farbharmonie', 'farbmodelle'],
-  de: {
-    title: 'Farbpsychologie',
-    summary: 'Farben lösen Gefühle aus — und beeinflussen, wie wir Inhalte wahrnehmen.',
-    content: `
+    id: 'farbpsychologie',
+    category: 'farbe-typo',
+    difficulty: 'easy',
+    image: '',
+    icon: 'ph-lightbulb',
+    tags: ['farbe', 'psychologie', 'wirkung', 'emotion'],
+    related: ['farbharmonie', 'farbmodelle'],
+    de: {
+      title: 'Farbpsychologie',
+      summary: 'Farben lösen Gefühle aus — und beeinflussen, wie wir Inhalte wahrnehmen.',
+      content: `
       <h3>Emotionen durch Farbe</h3>
       <p>Farben wirken nicht nur optisch, sondern auch emotional. Sie können beruhigen, aktivieren oder Vertrauen schaffen.</p>
       <h3>Typische Wirkungen</h3>
@@ -218,12 +218,13 @@ export default [
       <h3>Kulturelle Unterschiede</h3>
       <p>Farbbedeutungen variieren je nach Kultur. Deshalb lohnt sich ein Blick auf Zielgruppen und Kontext.</p>
     `,
-    didYouKnow: 'Rot steigert nachweislich die Herzfrequenz — deshalb wird es oft für Warnsignale genutzt.',
-  },
-  en: {
-    title: 'Color Psychology',
-    summary: 'Colors trigger emotions — shaping how we perceive content.',
-    content: `
+      didYouKnow:
+        'Rot steigert nachweislich die Herzfrequenz — deshalb wird es oft für Warnsignale genutzt.',
+    },
+    en: {
+      title: 'Color Psychology',
+      summary: 'Colors trigger emotions — shaping how we perceive content.',
+      content: `
       <h3>Emotions through color</h3>
       <p>Colors affect us visually and emotionally. They can calm, energize or build trust.</p>
       <h3>Typical effects</h3>
@@ -236,22 +237,23 @@ export default [
       <h3>Cultural differences</h3>
       <p>Color meanings vary across cultures. Knowing your audience helps choose the right palette.</p>
     `,
-    didYouKnow: 'Red has been shown to increase heart rate — which is why it’s used for warnings.',
+      didYouKnow:
+        'Red has been shown to increase heart rate — which is why it’s used for warnings.',
+    },
+    configs: [],
   },
-  configs: []
-},
-{
-  id: 'barrierefreie-farben',
-  category: 'farbe-typo',
-  difficulty: 'medium',
-  image: '',
-  icon: 'ph-eye',
-  tags: ['accessibility', 'farbe', 'kontrast', 'wcag'],
-  related: ['farbharmonie', 'typografie-grundlagen'],
-  de: {
-    title: 'Barrierefreie Paletten & Farbfehlsichtigkeit',
-    summary: 'Kontraste und Farbkombinationen, die für alle gut wahrnehmbar sind.',
-    content: `
+  {
+    id: 'barrierefreie-farben',
+    category: 'farbe-typo',
+    difficulty: 'medium',
+    image: '',
+    icon: 'ph-eye',
+    tags: ['accessibility', 'farbe', 'kontrast', 'wcag'],
+    related: ['farbharmonie', 'typografie-grundlagen'],
+    de: {
+      title: 'Barrierefreie Paletten & Farbfehlsichtigkeit',
+      summary: 'Kontraste und Farbkombinationen, die für alle gut wahrnehmbar sind.',
+      content: `
       <h3>Kontrast ist entscheidend</h3>
       <p>Für gute Lesbarkeit braucht Text genügend Hell-Dunkel-Kontrast. Die WCAG empfehlen ein Verhältnis von mindestens 4.5:1.</p>
       <h3>Farbfehlsichtigkeit</h3>
@@ -263,12 +265,13 @@ export default [
         <li><strong>Farben testen:</strong> Paletten in Simulations-Tools prüfen.</li>
       </ul>
     `,
-    didYouKnow: 'Rot-Grün-Schwäche ist die häufigste Form der Farbfehlsichtigkeit — besonders relevant für UI-Design.',
-  },
-  en: {
-    title: 'Accessible Palettes & Color Vision Deficiency',
-    summary: 'Contrast and color choices that work for everyone.',
-    content: `
+      didYouKnow:
+        'Rot-Grün-Schwäche ist die häufigste Form der Farbfehlsichtigkeit — besonders relevant für UI-Design.',
+    },
+    en: {
+      title: 'Accessible Palettes & Color Vision Deficiency',
+      summary: 'Contrast and color choices that work for everyone.',
+      content: `
       <h3>Contrast matters</h3>
       <p>Readable text needs sufficient light-dark contrast. WCAG recommends at least a 4.5:1 ratio.</p>
       <h3>Color vision deficiency</h3>
@@ -280,34 +283,35 @@ export default [
         <li><strong>Test colors:</strong> preview palettes in simulation tools.</li>
       </ul>
     `,
-    didYouKnow: 'Red-green deficiency is the most common form of color blindness — highly relevant for UI design.',
-  },
-  configs: [
-    {
-      labelDe: 'Kontraststarker Button (CSS)',
-      labelEn: 'High-contrast button (CSS)',
-      lang: 'css',
-      code: `.btn {
+      didYouKnow:
+        'Red-green deficiency is the most common form of color blindness — highly relevant for UI design.',
+    },
+    configs: [
+      {
+        labelDe: 'Kontraststarker Button (CSS)',
+        labelEn: 'High-contrast button (CSS)',
+        lang: 'css',
+        code: `.btn {
   background: #000;
   color: #fff;
   padding: 0.75rem 1rem;
   border-radius: 0.25rem;
-}`
-    }
-  ]
-},
-{
-  id: 'variable-fonts',
-  category: 'farbe-typo',
-  difficulty: 'medium',
-  image: '',
-  icon: 'ph-text-h',
-  tags: ['typografie', 'font', 'variable', 'performance'],
-  related: ['typografie-grundlagen', 'schrift-klassifikation'],
-  de: {
-    title: 'Variable Fonts',
-    summary: 'Eine Schriftdatei, viele Stile — flexibel, performant und modern.',
-    content: `
+}`,
+      },
+    ],
+  },
+  {
+    id: 'variable-fonts',
+    category: 'farbe-typo',
+    difficulty: 'medium',
+    image: '',
+    icon: 'ph-text-h',
+    tags: ['typografie', 'font', 'variable', 'performance'],
+    related: ['typografie-grundlagen', 'schrift-klassifikation'],
+    de: {
+      title: 'Variable Fonts',
+      summary: 'Eine Schriftdatei, viele Stile — flexibel, performant und modern.',
+      content: `
       <h3>Was sind Variable Fonts?</h3>
       <p>Variable Fonts enthalten mehrere Schriftschnitte in einer Datei. Gewicht, Breite oder Neigung lassen sich stufenlos einstellen.</p>
       <h3>Vorteile</h3>
@@ -319,12 +323,13 @@ export default [
       <h3>Praxis</h3>
       <p>Moderne Browser unterstützen Variable Fonts vollständig. Ideal für responsive Designs.</p>
     `,
-    didYouKnow: 'Variable Fonts wurden 2016 von Google, Microsoft, Apple und Adobe gemeinsam vorgestellt.',
-  },
-  en: {
-    title: 'Variable Fonts',
-    summary: 'One font file, many styles — flexible, performant and modern.',
-    content: `
+      didYouKnow:
+        'Variable Fonts wurden 2016 von Google, Microsoft, Apple und Adobe gemeinsam vorgestellt.',
+    },
+    en: {
+      title: 'Variable Fonts',
+      summary: 'One font file, many styles — flexible, performant and modern.',
+      content: `
       <h3>What are variable fonts?</h3>
       <p>Variable fonts contain multiple styles in one file. Weight, width or slant can be adjusted continuously.</p>
       <h3>Benefits</h3>
@@ -336,18 +341,17 @@ export default [
       <h3>In practice</h3>
       <p>Modern browsers fully support variable fonts — perfect for responsive design.</p>
     `,
-    didYouKnow: 'Variable fonts were introduced in 2016 by Google, Microsoft, Apple and Adobe.',
-  },
-  configs: [
-    {
-      labelDe: 'Variable Font nutzen (CSS)',
-      labelEn: 'Using a variable font (CSS)',
-      lang: 'css',
-      code: `h1 {
+      didYouKnow: 'Variable fonts were introduced in 2016 by Google, Microsoft, Apple and Adobe.',
+    },
+    configs: [
+      {
+        labelDe: 'Variable Font nutzen (CSS)',
+        labelEn: 'Using a variable font (CSS)',
+        lang: 'css',
+        code: `h1 {
   font-variation-settings: "wght" 700;
-}`
-    }
-  ]
-}
-
+}`,
+      },
+    ],
+  },
 ];

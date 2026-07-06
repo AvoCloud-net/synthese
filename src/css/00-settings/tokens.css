@@ -11,50 +11,50 @@
 
     /* ---- avo roles - LIGHT (default) ----
        Werte 1:1 aus brand/avocloud.css :root uebernommen. */
-    --avo-bg:            #F2EFE6;
-    --avo-surface:       #E9E5D8;
-    --avo-border:        #DCD8CB;
-    --avo-text:          #141414;
-    --avo-text-muted:    #6B6B63;
-    --avo-primary:       #C73D20;
-    --avo-primary-hover: #ED5333;
-    --avo-primary-on:    #FFFFFF;
+    --avo-bg: #f2efe6;
+    --avo-surface: #e9e5d8;
+    --avo-border: #dcd8cb;
+    --avo-text: #141414;
+    --avo-text-muted: #6b6b63;
+    --avo-primary: #c73d20;
+    --avo-primary-hover: #ed5333;
+    --avo-primary-on: #ffffff;
 
     /* ---- coral ramp (mode-independent, aus avocloud.css) ---- */
-    --avo-coral-50:  #FFEEEA;
-    --avo-coral-100: #FFD8CF;
-    --avo-coral-200: #FFB6A4;
-    --avo-coral-300: #FF9379;
-    --avo-coral-400: #FF7A5C;
-    --avo-coral-500: #FF6B4A;
-    --avo-coral-600: #ED5333;
-    --avo-coral-700: #C73D20;
-    --avo-coral-800: #9C2E16;
-    --avo-coral-900: #5F1C0D;
+    --avo-coral-50: #ffeeea;
+    --avo-coral-100: #ffd8cf;
+    --avo-coral-200: #ffb6a4;
+    --avo-coral-300: #ff9379;
+    --avo-coral-400: #ff7a5c;
+    --avo-coral-500: #ff6b4a;
+    --avo-coral-600: #ed5333;
+    --avo-coral-700: #c73d20;
+    --avo-coral-800: #9c2e16;
+    --avo-coral-900: #5f1c0d;
 
     /* ---- avo semantic (mode-independent, aus avocloud.css) ---- */
-    --avo-success: #46A758;
-    --avo-warning: #E0A33A;
-    --avo-error:   #DC3838;
-    --avo-info:    #3B82C4;
+    --avo-success: #46a758;
+    --avo-warning: #e0a33a;
+    --avo-error: #dc3838;
+    --avo-info: #3b82c4;
 
     /* ---- Brand Colors: Alt-Tokens auf --avo-* gemappt ----
        ACHTUNG (Lead-Review noetig): avocloud kennt nur EINEN Akzent
        (Coral) - kein zweites Hue wie das alte Cyan-Accent.
        --challenge-accent-* wird vorlaeufig auf andere Coral-Stufen
        gemappt. Bitte mit Lead klaeren, ob Accent kuenftig entfaellt. */
-    --challenge-primary:       var(--avo-primary);
+    --challenge-primary: var(--avo-primary);
     --challenge-primary-light: var(--avo-primary-hover);
-    --challenge-primary-dark:  var(--avo-coral-800);
+    --challenge-primary-dark: var(--avo-coral-800);
 
-    --challenge-accent:        var(--avo-coral-500); /* TODO Lead: kein echtes 2nd-Hue mehr */
-    --challenge-accent-light:  var(--avo-coral-300);
-    --challenge-accent-dark:   var(--avo-coral-700);
+    --challenge-accent: var(--avo-coral-500); /* TODO Lead: kein echtes 2nd-Hue mehr */
+    --challenge-accent-light: var(--avo-coral-300);
+    --challenge-accent-dark: var(--avo-coral-700);
 
     --challenge-success: var(--avo-success);
     --challenge-warning: var(--avo-warning);
-    --challenge-error:   var(--avo-error);
-    --challenge-info:    var(--avo-info);
+    --challenge-error: var(--avo-error);
+    --challenge-info: var(--avo-info);
 
     --challenge-gray-50: #f8fafc;
     --challenge-gray-100: #f1f5f9;
@@ -125,34 +125,34 @@
     --z-modal: 500;
     --z-toast: 600;
 
-    --bg-body:             var(--avo-bg);
-    --bg-surface:          var(--avo-surface);
+    --bg-body: var(--avo-bg);
+    --bg-surface: var(--avo-surface);
     --bg-surface-elevated: var(--avo-surface);
-    --bg-code:             var(--avo-surface);
-    --bg-overlay:          rgba(20, 20, 20, 0.5);
+    --bg-code: var(--avo-surface);
+    --bg-overlay: rgba(20, 20, 20, 0.5);
 
-    --text-primary:   var(--avo-text);
+    --text-primary: var(--avo-text);
     --text-secondary: var(--avo-text-muted);
-    --text-muted:     var(--avo-text-muted);
-    --text-link:       var(--avo-coral-800);
+    --text-muted: var(--avo-text-muted);
+    --text-link: var(--avo-coral-800);
     --text-link-hover: var(--avo-primary-hover);
-    --text-code:       var(--avo-text);
-    --text-inverse:    var(--avo-primary-on);
+    --text-code: var(--avo-text);
+    --text-inverse: var(--avo-primary-on);
 
-    --border-color:        var(--avo-border);
+    --border-color: var(--avo-border);
     --border-color-strong: var(--avo-border);
   }
 
   html.dark,
   [data-theme='dark'] {
-    --avo-bg:            #0B0B0B;
-    --avo-surface:       #131313;
-    --avo-border:        #1E1E1E;
-    --avo-text:          #EDEDED;
-    --avo-text-muted:    #8A8A8A;
-    --avo-primary:       #FF6B4A;
-    --avo-primary-hover: #FF9379;
-    --avo-primary-on:    #0B0B0B;
+    --avo-bg: #0b0b0b;
+    --avo-surface: #131313;
+    --avo-border: #1e1e1e;
+    --avo-text: #ededed;
+    --avo-text-muted: #8a8a8a;
+    --avo-primary: #ff6b4a;
+    --avo-primary-hover: #ff9379;
+    --avo-primary-on: #0b0b0b;
 
     --text-link: var(--avo-primary);
 

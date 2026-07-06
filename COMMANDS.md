@@ -11,6 +11,29 @@ cd synthese
 
 > Schon geklont? Neuesten Stand holen: `git checkout dev && git pull`.
 
+## Bei GitHub anmelden (einmalig — damit du pushen kannst)
+
+Ohne Anmeldung kannst du `git pull` machen, aber **nicht pushen**. Einmal einrichten:
+
+```bash
+gh auth login
+```
+
+Antworten im Menü (mit Pfeiltasten wählen, Enter):
+
+1. **GitHub.com**
+2. **HTTPS**
+3. Authenticate Git with your GitHub credentials? → **Yes** (Y)
+4. **Login with a web browser** → zeigt einen Code (z. B. `AB12-CD34`), Enter drücken → Browser öffnet → Code eingeben → **Authorize**.
+
+> Kein `gh` installiert? `sudo dnf install gh` (Fedora) bzw. `brew install gh` (Mac).
+> Prüfen ob angemeldet: `gh auth status`.
+
+Danach funktioniert `git push` ohne Passwort-Abfrage.
+
+> **Wichtig:** Pushen geht erst, wenn der Team-Lead dich als **Collaborator** im Repo hinzugefügt hat. Melde dich einmal an (oben) und sag dem Lead deinen GitHub-Namen.
+> Du pushst **immer auf deinen eigenen `feature/...`-Branch** — nie direkt auf `dev`. Ablauf: siehe „Git — täglicher Ablauf" unten.
+
 ## Setup (einmalig)
 
 ```bash

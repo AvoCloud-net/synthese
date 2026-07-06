@@ -1,26 +1,61 @@
 @layer settings {
   :root {
     /* ============================================================
-       KI CHALLENGE 2026 — Design Tokens
-       Primary: Deep Indigo (Professional, Future, KI)
-       Accent: Cyan/Teal (Creativity, Interactivity)
+       KI CHALLENGE 2026 - Design Tokens
+       MIGRIERT auf avocloud Brand (mono-first + coral accent).
+       --avo-* ist hier die Quelle der Wahrheit (mirrored aus
+       brand/avocloud.css). --challenge-* bleibt als Alias erhalten,
+       damit bestehende Komponenten nicht sofort angefasst werden
+       muessen.
        ============================================================ */
 
-    /* Brand Colors */
-    --challenge-primary: #4f46e5;
-    --challenge-primary-light: #818cf8;
-    --challenge-primary-dark: #3730a3;
-    --challenge-accent: #06b6d4;
-    --challenge-accent-light: #67e8f9;
-    --challenge-accent-dark: #0891b2;
+    /* ---- avo roles - LIGHT (default) ----
+       Werte 1:1 aus brand/avocloud.css :root uebernommen. */
+    --avo-bg:            #F2EFE6;
+    --avo-surface:       #E9E5D8;
+    --avo-border:        #DCD8CB;
+    --avo-text:          #141414;
+    --avo-text-muted:    #6B6B63;
+    --avo-primary:       #C73D20;
+    --avo-primary-hover: #ED5333;
+    --avo-primary-on:    #FFFFFF;
 
-    /* Semantic Colors */
-    --challenge-success: #10b981;
-    --challenge-warning: #f59e0b;
-    --challenge-error: #ef4444;
-    --challenge-info: #3b82f6;
+    /* ---- coral ramp (mode-independent, aus avocloud.css) ---- */
+    --avo-coral-50:  #FFEEEA;
+    --avo-coral-100: #FFD8CF;
+    --avo-coral-200: #FFB6A4;
+    --avo-coral-300: #FF9379;
+    --avo-coral-400: #FF7A5C;
+    --avo-coral-500: #FF6B4A;
+    --avo-coral-600: #ED5333;
+    --avo-coral-700: #C73D20;
+    --avo-coral-800: #9C2E16;
+    --avo-coral-900: #5F1C0D;
 
-    /* Neutral Scale */
+    /* ---- avo semantic (mode-independent, aus avocloud.css) ---- */
+    --avo-success: #46A758;
+    --avo-warning: #E0A33A;
+    --avo-error:   #DC3838;
+    --avo-info:    #3B82C4;
+
+    /* ---- Brand Colors: Alt-Tokens auf --avo-* gemappt ----
+       ACHTUNG (Lead-Review noetig): avocloud kennt nur EINEN Akzent
+       (Coral) - kein zweites Hue wie das alte Cyan-Accent.
+       --challenge-accent-* wird vorlaeufig auf andere Coral-Stufen
+       gemappt. Bitte mit Lead klaeren, ob Accent kuenftig entfaellt. */
+    --challenge-primary:       var(--avo-primary);
+    --challenge-primary-light: var(--avo-primary-hover);
+    --challenge-primary-dark:  var(--avo-coral-800);
+
+    --challenge-accent:        var(--avo-coral-500); /* TODO Lead: kein echtes 2nd-Hue mehr */
+    --challenge-accent-light:  var(--avo-coral-300);
+    --challenge-accent-dark:   var(--avo-coral-700);
+
+    --challenge-success: var(--avo-success);
+    --challenge-warning: var(--avo-warning);
+    --challenge-error:   var(--avo-error);
+    --challenge-info:    var(--avo-info);
+
     --challenge-gray-50: #f8fafc;
     --challenge-gray-100: #f1f5f9;
     --challenge-gray-200: #e2e8f0;
@@ -32,7 +67,6 @@
     --challenge-gray-800: #1e293b;
     --challenge-gray-900: #0f172a;
 
-    /* Typography */
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
     --font-display: 'Poppins', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
@@ -51,7 +85,6 @@
     --leading-normal: 1.5;
     --leading-relaxed: 1.625;
 
-    /* Spacing (8-point grid) */
     --space-1: 0.25rem;
     --space-2: 0.5rem;
     --space-3: 0.75rem;
@@ -65,31 +98,26 @@
     --space-20: 5rem;
     --space-24: 6rem;
 
-    /* Layout */
     --max-width: 1200px;
     --header-height: 64px;
 
-    /* Border Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
     --radius-xl: 16px;
     --radius-full: 9999px;
 
-    /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    --shadow-glow: 0 0 20px rgba(79, 70, 229, 0.3);
-    --shadow-glow-accent: 0 0 20px rgba(6, 182, 212, 0.3);
+    --shadow-glow: 0 0 20px rgba(199, 61, 32, 0.3);
+    --shadow-glow-accent: 0 0 20px rgba(255, 147, 121, 0.3);
 
-    /* Transitions */
     --transition-fast: 150ms ease;
     --transition-base: 250ms ease;
     --transition-slow: 350ms ease;
 
-    /* z-Index Scale */
     --z-dropdown: 100;
     --z-sticky: 200;
     --z-fixed: 300;
@@ -97,49 +125,44 @@
     --z-modal: 500;
     --z-toast: 600;
 
-    /* Light Mode — Theme Mapping */
-    --bg-body: var(--challenge-gray-50);
-    --bg-surface: #ffffff;
-    --bg-surface-elevated: #ffffff;
-    --bg-code: var(--challenge-gray-100);
-    --bg-overlay: rgba(15, 23, 42, 0.5);
+    --bg-body:             var(--avo-bg);
+    --bg-surface:          var(--avo-surface);
+    --bg-surface-elevated: var(--avo-surface);
+    --bg-code:             var(--avo-surface);
+    --bg-overlay:          rgba(20, 20, 20, 0.5);
 
-    --text-primary: var(--challenge-gray-900);
-    --text-secondary: var(--challenge-gray-600);
-    --text-muted: var(--challenge-gray-400);
-    --text-link: var(--challenge-primary);
-    --text-link-hover: var(--challenge-primary-dark);
-    --text-code: var(--challenge-gray-800);
-    --text-inverse: #ffffff;
+    --text-primary:   var(--avo-text);
+    --text-secondary: var(--avo-text-muted);
+    --text-muted:     var(--avo-text-muted);
+    --text-link:       var(--avo-coral-800);
+    --text-link-hover: var(--avo-primary-hover);
+    --text-code:       var(--avo-text);
+    --text-inverse:    var(--avo-primary-on);
 
-    --border-color: var(--challenge-gray-200);
-    --border-color-strong: var(--challenge-gray-300);
+    --border-color:        var(--avo-border);
+    --border-color-strong: var(--avo-border);
   }
 
-  /* Dark Mode */
-  html.dark-mode {
-    --bg-body: var(--challenge-gray-900);
-    --bg-surface: var(--challenge-gray-800);
-    --bg-surface-elevated: var(--challenge-gray-700);
-    --bg-code: var(--challenge-gray-800);
-    --bg-overlay: rgba(0, 0, 0, 0.7);
+  html.dark,
+  [data-theme='dark'] {
+    --avo-bg:            #0B0B0B;
+    --avo-surface:       #131313;
+    --avo-border:        #1E1E1E;
+    --avo-text:          #EDEDED;
+    --avo-text-muted:    #8A8A8A;
+    --avo-primary:       #FF6B4A;
+    --avo-primary-hover: #FF9379;
+    --avo-primary-on:    #0B0B0B;
 
-    --text-primary: var(--challenge-gray-50);
-    --text-secondary: var(--challenge-gray-300);
-    --text-muted: var(--challenge-gray-500);
-    --text-link: var(--challenge-primary-light);
-    --text-link-hover: var(--challenge-accent-light);
-    --text-code: var(--challenge-gray-200);
-    --text-inverse: var(--challenge-gray-900);
-
-    --border-color: var(--challenge-gray-700);
-    --border-color-strong: var(--challenge-gray-600);
+    --text-link: var(--avo-primary);
 
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.6);
-    --shadow-glow: 0 0 30px rgba(79, 70, 229, 0.4);
-    --shadow-glow-accent: 0 0 30px rgba(6, 182, 212, 0.4);
+    --shadow-glow: 0 0 30px rgba(255, 107, 74, 0.4);
+    --shadow-glow-accent: 0 0 30px rgba(255, 147, 121, 0.4);
+
+    --bg-overlay: rgba(0, 0, 0, 0.75);
   }
 }

@@ -15,6 +15,8 @@
 @import url('05-components/topic-card.css') layer(components);
 @import url('05-components/challenge-topic-card.css') layer(components);
 @import url('05-components/topic-detail.css') layer(components);
+@import url('05-components/example.css') layer(components);
+@import url('05-components/sandbox.css') layer(components);
 @import url('05-components/mission.css') layer(components);
 @import url('05-components/bookmark-btn.css') layer(components);
 @import url('05-components/related-links.css') layer(components);

@@ -1,0 +1,142 @@
+/**
+ * SYNTHESE — Sandbox (Issue #52)
+ * Live-Code-Playground im Detail-Modal: Editoren + Vorschau-iframe.
+ */
+
+.challenge-sandbox {
+  margin-top: var(--space-lg, 1.5rem);
+  padding-top: var(--space-lg, 1.5rem);
+  border-top: 1px solid var(--color-border, rgba(128, 128, 128, 0.25));
+}
+
+.challenge-sandbox__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm, 0.5rem);
+  margin-bottom: var(--space-md, 1rem);
+}
+
+.challenge-sandbox__heading {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.challenge-sandbox__reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.4rem 0.8rem;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--color-text, inherit);
+  background: var(--color-surface-2, rgba(128, 128, 128, 0.12));
+  border: 1px solid var(--color-border, rgba(128, 128, 128, 0.25));
+  border-radius: var(--radius-sm, 6px);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.challenge-sandbox__reset:hover {
+  background: var(--color-surface-3, rgba(128, 128, 128, 0.2));
+}
+
+.challenge-sandbox__editors {
+  display: grid;
+  gap: var(--space-md, 1rem);
+}
+
+/* Fullscreen: Editoren und Vorschau nebeneinander, Sandbox darf breiter werden. */
+@media (min-width: 900px) {
+  #topic-sandbox {
+    max-width: 1100px;
+  }
+
+  .challenge-sandbox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-lg, 1.5rem);
+    align-items: start;
+  }
+
+  .challenge-sandbox__header {
+    grid-column: 1 / -1;
+  }
+
+  .challenge-sandbox__preview-frame {
+    margin-top: 0;
+    height: 360px;
+    min-height: 320px;
+  }
+}
+
+.challenge-sandbox__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.challenge-sandbox__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.challenge-sandbox__input {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  font-family: var(--font-mono, ui-monospace, 'SFMono-Regular', 'Menlo', monospace);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text, inherit);
+  background: var(--color-surface, rgba(128, 128, 128, 0.06));
+  border: 1px solid var(--color-border, rgba(128, 128, 128, 0.25));
+  border-radius: var(--radius-sm, 6px);
+  resize: vertical;
+  tab-size: 2;
+}
+
+.challenge-sandbox__input:focus-visible {
+  outline: 2px solid var(--color-accent, #6366f1);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+/* Resizable Rahmen um die Vorschau — Breite/Höhe ziehbar, um Reflow
+   (responsive, Grid/Flex) live zu sehen. */
+.challenge-sandbox__preview-frame {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 140px;
+  min-height: 180px;
+  height: 320px;
+  margin-top: var(--space-md, 1rem);
+  background: #fff;
+  border: 1px solid var(--color-border, rgba(128, 128, 128, 0.25));
+  border-radius: var(--radius-sm, 6px);
+  overflow: hidden;
+  resize: both;
+}
+
+.challenge-sandbox__preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+.challenge-sandbox__resize-hint {
+  position: absolute;
+  right: 16px;
+  bottom: 5px;
+  padding: 1px 6px;
+  font-size: 0.68rem;
+  color: #475569;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  pointer-events: none;
+}

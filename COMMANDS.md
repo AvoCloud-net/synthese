@@ -85,6 +85,18 @@ git push -u origin feature/name-thema
 
 Dann auf GitHub **Pull Request → base `dev`** (NIE `main`), Issue verlinken: `Closes #<nr>`.
 
+## Pull Request erstellen
+
+**Weg A — GitHub-Website:** Nach dem Push zeigt GitHub oben „Compare & pull request" → klicken. **base = `dev`** wählen (nicht `main`), Titel + kurze Beschreibung, ins Textfeld `Closes #<nr>` (schließt das Issue automatisch beim Merge) → **Create pull request**.
+
+**Weg B — Terminal (schneller):**
+
+```bash
+gh pr create --base dev --title "typ: kurze beschreibung" --body "Closes #<nr>"
+```
+
+> Danach nicht selbst mergen — der Team-Lead prüft und merged nach `dev`.
+
 ## Nützlich
 
 ```bash

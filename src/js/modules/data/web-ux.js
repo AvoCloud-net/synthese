@@ -207,4 +207,65 @@ export default [
       },
     ],
   },
+  {
+    id: 'multi-language-i18n',
+    category: 'web-ux',
+    difficulty: 'medium',
+    image: '',
+    icon: 'ph-translate',
+    tags: ['i18n', 'lokalisierung', 'js', 'rtl', 'sprache'],
+    related: ['accessibility', 'ui-ux-grundlagen', 'responsive-design'],
+    de: {
+      title: 'Multi Language & i18n',
+      summary:
+        'Websites für alle Nationen: Übersetzungsstrategien, RTL-Support, Locale-Handling und Kultur-Sensitivität.',
+      content: `
+        <h3>i18n vs. l10n</h3>
+        <p><strong>i18n</strong> (Internationalisierung) baut die Technik so, dass Sprachen austauschbar sind. <strong>l10n</strong> (Lokalisierung) füllt sie dann mit konkreten Übersetzungen, Datums- und Zahlenformaten.</p>
+        <h3>Keys statt fester Texte</h3>
+        <p>Sichtbarer Text kommt nie hart in den Code, sondern über <strong>Schlüssel</strong> aus Wörterbüchern (<code>de.js</code>, <code>en.js</code>). Alle Sprachen brauchen <strong>dieselben Keys</strong>, sonst fehlen Texte.</p>
+        <h3>RTL & Kultur</h3>
+        <ul>
+          <li><strong>RTL:</strong> Arabisch/Hebräisch laufen rechts-nach-links — Layout muss spiegeln (<code>dir="rtl"</code>).</li>
+          <li><strong>Formate:</strong> Datum, Uhrzeit, Währung, Zahlen sind je Locale verschieden.</li>
+          <li><strong>Länge:</strong> Deutsch ist oft 30 % länger als Englisch — Platz einplanen.</li>
+        </ul>
+      `,
+      didYouKnow:
+        'Das Kürzel „i18n" steht für „internationalization" — i, dann 18 Buchstaben, dann n. Dasselbe Muster wie „a11y" für accessibility.',
+    },
+    en: {
+      title: 'Multi Language & i18n',
+      summary:
+        'Websites for every nation: translation strategies, RTL support, locale handling and cultural sensitivity.',
+      content: `
+        <h3>i18n vs. l10n</h3>
+        <p><strong>i18n</strong> (internationalization) builds the tech so languages are swappable. <strong>l10n</strong> (localization) then fills it with actual translations, date and number formats.</p>
+        <h3>Keys instead of hard-coded text</h3>
+        <p>Visible text never goes straight into the code but comes via <strong>keys</strong> from dictionaries (<code>de.js</code>, <code>en.js</code>). Every language needs the <strong>same keys</strong>, otherwise text goes missing.</p>
+        <h3>RTL & culture</h3>
+        <ul>
+          <li><strong>RTL:</strong> Arabic/Hebrew read right-to-left — the layout must mirror (<code>dir="rtl"</code>).</li>
+          <li><strong>Formats:</strong> date, time, currency and numbers differ per locale.</li>
+          <li><strong>Length:</strong> German is often 30% longer than English — plan for space.</li>
+        </ul>
+      `,
+      didYouKnow:
+        'The abbreviation "i18n" stands for "internationalization" — i, then 18 letters, then n. Same pattern as "a11y" for accessibility.',
+    },
+    configs: [
+      {
+        labelDe: 'Mini-Wörterbuch + Lookup (JS)',
+        labelEn: 'Mini dictionary + lookup (JS)',
+        lang: 'js',
+        code: `const dict = {
+  de: { greeting: 'Hallo' },
+  en: { greeting: 'Hello' },
+};
+
+const t = (lang, key) => dict[lang]?.[key] ?? key;
+t('de', 'greeting'); // "Hallo"`,
+      },
+    ],
+  },
 ];

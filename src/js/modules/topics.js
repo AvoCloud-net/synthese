@@ -60,12 +60,48 @@ const TOPIC_CONTENT = {
     `,
   },
   'Color Theory for Web': {
-    category: 'Grundlagen',
+    category: 'Farbe & Typografie',
     content: `
       <h2>Color Theory — Farben, die wirken</h2>
       <p>Das 60-30-10-Regel: 60% Dominanzfarbe, 30% Sekundärfarbe, 10% Akzent.</p>
       <h3>Accessible Paletten</h3>
       <p>WCAG 2.1 AAA erfordert ein Kontrastverhältnis von 7:1 für Normaltext. Teste mit dem WebAIM Contrast Checker!</p>
+    `,
+  },
+  'CSS Grid & Flexbox': {
+    category: 'Web & UX',
+    content: `
+      <h2>CSS Grid & Flexbox — moderne Layouts</h2>
+      <p><strong>Flexbox</strong> verteilt Elemente entlang <em>einer</em> Achse — perfekt für Navigationen, Button-Gruppen, Karten in einer Reihe.</p>
+      <p><strong>Grid</strong> arbeitet in <em>zwei</em> Achsen (Zeilen + Spalten) — perfekt für ganze Seitenraster, Galerien und Dashboards.</p>
+      <h3>Faustregel</h3>
+      <p>Grid fürs Grobraster der Seite, Flexbox für die Feinverteilung innerhalb der Komponenten. Zusammen extrem mächtig.</p>
+    `,
+  },
+  'Web Accessibility (A11y)': {
+    category: 'Web & UX',
+    content: `
+      <h2>Web Accessibility — Websites für alle</h2>
+      <p>Barrierefreiheit macht Inhalte für Menschen mit Seh-, Hör- oder Motorik-Einschränkungen nutzbar — und verbessert die Bedienung für alle.</p>
+      <h3>Die wichtigsten Hebel</h3>
+      <ul>
+        <li><strong>Kontrast:</strong> mind. 4,5:1 für Normaltext (WCAG AA).</li>
+        <li><strong>Tastatur:</strong> alles ohne Maus bedienbar, sichtbarer Fokus.</li>
+        <li><strong>Semantik:</strong> echte Buttons, Landmarks, Alt-Texte.</li>
+      </ul>
+    `,
+  },
+  'Multi Language & i18n': {
+    category: 'Web & UX',
+    content: `
+      <h2>Multi Language & i18n — global denken</h2>
+      <p><strong>i18n</strong> baut die Technik sprach-unabhängig, <strong>l10n</strong> füllt sie mit Übersetzungen und lokalen Formaten.</p>
+      <h3>Kernideen</h3>
+      <ul>
+        <li>Text nie hart in den Code — immer über Keys aus Wörterbüchern.</li>
+        <li>Alle Sprachen brauchen dieselben Keys, sonst fehlt Text.</li>
+        <li>RTL (Arabisch/Hebräisch) spiegelt das Layout; Datum/Zahlen sind Locale-abhängig.</li>
+      </ul>
     `,
   },
 };

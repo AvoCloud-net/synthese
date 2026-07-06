@@ -58,6 +58,7 @@ Scaffold existiert schon in `src/` (Module + CSS-Komponenten + i18n). Wird umgen
 | 9   | Auflösung & DPI      | medium | PPI/DPI, Web vs. Druck (300 DPI), Skalieren  |
 | 10  | Bild-Dateiformate    | easy   | JPG/PNG/SVG/WebP, Transparenz, Faustregeln   |
 | 11  | Kompression & Codecs | hard   | lossy/lossless, Codec vs. Container, Bitrate |
+| 16  | Prepress & PDF/X     | medium | PDF/X-1a/X-4, Farbprofile, 3 mm Beschnitt    |
 
 ### Web & UX (`web-ux`)
 
@@ -67,12 +68,13 @@ Scaffold existiert schon in `src/` (Module + CSS-Komponenten + i18n). Wird umgen
 | 13  | UI/UX-Grundlagen        | medium | UI vs. UX, Konsistenz, Feedback, Zustände   |
 | 14  | Barrierefreiheit (A11y) | medium | Kontrast 4,5:1, Tastatur, Semantik, ARIA    |
 | 15  | CSS Grid & Flexbox      | hard   | eine vs. zwei Achsen, kombinieren           |
+| 17  | Multi Language & i18n   | medium | i18n vs. l10n, Keys, RTL, Locale-Formate    |
 
 **Related-Graph-Beispiel:** Gestaltgesetze → Layout/Raster → CSS Grid → Responsive Design → UI/UX.
 
 ### Priorität (Content via AI-Coding-Tools → geht sich aus)
 
-Ziel = alle **14 Kern** (siehe Tabellen), plus weitere Themen wenn Zeit. Content wird KI-generiert + vom Team geprüft/eingepasst (accuracy + i18n-sync + BEM). Die 8 unten = **Tag-1-Sicherheitsnetz** (muss Ende Tag 1 stehen), damit selbst im schlimmsten Fall voller Kategorie- + Difficulty-Spread da ist.
+Ziel = alle **17 Kern** (siehe Tabellen), plus weitere Themen wenn Zeit. Content wird KI-generiert + vom Team geprüft/eingepasst (accuracy + i18n-sync + BEM). Die 8 unten = **Tag-1-Sicherheitsnetz** (muss Ende Tag 1 stehen), damit selbst im schlimmsten Fall voller Kategorie- + Difficulty-Spread da ist.
 
 **Tag-1-Sicherheitsnetz (8):** Gestaltgesetze · Layout/Raster · RGB vs. CMYK · Typografie-Grundlagen · Raster vs. Vektor · Bild-Dateiformate · Responsive Design · Barrierefreiheit.
 

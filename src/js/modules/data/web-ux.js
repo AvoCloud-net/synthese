@@ -268,4 +268,97 @@ t('de', 'greeting'); // "Hallo"`,
       },
     ],
   },
+  {
+  id: 'microinteractions',
+  category: 'web-ux',
+  difficulty: 'medium',
+  image: '',
+  icon: 'ph-lightning',
+  tags: ['animation', 'feedback', 'interaction', 'ui'],
+  related: ['ui-ux-grundlagen', 'accessibility'],
+  de: {
+    title: 'Mikrointeraktionen',
+    summary: 'Kleine Animationen und Reaktionen, die Bedienung lebendig und verständlich machen.',
+    content: `
+      <h3>Was sind Mikrointeraktionen?</h3>
+      <p>Mini-Reaktionen wie ein Button-Highlight, ein Ladepunkt oder ein sanftes Einblenden. Sie geben Feedback und machen Abläufe klarer.</p>
+      <h3>Regeln</h3>
+      <ul>
+        <li><strong>Schnell:</strong> 150–300 ms wirken natürlich.</li>
+        <li><strong>Zweck:</strong> Jede Animation erklärt etwas — nie nur Deko.</li>
+        <li><strong>Klar:</strong> Fokus auf Feedback, nicht auf Effekte.</li>
+      </ul>
+      <h3>Barrierefreiheit</h3>
+      <p>Animationen müssen dezent bleiben und dürfen keine Inhalte ersetzen. Bewegungen sollten reduzierbar sein (<code>prefers-reduced-motion</code>).</p>
+    `,
+    didYouKnow: 'Viele moderne UI-Bibliotheken wie Material Design basieren stark auf Mikrointeraktionen.',
+  },
+  en: {
+    title: 'Microinteractions',
+    summary: 'Small animations and reactions that make interfaces feel alive and understandable.',
+    content: `
+      <h3>What are microinteractions?</h3>
+      <p>Tiny reactions like button highlights, loading dots or gentle fades. They provide feedback and clarify actions.</p>
+      <h3>Rules</h3>
+      <ul>
+        <li><strong>Fast:</strong> 150–300 ms feel natural.</li>
+        <li><strong>Purpose:</strong> Every animation explains something — never just decoration.</li>
+        <li><strong>Clarity:</strong> Focus on feedback, not effects.</li>
+      </ul>
+      <h3>Accessibility</h3>
+      <p>Animations must stay subtle and never replace content. Motion should be reducible (<code>prefers-reduced-motion</code>).</p>
+    `,
+    didYouKnow: 'Many modern UI libraries like Material Design rely heavily on microinteractions.',
+  },
+  configs: [
+    {
+      labelDe: 'Motion reduzieren (CSS)',
+      labelEn: 'Reduce motion (CSS)',
+      lang: 'css',
+      code: `@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}`,
+    },
+  ],
+},
+{
+  id: 'color-psychology',
+  category: 'web-ux',
+  difficulty: 'easy',
+  image: '',
+  icon: 'ph-palette',
+  tags: ['color', 'emotion', 'design', 'branding'],
+  related: ['ui-ux-grundlagen', 'farbharmonie'],
+  de: {
+    title: 'Farben & Psychologie',
+    summary: 'Farben lösen Emotionen aus und beeinflussen Entscheidungen — bewusst einsetzen.',
+    content: `
+      <h3>Wirkung</h3>
+      <p>Farben transportieren Stimmung: Blau wirkt ruhig, Rot energisch, Grün natürlich. Sie lenken Aufmerksamkeit und schaffen Orientierung.</p>
+      <h3>Konsistenz</h3>
+      <p>Ein Farbkonzept sollte klar definiert sein: Primär-, Sekundär- und Akzentfarben mit festen Rollen.</p>
+      <h3>Kontext</h3>
+      <p>Farben wirken kulturell unterschiedlich — Rot kann Gefahr oder Glück bedeuten. Immer Zielgruppe beachten.</p>
+    `,
+    didYouKnow: 'Farben beeinflussen nachweislich die Conversion Rate — besonders bei Call-to-Action-Buttons.',
+  },
+  en: {
+    title: 'Color Psychology',
+    summary: 'Colors trigger emotions and influence decisions — use them intentionally.',
+    content: `
+      <h3>Effect</h3>
+      <p>Colors carry mood: blue feels calm, red energetic, green natural. They guide attention and create orientation.</p>
+      <h3>Consistency</h3>
+      <p>A color system should be clearly defined: primary, secondary and accent colors with fixed roles.</p>
+      <h3>Context</h3>
+      <p>Colors vary culturally — red can mean danger or luck. Always consider the audience.</p>
+    `,
+    didYouKnow: 'Colors measurably influence conversion rates — especially for call-to-action buttons.',
+  },
+  configs: [],
+},
+
 ];

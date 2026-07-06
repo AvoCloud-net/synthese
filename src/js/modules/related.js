@@ -1,22 +1,10 @@
 /**
  * SYNTHESE — Related Links Module
  * Zeigt verwandte Themen basierend auf dem `related`-Array
- *
- * TODO: Implementiere das Related-Links-Modul
- * Anforderungen:
- * 1. Lies das `related`-Array aus dem aktuellen Topic
- * 2. Finde die passenden Topics im topics-Array
- * 3. Rendere 3 verwandte Themen als kleine Cards
- * 4. Links sollen zur Detail-Ansicht führen
- * 5. Wenn keine verwandten Themen: Zeige zufällige/populäre Themen
- *
- * KI-Prompt-Tipp:
- * "Erstelle ein Verknüpfungs-Modul basierend auf einem related-Array.
- *  Finde verwandte Topics in einem Daten-Array.
- *  Rendere 3 kleine Cards mit Titel und Link."
  */
 
-import { topics } from './data.js';
+import { getTopicById } from './data.js';
+import { getLanguage } from './i18n.js';
 
 /**
  * Findet verwandte Topics für eine gegebene Topic-ID
@@ -25,15 +13,12 @@ import { topics } from './data.js';
  * @returns {Array} Array verwandter Topic-Objekte
  */
 export function getRelatedTopics(currentTopicId, limit = 3) {
-  // TODO: Implementiere verwandte Topics finden
-  // 1. Finde das aktuelle Topic im topics-Array
-  // 2. Lies das related-Array aus
-  // 3. Finde die passenden Topics
-  // 4. Begrenze auf 'limit' Ergebnisse
-  // 5. Falls zu wenige: Ergänze mit zufälligen Topics
+  const topic = getTopicById(currentTopicId);
 
-  console.log('[TODO] getRelatedTopics() muss implementiert werden');
-  return [];
+  return (topic?.related || [])
+    .map((id) => getTopicById(id))
+    .filter(Boolean) // ungültige/fehlende IDs robust rauswerfen
+    .slice(0, limit);
 }
 
 /**
@@ -42,10 +27,17 @@ export function getRelatedTopics(currentTopicId, limit = 3) {
  * @param {string} containerSelector - Selector für den Container
  */
 export function renderRelated(currentTopicId, containerSelector = '#related-topics') {
-  // TODO: Implementiere Related-Render
-  // 1. Hole verwandte Topics
-  // 2. Erstelle HTML für Mini-Cards
-  // 3. Füge in Container ein
+  const box = document.querySelector(containerSelector);
+  if (!box) return;
+
+  const related = getRelatedTopics(currentTopicId);
+
+  if (related.length === 0) {
+    box.innerHTML = '';
+    return;
+  }
+
+  box.innerHTML = related.map(createRelatedCardHtml).join('');
 }
 
 /**
@@ -54,19 +46,28 @@ export function renderRelated(currentTopicId, containerSelector = '#related-topi
  * @returns {string} HTML-String
  */
 function createRelatedCardHtml(topic) {
-  // TODO: Implementiere Mini-Card HTML
-  // Einfacher als Haupt-Card: nur Titel, Kategorie, kurze Summary
+  const lang = getLanguage();
+  const title = topic?.[lang]?.title ?? topic?.de?.title ?? topic.id;
+  const safeTitle = escapeHtml(title);
+  const safeId = escapeHtml(topic.id);
+
+  return `
+    <button class="challenge-related__link" data-id="${safeId}" type="button" aria-label="${safeTitle}">
+      ${safeTitle}
+    </button>
+  `;
 }
 
 /**
- * Gibt zufällige Topics zurück (als Fallback)
- * @param {number} count - Anzahl
- * @param {string} excludeId - Auszuschließende ID
- * @returns {Array} Zufällige Topics
+ * Escaped einfache HTML-Sonderzeichen, um XSS über Topic-Titel/IDs zu verhindern
+ * @param {string} str
+ * @returns {string}
  */
-function getRandomTopics(count, excludeId) {
-  // TODO: Implementiere zufällige Topics
-  // 1. Filtere excludeId heraus
-  // 2. Mische das Array (Fisher-Yates)
-  // 3. Nimm die ersten 'count' Elemente
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }

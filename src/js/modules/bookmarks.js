@@ -1,21 +1,9 @@
 /**
  * SYNTHESE — Bookmark Module
  * localStorage-basiertes Lesezeichen-System
- *
- * TODO: Implementiere das Bookmark-System
- * Anforderungen:
- * 1. Speichere Bookmarks im localStorage (Key: 'synthese-bookmarks')
- * 2. Füge zu jeder Card einen Bookmark-Button hinzu
- * 3. Zeige Bookmarks visuell an (gefülltes vs. leeres Herz/Icon)
- * 4. Erstelle eine Bookmark-Übersichtsseite oder einen Filter
- * 5. Bookmarks sollen über Sessions hinweg erhalten bleiben
- *
- * KI-Prompt-Tipp:
- * "Erstelle ein Bookmark-Modul mit localStorage CRUD.
- *  Speichere Topic-IDs als Array.
- *  Füge Bookmark-Buttons zu Cards hinzu.
- *  Zeige gefülltes/leeres Icon je nach State."
  */
+
+import { getTopicById } from './data.js';
 
 const STORAGE_KEY = 'synthese-bookmarks';
 
@@ -24,11 +12,26 @@ const STORAGE_KEY = 'synthese-bookmarks';
  * @returns {string[]} Array von Topic-IDs
  */
 export function getBookmarks() {
-  // TODO: Implementiere localStorage-Lesen
-  // Tipp: JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    // kaputter/fehlender localStorage-Eintrag → sauber leer starten statt crashen
+    return [];
+  }
+}
 
-  console.log('[TODO] getBookmarks() muss implementiert werden');
-  return [];
+/**
+ * Speichert das komplette Bookmark-Array
+ * @param {string[]} bookmarks
+ */
+function saveBookmarks(bookmarks) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(bookmarks));
+  } catch {
+    // z. B. Safari Private Mode / Quota voll — bewusst kein Crash
+  }
 }
 
 /**
@@ -36,11 +39,12 @@ export function getBookmarks() {
  * @param {string} topicId - ID des Topics
  */
 export function addBookmark(topicId) {
-  // TODO: Implementiere Hinzufügen
-  // 1. Lies aktuelle Bookmarks
-  // 2. Füge topicId hinzu (wenn nicht vorhanden)
-  // 3. Speichere in localStorage
-  // 4. Aktualisiere UI
+  if (!topicId) return;
+  const bookmarks = getBookmarks();
+  if (!bookmarks.includes(topicId)) {
+    bookmarks.push(topicId);
+    saveBookmarks(bookmarks);
+  }
 }
 
 /**
@@ -48,23 +52,23 @@ export function addBookmark(topicId) {
  * @param {string} topicId - ID des Topics
  */
 export function removeBookmark(topicId) {
-  // TODO: Implementiere Entfernen
-  // 1. Lies aktuelle Bookmarks
-  // 2. Filtere topicId heraus
-  // 3. Speichere in localStorage
-  // 4. Aktualisiere UI
+  if (!topicId) return;
+  const bookmarks = getBookmarks().filter((id) => id !== topicId);
+  saveBookmarks(bookmarks);
 }
 
 /**
  * Toggle: Fügt hinzu oder entfernt ein Bookmark
  * @param {string} topicId - ID des Topics
- * @returns {boolean} true = hinzugefügt, false = entfernt
+ * @returns {boolean} true = jetzt bookmarked, false = jetzt entfernt
  */
 export function toggleBookmark(topicId) {
-  // TODO: Implementiere Toggle-Logik
-  // 1. Prüfe, ob topicId bereits bookmarked ist
-  // 2. Falls ja: removeBookmark, sonst addBookmark
-  // 3. Rückgabe: Neuer State
+  if (isBookmarked(topicId)) {
+    removeBookmark(topicId);
+    return false;
+  }
+  addBookmark(topicId);
+  return true;
 }
 
 /**
@@ -73,28 +77,74 @@ export function toggleBookmark(topicId) {
  * @returns {boolean}
  */
 export function isBookmarked(topicId) {
-  // TODO: Implementiere Prüfung
-  // Tipp: getBookmarks().includes(topicId)
+  return getBookmarks().includes(topicId);
 }
 
 /**
- * Initialisiert Bookmark-Buttons auf allen Cards
+ * Initialisiert Bookmark-Buttons auf allen Cards/Detail-Ansichten
+ * Buttons werden per data-id angedockt (siehe #11/#12/#19), kein Eingriff in fremde Module
  */
 export function initBookmarkButtons() {
-  // TODO: Implementiere Button-Initialisierung
-  // 1. Query alle Bookmark-Buttons
-  // 2. Setze initialen State (gefüllt/leer)
-  // 3. Füge Click-Event-Listener hinzu
-  // 4. Toggle Bookmark bei Klick
+  document.querySelectorAll('.challenge-bookmark-btn').forEach((btn) => {
+    const topicId = btn.dataset.id;
+    if (!topicId) return;
+
+    // Doppel-Bindung verhindern, falls initBookmarkButtons() mehrfach aufgerufen wird
+    // (z. B. nach Re-Render von Cards oder erneutem Öffnen des Modals)
+    if (btn.dataset.bookmarkBound === 'true') {
+      // Zustand trotzdem aktuell halten, z. B. nach Reload oder externer Änderung
+      syncButtonState(btn, topicId);
+      return;
+    }
+    btn.dataset.bookmarkBound = 'true';
+
+    syncButtonState(btn, topicId);
+
+    btn.addEventListener('click', () => {
+      const nowBookmarked = toggleBookmark(topicId);
+      applyButtonState(btn, nowBookmarked);
+    });
+  });
 }
 
 /**
- * Rendert die Bookmark-Liste (z.B. in einem Overlay oder separater Seite)
+ * Setzt Button-Zustand passend zum aktuellen isBookmarked()-Wert
+ * @param {HTMLElement} btn
+ * @param {string} topicId
+ */
+function syncButtonState(btn, topicId) {
+  applyButtonState(btn, isBookmarked(topicId));
+}
+
+/**
+ * Wendet den visuellen + a11y-Zustand auf einen Button an
+ * @param {HTMLElement} btn
+ * @param {boolean} on
+ */
+function applyButtonState(btn, on) {
+  btn.classList.toggle('is-bookmarked', on);
+  btn.setAttribute('aria-pressed', String(on));
+  btn.setAttribute('aria-label', on ? 'Lesezeichen entfernen' : 'Lesezeichen setzen');
+}
+
+/**
+ * Rendert die Bookmark-Liste (z. B. in einem Overlay oder separater Seite)
  * @param {string} containerSelector - Selector für den Container
  */
 export function renderBookmarks(containerSelector = '#bookmarks-list') {
-  // TODO: Implementiere Bookmark-Liste
-  // 1. Lies alle Bookmarks
-  // 2. Hole Topic-Daten für jede ID
-  // 3. Rendere Mini-Cards oder Links
+  const box = document.querySelector(containerSelector);
+  if (!box) return;
+
+  const topics = getBookmarks()
+    .map((id) => getTopicById(id))
+    .filter(Boolean);
+
+  if (topics.length === 0) {
+    box.innerHTML = '';
+    return;
+  }
+
+  box.innerHTML = topics
+    .map((t) => `<a href="#" class="challenge-bookmark-item" data-id="${t.id}">${t.id}</a>`)
+    .join('');
 }

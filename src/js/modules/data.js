@@ -6,17 +6,17 @@
  * Nur der Team-Lead ändert diesen Aggregator. Schema: DATA-SCHEMA.md.
  */
 
-import grundlagen from './data/grundlagen.js';
-import angriffe from './data/angriffe.js';
-import schutz from './data/schutz.js';
-import infrastruktur from './data/infrastruktur.js';
+import gestaltung from './data/gestaltung.js';
+import farbeTypo from './data/farbe-typo.js';
+import bildGrafik from './data/bild-grafik.js';
+import webUx from './data/web-ux.js';
 
 /** Fixe Enums — siehe DATA-SCHEMA.md §7 */
-export const CATEGORIES = ['grundlagen', 'angriffe', 'schutz', 'infrastruktur'];
+export const CATEGORIES = ['gestaltung', 'farbe-typo', 'bild-grafik', 'web-ux'];
 export const DIFFICULTIES = ['easy', 'medium', 'hard'];
 
 /** Alle Themen, zusammengefügt aus den Kategorie-Dateien */
-export const topics = [...grundlagen, ...angriffe, ...schutz, ...infrastruktur];
+export const topics = [...gestaltung, ...farbeTypo, ...bildGrafik, ...webUx];
 
 /** Thema nach ID finden → Topic | undefined */
 export function getTopicById(id) {

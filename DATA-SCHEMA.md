@@ -12,34 +12,34 @@ Jedes Thema ist ein Objekt mit **genau** diesen Feldern:
 
 ```js
 {
-  id: 'brute-force',            // string, eindeutig, kebab-case. Referenz für related/bookmarks.
-  category: 'angriffe',         // FIX: 'grundlagen' | 'angriffe' | 'schutz' | 'infrastruktur'
+  id: 'farbmodelle',            // string, eindeutig, kebab-case. Referenz für related/bookmarks.
+  category: 'farbe-typo',       // FIX: 'gestaltung' | 'farbe-typo' | 'bild-grafik' | 'web-ux'
   difficulty: 'easy',           // FIX: 'easy' | 'medium' | 'hard'
-  image: 'synthese-brute.jpg',  // Dateiname in assets/images/ (oder '' für Icon-Fallback)
-  icon: 'ph-lock',              // Phosphor-Icon-Klasse (Fallback wenn kein Bild)
-  tags: ['brute-force', 'ssh', 'passwort'],  // string[], lowercase. TOP-LEVEL (nicht in de/en!)
-  related: ['fail2ban', 'ssh-hardening'],    // string[] von anderen topic.id
+  image: 'synthese-farbe.jpg',  // Dateiname in assets/images/ (oder '' für Icon-Fallback)
+  icon: 'ph-palette',           // Phosphor-Icon-Klasse (Fallback wenn kein Bild)
+  tags: ['rgb', 'cmyk', 'farbe'],  // string[], lowercase. TOP-LEVEL (nicht in de/en!)
+  related: ['farbharmonie', 'accessibility'],  // string[] von anderen topic.id
 
   de: {
-    title: 'Brute-Force-Angriffe',
+    title: 'RGB vs. CMYK',
     summary: 'Kurzbeschreibung in 1 Satz für die Card.',
     content: `<h3>...</h3><p>...</p>`,   // HTML-String, nur h3/p/ul/li/strong/code
     didYouKnow: 'Ein interessanter Fakt.'
   },
   en: {
-    title: 'Brute-Force Attacks',
+    title: 'RGB vs. CMYK',
     summary: 'One-sentence summary for the card.',
     content: `<h3>...</h3><p>...</p>`,
     didYouKnow: 'An interesting fact.'
   },
 
-  // NEU (Innovations-Tweak): Copy-Config-Blöcke. Leeres Array [] wenn keine.
+  // NEU (Innovations-Tweak): Copy-Code-Blöcke (CSS/HTML/SVG …). Leeres Array [] wenn keine.
   configs: [
     {
-      labelDe: 'fail2ban SSH-Jail',
-      labelEn: 'fail2ban SSH jail',
-      lang: 'ini',                // 'ini' | 'bash' | 'nginx' | 'yaml' | 'conf'
-      code: `[sshd]\nenabled = true\nmaxretry = 3\nbantime = 3600`
+      labelDe: 'HEX-Farbe als CSS-Variable',
+      labelEn: 'HEX color as CSS variable',
+      lang: 'css',                // 'css' | 'html' | 'svg' | 'js' | 'json'
+      code: `:root {\n  --brand: #ff5a3c;\n}`
     }
   ]
 }
@@ -61,10 +61,10 @@ Themen liegen **pro Kategorie** in eigener Datei — so kollidieren Content-Leut
 
 ```
 js/modules/data/
-├── grundlagen.js       →  export default [ {...}, {...} ]
-├── angriffe.js         →  export default [ ... ]
-├── schutz.js           →  export default [ ... ]
-└── infrastruktur.js    →  export default [ ... ]
+├── gestaltung.js       →  export default [ {...}, {...} ]
+├── farbe-typo.js       →  export default [ ... ]
+├── bild-grafik.js      →  export default [ ... ]
+└── web-ux.js           →  export default [ ... ]
 js/modules/data.js      →  Barrel: fügt alle zusammen + Helper (NICHT anfassen)
 ```
 
@@ -164,7 +164,7 @@ Zustände: `.u-hidden` (Search/Filter verstecken), `.is-bookmarked`, `.is-active
 - Jeder sichtbare **statische** Text im HTML: `data-i18n="bereich.key"`.
 - Topic-**Inhalte** kommen aus `data.js` (`de`/`en`), NICHT aus `translations/`.
 - `translations/de.js` und `translations/en.js` haben **immer dieselben Keys**.
-- Kategorie-Labels: Keys `category.grundlagen`, `category.angriffe`, `category.schutz`, `category.infrastruktur`.
+- Kategorie-Labels: Keys `category.gestaltung`, `category.farbe-typo`, `category.bild-grafik`, `category.web-ux`.
 - Schwierigkeit: `filter.easy`, `filter.medium`, `filter.hard` (existieren schon).
 - Aktive Sprache lesen: `getLanguage()` → `'de'` | `'en'`. Auf Wechsel reagieren: `onLangChange(cb)`.
 
@@ -173,8 +173,8 @@ Zustände: `.u-hidden` (Search/Filter verstecken), `.is-bookmarked`, `.is-active
 ## 7. Fixe Enums (Copy-Paste)
 
 ```js
-CATEGORIES = ['grundlagen', 'angriffe', 'schutz', 'infrastruktur'];
+CATEGORIES = ['gestaltung', 'farbe-typo', 'bild-grafik', 'web-ux'];
 DIFFICULTIES = ['easy', 'medium', 'hard'];
-CONFIG_LANGS = ['ini', 'bash', 'nginx', 'yaml', 'conf'];
+CONFIG_LANGS = ['css', 'html', 'svg', 'js', 'json'];
 STORAGE_KEY_BOOKMARKS = 'synthese-bookmarks';
 ```

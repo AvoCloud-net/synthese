@@ -1,10 +1,10 @@
 # SYNTHESE
 
-**Server absichern & selbst hosten (kostenlos)** — ein interaktives, zweisprachiges (DE/EN) Lern-Kompendium.
+**Mediendesign — Gestaltung, Farbe, Typografie & Web** — ein interaktives, zweisprachiges (DE/EN) Lern-Kompendium.
 
 > KI Challenge 2026 · Team A · entwickelt mit AI-Coding-Tools.
 
-Ein Frontend-Nachschlagewerk, das erklärt, wie man einen Server gegen typische Angriffe (Brute-Force, DoS/DDoS, Scanning) absichert und mit **Docker + nginx** selbst hostet. Themen als durchsuchbare, filterbare Karten mit Detailansicht, Lesezeichen und kopierbaren Config-Snippets.
+Ein Frontend-Nachschlagewerk, das die Grundlagen des Mediendesigns erklärt: Gestaltgesetze & Layout, Farbmodelle & Typografie, Bild & Grafik (Raster/Vektor, Formate, Kompression) sowie Web & UX. Themen als durchsuchbare, filterbare Karten mit Detailansicht, Lesezeichen und kopierbaren Code-Snippets (CSS/HTML/SVG).
 
 ---
 
@@ -35,12 +35,12 @@ npm run preview  # Build lokal ansehen
 - **Filter** — nach Kategorie und Schwierigkeit
 - **Detail-Ansicht** — voller Inhalt je Thema
 - **Bookmarks** — localStorage-basiert
-- **Config-Copy** — kopierbare nginx/fail2ban/ufw/Docker-Snippets
+- **Code-Copy** — kopierbare CSS/HTML/SVG-Snippets im Detail
 - Zweisprachig DE/EN · Dark/Light · Accessibility · Mobile-First
 
 ## Themen-Kategorien
 
-`Grundlagen` · `Angriffe` · `Schutz` · `Infrastruktur` — Fokus auf **nginx** (Rate-Limiting, Reverse-Proxy), fail2ban, ufw, SSH-Hardening, Docker.
+`Gestaltung` · `Farbe & Typografie` · `Bild & Grafik` · `Web & UX` — Gestaltgesetze, Layout/Raster, Farbmodelle, Typografie, Raster vs. Vektor, Dateiformate, Responsive Design, UI/UX & Accessibility.
 
 ---
 

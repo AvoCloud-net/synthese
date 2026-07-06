@@ -135,7 +135,7 @@ git checkout -b feature/deinname-naechste-aufgabe
 | `content` | Themen-Texte  |
 | `docs`    | Doku          |
 
-Beispiele: `feat: Bookmark-Button speichert in localStorage` · `fix: Filter zeigte falsche Kategorie` · `content: Thema fail2ban DE`
+Beispiele: `feat: Bookmark-Button speichert in localStorage` · `fix: Filter zeigte falsche Kategorie` · `content: Thema Farbmodelle DE`
 
 ---
 

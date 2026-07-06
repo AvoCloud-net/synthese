@@ -7,8 +7,8 @@
 
 ## 1. Worum geht's
 
-**SYNTHESE** = zweisprachiges (DE/EN), barrierefreies **Frontend-Lern-Kompendium**: „Server absichern & selbst hosten (kostenlos)" — nginx, fail2ban, ufw, SSH-Hardening, Docker, Brute-Force/DoS/DDoS.
-Kein echter Server — reines **Vite + Vanilla HTML/CSS/JS** (keine Frameworks). Thema = Inhalt der Lernkarten.
+**SYNTHESE** = zweisprachiges (DE/EN), barrierefreies **Frontend-Lern-Kompendium** über **Mediendesign** — Gestaltung (Gestaltgesetze, Layout/Raster), Farbe & Typografie, Bild & Grafik (Raster/Vektor, Formate, Kompression) und Web & UX.
+Reines **Vite + Vanilla HTML/CSS/JS** (keine Frameworks). Thema = Inhalt der Lernkarten.
 
 ## 2. Wie du arbeitest
 
@@ -26,7 +26,7 @@ Kein echter Server — reines **Vite + Vanilla HTML/CSS/JS** (keine Frameworks).
 | **Issues**                             | Jedes Issue nennt **Modul + Signatur + Akzeptanzkriterien** — deine Checkliste.                                                |
 | **Feature-Module**                     | `src/js/modules/*.js` — **Stubs mit `TODO`**. Du **füllst** sie, erstellst sie nicht neu.                                      |
 | **Daten (nur nutzen)**                 | `src/js/modules/data.js` — API: `topics`, `getTopicById`, `getTopicsByCategory`, `searchTopics`, `CATEGORIES`, `DIFFICULTIES`. |
-| **Themen-Inhalte**                     | `src/js/modules/data/<kategorie>.js` (`grundlagen/angriffe/schutz/infrastruktur`).                                             |
+| **Themen-Inhalte**                     | `src/js/modules/data/<kategorie>.js` (`gestaltung/farbe-typo/bild-grafik/web-ux`).                                             |
 | **i18n**                               | `src/translations/de.js` + `en.js` — **identische Keys**.                                                                      |
 | **CSS**                                | `src/css/` — ITCSS-Layer (`00-settings` … `09-print`), BEM `.challenge-*`.                                                     |
 | **Einstieg / DOM**                     | `src/pages/index.html`. Verdrahtung: `src/js/main.js`.                                                                         |

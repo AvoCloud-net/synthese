@@ -1,19 +1,19 @@
 # SYNTHESE — Projektplan
 
 **Team A · KI Challenge 2026**
-**Titel:** SYNTHESE — Server absichern & selbst hosten (kostenlos)
-**Deliverable:** Frontend-Lern-Kompendium (Vite, HTML/CSS/JS). **Kein** echter Server — Thema = Inhalt der Lernkarten.
+**Titel:** SYNTHESE — Interaktives Mediendesign-Kompendium
+**Deliverable:** Frontend-Lern-Kompendium (Vite, HTML/CSS/JS). Thema = Inhalt der Lernkarten (Mediendesign).
 **Methode:** Entwicklung **mit AI-Coding-Tools** (Kern-Ziel des Projekts). KI generiert Code + Content, Team reviewt, passt in Architektur ein, kann jede Entscheidung erklären. Gute Prompts = eigene Bonus-Kategorie.
 
 ---
 
 ## 1. Ziel
 
-Ein bilinguales (DE/EN), barrierefreies, gamifiziertes Web-Kompendium, das erklärt, wie man einen Server **kostenlos** gegen typische Angriffe (Brute-Force, DoS/DDoS, Scanning) absichert und mit Docker + nginx selbst hostet. Zielgruppe: Schüler/Einsteiger im Self-Hosting.
+Ein bilinguales (DE/EN), barrierefreies, gamifiziertes Web-Kompendium, das die Grundlagen des **Mediendesigns** vermittelt: Gestaltung & Layout, Farbe & Typografie, Bild & Grafik sowie Web & UX. Zielgruppe: Schüler/Einsteiger in Medien- und Grafikgestaltung.
 
 Bewertet wird (Rubric, 100 P): Architektur 25 · Funktionalität 25 · Design/UX 15 · i18n/a11y 15 · Team/Präsentation 10 · Innovation +10.
 
-**Nicht-Ziele:** echten Server aufsetzen, Backend, Login, DB. Alles Client-seitig (localStorage für Bookmarks).
+**Nicht-Ziele:** Backend, Login, DB, Datei-Upload/echter Editor. Alles Client-seitig (localStorage für Bookmarks).
 
 ---
 
@@ -29,60 +29,52 @@ Scaffold existiert schon in `src/` (Module + CSS-Komponenten + i18n). Wird umgen
 
 ---
 
-## 3. Themen (Content) — nginx-fokussiert
+## 3. Themen (Content) — Mediendesign
 
-4 Kategorien, difficulty easy/medium/hard. Kern = 16, Rest = Stretch.
+4 Kategorien, difficulty easy/medium/hard. Kern = 14, Rest = Stretch. Kategorie-IDs (fix): `gestaltung`, `farbe-typo`, `bild-grafik`, `web-ux`.
 
-### Grundlagen
+### Gestaltung (`gestaltung`)
 
-| #   | Thema                        | Diff   | Kern-Inhalt                                             |
-| --- | ---------------------------- | ------ | ------------------------------------------------------- |
-| 1   | Ports & Sockets              | easy   | TCP/UDP, well-known ports, `ss -tulpn`, was hört wo     |
-| 2   | Firewall-Grundlagen          | easy   | default-deny, ingress/egress, stateful                  |
-| 3   | SSH-Grundlagen               | easy   | Key vs Passwort, `ssh-keygen`, `~/.ssh/authorized_keys` |
-| 4   | TLS / HTTPS & Zertifikate    | medium | Handshake, CA, warum HTTPS überall                      |
-| 5   | Linux-User & Least Privilege | medium | non-root, `sudo`, warum nie als root laufen             |
+| #   | Thema                          | Diff   | Kern-Inhalt                                     |
+| --- | ------------------------------ | ------ | ----------------------------------------------- |
+| 1   | Gestaltgesetze                 | easy   | Nähe, Ähnlichkeit, Geschlossenheit, Figur-Grund |
+| 2   | Layout & Gestaltungsraster     | medium | Spalten, Stege, Weißraum, 12-Spalten-Raster     |
+| 3   | Komposition & Goldener Schnitt | medium | Drittelregel, Blickführung, Proportionen        |
 
-### Angriffe
+### Farbe & Typografie (`farbe-typo`)
 
-| #   | Thema                             | Diff   | Kern-Inhalt                                    |
-| --- | --------------------------------- | ------ | ---------------------------------------------- |
-| 6   | Brute-Force & Credential Stuffing | easy   | dictionary, geleakte Passwörter                |
-| 7   | DoS vs DDoS                       | medium | volumetric, amplification, Botnet              |
-| 8   | Port-Scanning & Recon             | medium | `nmap`, wie Angreifer offene Dienste finden    |
-| 9   | Slowloris & L7-Angriffe           | hard   | HTTP-Level-DoS gegen nginx, langsame Requests  |
-| 10  | Phishing / Social Engineering     | easy   | Human Layer, warum Technik allein nicht reicht |
+| #   | Thema                      | Diff   | Kern-Inhalt                              |
+| --- | -------------------------- | ------ | ---------------------------------------- |
+| 4   | RGB vs. CMYK — Farbmodelle | easy   | additiv/subtraktiv, Bildschirm vs. Druck |
+| 5   | Farbharmonie & Kontraste   | medium | Farbkreis, komplementär/analog/triadisch |
+| 6   | Typografie-Grundlagen      | easy   | Hierarchie, Zeilenlänge, line-height     |
+| 7   | Schriftklassifikation      | medium | Serif, Sans, Slab, Script — Wirkung      |
 
-### Schutz
+### Bild & Grafik (`bild-grafik`)
 
-| #   | Thema                         | Diff   | Kern-Inhalt                                                 |
-| --- | ----------------------------- | ------ | ----------------------------------------------------------- |
-| 11  | fail2ban                      | medium | Jails, Filter, Ban nach X Fehlversuchen (SSH + nginx-Logs)  |
-| 12  | Rate-Limiting mit nginx       | hard   | `limit_req_zone`, `limit_conn`, burst, gegen Brute-Force/L7 |
-| 13  | ufw / iptables                | medium | default deny, nur 22/80/443 erlauben                        |
-| 14  | SSH-Hardening                 | medium | Key-only, `PermitRootLogin no`, `MaxAuthTries`, Port ändern |
-| 15  | 2FA / MFA                     | easy   | TOTP, warum zweiter Faktor Brute-Force killt                |
-| 16  | GeoIP / IP-Allowlist in nginx | hard   | `geo`-Modul, `allow`/`deny`, Angriffs-Regionen sperren      |
+| #   | Thema                | Diff   | Kern-Inhalt                                  |
+| --- | -------------------- | ------ | -------------------------------------------- |
+| 8   | Raster vs. Vektor    | easy   | Pixel vs. Pfade, Skalierbarkeit, SVG         |
+| 9   | Auflösung & DPI      | medium | PPI/DPI, Web vs. Druck (300 DPI), Skalieren  |
+| 10  | Bild-Dateiformate    | easy   | JPG/PNG/SVG/WebP, Transparenz, Faustregeln   |
+| 11  | Kompression & Codecs | hard   | lossy/lossless, Codec vs. Container, Bitrate |
 
-### Infrastruktur
+### Web & UX (`web-ux`)
 
-| #   | Thema                           | Diff   | Kern-Inhalt                                 |
-| --- | ------------------------------- | ------ | ------------------------------------------- |
-| 17  | Docker-Grundlagen               | easy   | Image vs Container, Isolation als Schutz    |
-| 18  | docker-compose                  | medium | services, networks, volumes                 |
-| 19  | nginx als Reverse-Proxy         | medium | `proxy_pass`, `upstream`, warum vor die App |
-| 20  | Let's Encrypt / certbot + nginx | medium | Auto-Renew, kostenloses TLS                 |
-| 21  | Security-Header in nginx        | medium | HSTS, CSP, X-Frame-Options, X-Content-Type  |
-| 22  | Monitoring & Uptime             | easy   | Logs, `fail2ban-client status`, uptime-kuma |
-| 23  | Backups & Recovery              | easy   | 3-2-1-Regel, warum Recovery testen          |
+| #   | Thema                   | Diff   | Kern-Inhalt                                 |
+| --- | ----------------------- | ------ | ------------------------------------------- |
+| 12  | Responsive Design       | easy   | Mobile First, Media Queries, flexible Units |
+| 13  | UI/UX-Grundlagen        | medium | UI vs. UX, Konsistenz, Feedback, Zustände   |
+| 14  | Barrierefreiheit (A11y) | medium | Kontrast 4,5:1, Tastatur, Semantik, ARIA    |
+| 15  | CSS Grid & Flexbox      | hard   | eine vs. zwei Achsen, kombinieren           |
 
-**Related-Graph-Beispiel:** Brute-Force → fail2ban → SSH-Hardening → Rate-Limiting → nginx-Reverse-Proxy.
+**Related-Graph-Beispiel:** Gestaltgesetze → Layout/Raster → CSS Grid → Responsive Design → UI/UX.
 
 ### Priorität (Content via AI-Coding-Tools → geht sich aus)
 
-Ziel = alle **16 Kern**, plus Stretch (17–23) wenn Zeit. Content wird KI-generiert + vom Team geprüft/eingepasst (accuracy + i18n-sync + BEM). Die 8 unten = **Tag-1-Sicherheitsnetz** (muss Ende Tag 1 stehen), damit selbst im schlimmsten Fall voller Kategorie- + Difficulty-Spread da ist.
+Ziel = alle **14 Kern** (siehe Tabellen), plus weitere Themen wenn Zeit. Content wird KI-generiert + vom Team geprüft/eingepasst (accuracy + i18n-sync + BEM). Die 8 unten = **Tag-1-Sicherheitsnetz** (muss Ende Tag 1 stehen), damit selbst im schlimmsten Fall voller Kategorie- + Difficulty-Spread da ist.
 
-**Tag-1-Sicherheitsnetz (8):** Ports · SSH-Grundlagen · Brute-Force · DoS/DDoS · fail2ban · Rate-Limiting nginx · Docker · nginx Reverse-Proxy.
+**Tag-1-Sicherheitsnetz (8):** Gestaltgesetze · Layout/Raster · RGB vs. CMYK · Typografie-Grundlagen · Raster vs. Vektor · Bild-Dateiformate · Responsive Design · Barrierefreiheit.
 
 ---
 
@@ -98,7 +90,7 @@ Ziel = alle **16 Kern**, plus Stretch (17–23) wenn Zeit. Content wird KI-gener
 
 ### Extras (Innovation +10, schon im Scaffold)
 
-- **Config-Copy-Block** (NEU, Kern-Tweak) — im Detail echter nginx/fail2ban/ufw/docker-compose-Schnipsel mit Copy-Button
+- **Code-Copy-Block** (NEU, Kern-Tweak) — im Detail echter CSS/HTML/SVG-Schnipsel mit Copy-Button
 - XP-Bar, Mission, Classroom-Mode, Reading-Mode, Related-Links
 
 ---
@@ -139,7 +131,7 @@ Hart getaktet. Feature-Freeze **Di früher Nachmittag** — Rest = Präsi (Rubri
 | Zeit           | Wer     | Ziel                                                                                  |
 | -------------- | ------- | ------------------------------------------------------------------------------------- |
 | Früh-Vormittag | Content | restliche Kern-Themen (bis 16) + EN-Übersetzungen (KI), `de.js`==`en.js` sync geprüft |
-| Vormittag      | Dev B   | **Config-Copy-Tweak** (nginx/fail2ban/ufw-Schnipsel + Copy-Button)                    |
+| Vormittag      | Dev B   | **Code-Copy-Tweak** (CSS/HTML/SVG-Schnipsel + Copy-Button)                            |
 | Vormittag      | Design  | a11y-Pass (ARIA/Fokus/Tab), Mobile 320–768, Dark/Light, SVG-Diagramme                 |
 | Vormittag      | Dev A   | Extras aktivieren wenn Zeit (XP/Mission/Classroom/Reading)                            |
 | **~13:00**     | alle    | **FEATURE-FREEZE.** Nur noch Bugfix.                                                  |
@@ -166,10 +158,10 @@ Vite Multi-Entry auf `src/pages/index.html` zeigen lassen. Git früh init, `.git
 
 ## 8. Risiken
 
-| Risiko                                   | Gegenmaßnahme                                                              |
-| ---------------------------------------- | -------------------------------------------------------------------------- |
-| Scope-Creep → echter Server bauen        | Strikt: nur Content. Kein Backend.                                         |
-| Schwache Bilder (Security = wenig Fotos) | Eigene SVG-Diagramme/Icons statt Stock → gibt Design+Innovation zurück     |
-| i18n-Keys driften                        | Content-Lead prüft `de.js`==`en.js` Keys bei jedem M                       |
-| KI generiert BEM-Verstöße                | Architekt reviewt, Prompt-Templates aus `teacher/prompt-templates/` nutzen |
-| Niemand kann Code erklären (Rubric!)     | Jeder dokumentiert seine Modul-Entscheidung, Präsi-Probe in M5             |
+| Risiko                                   | Gegenmaßnahme                                                                    |
+| ---------------------------------------- | -------------------------------------------------------------------------------- |
+| Scope-Creep → echten Editor/Upload bauen | Strikt: nur Content-Karten. Kein Backend.                                        |
+| Bilder inkonsistent/rechtlich unklar     | Eigene SVG-Diagramme/Icons + einheitliche Motive → gibt Design+Innovation zurück |
+| i18n-Keys driften                        | Content-Lead prüft `de.js`==`en.js` Keys bei jedem M                             |
+| KI generiert BEM-Verstöße                | Architekt reviewt, Prompt-Templates aus `teacher/prompt-templates/` nutzen       |
+| Niemand kann Code erklären (Rubric!)     | Jeder dokumentiert seine Modul-Entscheidung, Präsi-Probe in M5                   |

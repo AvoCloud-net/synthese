@@ -128,11 +128,20 @@ function closeTopicDetail() {
 
 /**
  * Bindet die Schließen-Handler des Modals einmalig (Close-Button, Backdrop, Esc).
+ * Setzt zusätzlich die ARIA-Attribute für den Dialog, falls sie in index.html
+ * (noch) nicht statisch gesetzt sind — Fallback, damit das Modal auch ohne
+ * Änderung an index.html korrekt als Dialog ausgezeichnet ist.
  */
 function initModalControls() {
   const modal = document.getElementById('topic-modal');
   if (!modal || modal.dataset.controlsBound) return;
   modal.dataset.controlsBound = 'true';
+
+  // ARIA-Fallback: nur setzen, falls noch nicht in index.html vorhanden,
+  // damit eine spätere manuelle Ergänzung dort nichts überschreibt.
+  if (!modal.hasAttribute('role')) modal.setAttribute('role', 'dialog');
+  if (!modal.hasAttribute('aria-modal')) modal.setAttribute('aria-modal', 'true');
+  if (!modal.hasAttribute('aria-labelledby')) modal.setAttribute('aria-labelledby', 'modal-title');
 
   modal.querySelector('.challenge-modal__close')?.addEventListener('click', closeTopicDetail);
   modal.querySelector('.challenge-modal__backdrop')?.addEventListener('click', closeTopicDetail);

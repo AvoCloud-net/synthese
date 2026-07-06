@@ -182,4 +182,61 @@ export default [
     },
     configs: [],
   },
+  {
+    id: 'prepress',
+    category: 'bild-grafik',
+    difficulty: 'medium',
+    image: '',
+    icon: 'ph-printer',
+    tags: ['druck', 'pdf', 'prepress', 'cmyk', 'beschnitt'],
+    related: ['bild-dateiformate', 'farbmodelle', 'aufloesung-dpi'],
+    de: {
+      title: 'Prepress & PDF/X-Standards',
+      summary:
+        'Druckvorstufe meistern: PDF/X-Compliance, Farbprofile und Beschnitt — damit gedruckt wird, was du siehst.',
+      content: `
+        <h3>Was ist Prepress?</h3>
+        <p>Die <strong>Druckvorstufe</strong> bereitet eine Datei druckfertig auf: Farbraum, Schriften, Auflösung und Beschnitt müssen stimmen, bevor die Druckmaschine startet.</p>
+        <h3>PDF/X — der sichere Standard</h3>
+        <ul>
+          <li><strong>PDF/X-1a:</strong> alle Schriften eingebettet, nur CMYK — der sicherste, strengste Standard.</li>
+          <li><strong>PDF/X-4:</strong> erlaubt Transparenzen und ICC-Profile — flexibler, aber anspruchsvoller.</li>
+        </ul>
+        <h3>Beschnitt (Bleed)</h3>
+        <p>Elemente, die bis zum Papierrand laufen, brauchen <strong>3 mm Überstand</strong> über den Schnittrand. Sonst blitzen nach dem Schneiden weiße Ränder auf.</p>
+      `,
+      didYouKnow:
+        'Ein „Rich Black" aus mehreren CMYK-Farben wirkt im Druck satter als reines K100 — aber zu viel Farbauftrag lässt das Papier durchweichen.',
+    },
+    en: {
+      title: 'Prepress & PDF/X Standards',
+      summary:
+        'Master the print stage: PDF/X compliance, color profiles and bleed — so what you see is what gets printed.',
+      content: `
+        <h3>What is prepress?</h3>
+        <p><strong>Prepress</strong> gets a file ready to print: color space, fonts, resolution and bleed must be right before the press starts.</p>
+        <h3>PDF/X — the safe standard</h3>
+        <ul>
+          <li><strong>PDF/X-1a:</strong> all fonts embedded, CMYK only — the safest, strictest standard.</li>
+          <li><strong>PDF/X-4:</strong> allows transparency and ICC profiles — more flexible, but trickier.</li>
+        </ul>
+        <h3>Bleed</h3>
+        <p>Elements that run to the paper edge need <strong>3 mm of bleed</strong> past the trim line. Otherwise white slivers appear after cutting.</p>
+      `,
+      didYouKnow:
+        'A "rich black" mixed from several CMYK inks looks deeper in print than pure K100 — but too much ink coverage soaks the paper.',
+    },
+    configs: [
+      {
+        labelDe: 'Beschnitt & Schnittmarken (CSS @page)',
+        labelEn: 'Bleed & crop marks (CSS @page)',
+        lang: 'css',
+        code: `@page {
+  size: 210mm 297mm;   /* A4 */
+  bleed: 3mm;
+  marks: crop cross;
+}`,
+      },
+    ],
+  },
 ];

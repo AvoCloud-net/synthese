@@ -4,7 +4,7 @@
  */
 
 import { getTopicById } from './data.js';
-import { getLang } from './i18n.js';
+import { getLanguage } from './i18n.js';
 
 /**
  * Findet verwandte Topics für eine gegebene Topic-ID
@@ -46,12 +46,28 @@ export function renderRelated(currentTopicId, containerSelector = '#related-topi
  * @returns {string} HTML-String
  */
 function createRelatedCardHtml(topic) {
-  const lang = getLang();
-  const title = topic?.[lang]?.title ?? '';
+  const lang = getLanguage();
+  const title = topic?.[lang]?.title ?? topic?.de?.title ?? topic.id;
+  const safeTitle = escapeHtml(title);
+  const safeId = escapeHtml(topic.id);
 
   return `
-    <button class="challenge-related__link" data-id="${topic.id}" type="button">
-      ${title}
+    <button class="challenge-related__link" data-id="${safeId}" type="button" aria-label="${safeTitle}">
+      ${safeTitle}
     </button>
   `;
+}
+
+/**
+ * Escaped einfache HTML-Sonderzeichen, um XSS über Topic-Titel/IDs zu verhindern
+ * @param {string} str
+ * @returns {string}
+ */
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }

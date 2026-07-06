@@ -5,7 +5,6 @@
 
 ---
 
-
 ## 1. Worum geht's
 
 **SYNTHESE** = zweisprachiges (DE/EN), barrierefreies **Frontend-Lern-Kompendium** über **Mediendesign** — Gestaltung (Gestaltgesetze, Layout/Raster), Farbe & Typografie, Bild & Grafik (Raster/Vektor, Formate, Kompression) und Web & UX.

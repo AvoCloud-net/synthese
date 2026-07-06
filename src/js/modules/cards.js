@@ -8,6 +8,8 @@
 
 import { topics, getTopicById } from './data.js';
 import { getLanguage, updateI18nAttributes } from './i18n.js';
+import { renderSandbox } from './sandbox.js';
+import { renderExample } from './example.js';
 
 /**
  * Rendert alle Topic-Cards in den Container
@@ -45,7 +47,7 @@ export function renderCards(containerSelector = '#topics-grid', data = topics) {
  */
 function createCardHtml(topic) {
   const lang = getLanguage();
-  const l = topic[lang] || topic.de;
+  const l = topic[lang] || topic.de || topic.en || {};
 
   return `
     <article class="challenge-topic-card ${getCategoryClass(topic.category)}"
@@ -105,14 +107,25 @@ function openTopicDetail(topicId) {
   const body = document.getElementById('modal-body');
   if (!topic || !modal || !body) return;
 
-  const l = topic[getLanguage()] || topic.de;
+  const lang = getLanguage();
+  const l = topic[lang] || topic.de || topic.en || {};
   body.innerHTML = `
     <h2 id="modal-title" class="challenge-topic-detail__title">${escapeHtml(l.title)}</h2>
     <div class="challenge-topic-detail__body">${l.content || `<p>${escapeHtml(l.summary)}</p>`}</div>
+    <div id="topic-example" hidden></div>
+    <div id="topic-sandbox" hidden></div>
   `;
 
+  // Visuelles Beispiel (nur sichtbar, wenn topic.example existiert).
+  renderExample(topicId);
+  // Issue #52: Sandbox-Bereich (nur sichtbar, wenn topic.sandbox existiert).
+  renderSandbox(topicId);
+
   modal.hidden = false;
-  document.body.style.overflow = 'hidden';
+  // Seite dahinter sperren — nur der Detail-Inhalt scrollt. Klasse auf <html>,
+  // damit der Viewport-Scroll wirklich blockiert ist (body-overflow allein
+  // reicht in Standards-Mode nicht zuverlässig).
+  document.documentElement.classList.add('is-detail-open');
   modal.querySelector('.challenge-modal__close')?.focus();
 }
 
@@ -123,7 +136,7 @@ function closeTopicDetail() {
   const modal = document.getElementById('topic-modal');
   if (!modal) return;
   modal.hidden = true;
-  document.body.style.overflow = '';
+  document.documentElement.classList.remove('is-detail-open');
 }
 
 /**

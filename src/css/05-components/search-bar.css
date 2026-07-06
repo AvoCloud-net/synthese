@@ -88,4 +88,15 @@
       0 4px 30px rgba(79, 70, 229, 0.15),
       0 0 0 3px rgba(79, 70, 229, 0.08);
   }
+
+  .challenge-search__no-results {
+    margin-top: var(--space-4);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: var(--text-base);
+  }
+
+  html[data-theme='light'] .challenge-search__no-results {
+    color: rgb(100 116 139);
+  }
 }

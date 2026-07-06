@@ -8,7 +8,6 @@ import { initTheme } from './modules/theme.js';
 import { ClassroomManager, initBackToTop, initMobileMenu } from './modules/classroom.js';
 import { initMission } from './modules/mission.js';
 import { initXP } from './modules/xp.js';
-import { initTopicCards } from './modules/topics.js';
 
 // ── TEAM-MODULE (Schritt 1: hier den Import einkommentieren, wenn dein Modul fertig ist) ──
 // WICHTIG: import-Zeilen müssen HIER oben stehen, niemals in der Funktion unten.
@@ -42,9 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize XP system
   initXP();
-
-  // Initialize topic card modals
-  initTopicCards();
 
   // Initialize scroll reveal
   initScrollReveal();

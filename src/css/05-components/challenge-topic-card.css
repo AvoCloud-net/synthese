@@ -1,0 +1,159 @@
+@layer components {
+  /* ============================================================
+     Challenge Topic Card (JS-rendered via cards.js / Issue #11)
+     Screen-Styles für .challenge-topic-card__* — Grid nutzt .topics-grid
+     ============================================================ */
+  .challenge-topic-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
+  }
+
+  /* Top accent bar */
+  .challenge-topic-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--challenge-primary), var(--challenge-accent));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+
+  .challenge-topic-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--challenge-primary);
+  }
+
+  html[data-theme='dark'] .challenge-topic-card:hover {
+    border-color: var(--challenge-primary-light);
+  }
+
+  .challenge-topic-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Sichtbarer Fokus für Tastatur-Navigation (tabindex=0) */
+  .challenge-topic-card:focus-visible {
+    outline: 2px solid var(--challenge-primary);
+    outline-offset: 2px;
+    border-color: var(--challenge-primary);
+  }
+
+  /* ---- Meta / Badges ---- */
+  .challenge-topic-card__meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .challenge-topic-card__badge {
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .challenge-topic-card__badge--cat {
+    background: rgba(79, 70, 229, 0.12);
+    color: var(--challenge-primary);
+  }
+
+  html[data-theme='dark'] .challenge-topic-card__badge--cat {
+    background: rgba(129, 140, 248, 0.18);
+    color: var(--challenge-primary-light);
+  }
+
+  .challenge-topic-card__badge--diff {
+    background: var(--bg-code);
+    color: var(--text-muted);
+  }
+
+  .challenge-topic-card__badge--diff.easy {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--challenge-success);
+  }
+
+  .challenge-topic-card__badge--diff.medium {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--challenge-warning);
+  }
+
+  .challenge-topic-card__badge--diff.hard {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--challenge-error);
+  }
+
+  /* Kategorie-Icon rechts */
+  .challenge-topic-card__icon {
+    margin-left: auto;
+    font-size: var(--text-xl);
+    color: var(--challenge-primary);
+  }
+
+  html[data-theme='dark'] .challenge-topic-card__icon {
+    color: var(--challenge-primary-light);
+  }
+
+  /* ---- Text ---- */
+  .challenge-topic-card__title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+  }
+
+  .challenge-topic-card__summary {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    flex-grow: 1;
+  }
+
+  /* ---- Provisorisches Detail-Modal (befüllt via cards.js) ---- */
+  .challenge-topic-detail__title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+  }
+
+  .challenge-topic-detail__body {
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  .challenge-topic-detail__body h3 {
+    color: var(--text-primary);
+    font-size: var(--text-lg);
+    margin: var(--space-5) 0 var(--space-2);
+  }
+
+  .challenge-topic-detail__body ul,
+  .challenge-topic-detail__body ol {
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-4);
+  }
+
+  .challenge-topic-detail__body li {
+    margin-bottom: var(--space-1);
+  }
+}

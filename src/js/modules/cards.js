@@ -6,7 +6,7 @@
  * Issue #12: Meta-Block — Kategorie-/Difficulty-Badge + Icon, Texte via i18n
  */
 
-import { topics } from './data.js';
+import { topics, getTopicById } from './data.js';
 import { getLanguage, updateI18nAttributes } from './i18n.js';
 
 /**
@@ -24,8 +24,17 @@ export function renderCards(containerSelector = '#topics-grid', data = topics) {
   // sonst bleiben die Badges leer.
   updateI18nAttributes();
 
+  initModalControls();
+
   container.querySelectorAll('.challenge-topic-card').forEach((card) => {
     card.addEventListener('click', () => openTopicDetail(card.dataset.id));
+    // Tastatur: Enter/Space öffnet Detail (Karte ist tabindex=0)
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openTopicDetail(card.dataset.id);
+      }
+    });
   });
 }
 
@@ -81,12 +90,53 @@ function escapeHtml(str = '') {
 
 /**
  * Öffnet die Detail-Ansicht für ein Topic.
- * Feuert ein CustomEvent 'topic:open' — der Detail-/Modal-Handler
- * (eigenes Issue) hört darauf. Kein harter Link auf eine (noch)
- * nicht existierende Seite.
+ *
+ * Provisorisch: befüllt das vorhandene #topic-modal direkt mit dem echten
+ * Inhalt aus data.js. Das dedizierte Detail-Modal (Issue #18/#19) ersetzt
+ * diese Funktion später — dann hier stattdessen ein CustomEvent 'topic:open'
+ * dispatchen, auf das das Modal-Modul hört.
  * @param {string} topicId - ID des Topics
  */
 function openTopicDetail(topicId) {
   if (!topicId) return;
-  document.dispatchEvent(new CustomEvent('topic:open', { detail: { id: topicId } }));
+
+  const topic = getTopicById(topicId);
+  const modal = document.getElementById('topic-modal');
+  const body = document.getElementById('modal-body');
+  if (!topic || !modal || !body) return;
+
+  const l = topic[getLanguage()] || topic.de;
+  body.innerHTML = `
+    <h2 id="modal-title" class="challenge-topic-detail__title">${escapeHtml(l.title)}</h2>
+    <div class="challenge-topic-detail__body">${l.content || `<p>${escapeHtml(l.summary)}</p>`}</div>
+  `;
+
+  modal.hidden = false;
+  document.body.style.overflow = 'hidden';
+  modal.querySelector('.challenge-modal__close')?.focus();
+}
+
+/**
+ * Schließt das Detail-Modal.
+ */
+function closeTopicDetail() {
+  const modal = document.getElementById('topic-modal');
+  if (!modal) return;
+  modal.hidden = true;
+  document.body.style.overflow = '';
+}
+
+/**
+ * Bindet die Schließen-Handler des Modals einmalig (Close-Button, Backdrop, Esc).
+ */
+function initModalControls() {
+  const modal = document.getElementById('topic-modal');
+  if (!modal || modal.dataset.controlsBound) return;
+  modal.dataset.controlsBound = 'true';
+
+  modal.querySelector('.challenge-modal__close')?.addEventListener('click', closeTopicDetail);
+  modal.querySelector('.challenge-modal__backdrop')?.addEventListener('click', closeTopicDetail);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.hidden) closeTopicDetail();
+  });
 }

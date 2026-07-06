@@ -6,13 +6,13 @@
  * Issue #12: Meta-Block — Kategorie-/Difficulty-Badge + Icon, Texte via i18n
  */
 
-import { topics, getTopicById } from './data.js';
+import { topics, getTopicById, CATEGORIES } from './data.js';
 import { getLanguage, updateI18nAttributes } from './i18n.js';
 import { renderSandbox } from './sandbox.js';
 import { renderExample } from './example.js';
 
 /**
- * Rendert alle Topic-Cards in den Container
+ * Rendert alle Topic-Cards, gruppiert nach Kategorie, in den Container
  * @param {string} containerSelector - Selector für den Container
  * @param {Array} [data=topics] - Array der zu rendernden Themen
  */
@@ -20,10 +20,15 @@ export function renderCards(containerSelector = '#topics-grid', data = topics) {
   const container = document.querySelector(containerSelector);
   if (!container) return;
 
-  container.innerHTML = data.map(createCardHtml).join('');
+  container.innerHTML = CATEGORIES.map((category) =>
+    createCategoryGroupHtml(
+      category,
+      data.filter((t) => t.category === category)
+    )
+  ).join('');
 
-  // Badge-Texte hängen an data-i18n → nach dem Rendern neu übersetzen,
-  // sonst bleiben die Badges leer.
+  // Badge-/Gruppentitel-Texte hängen an data-i18n → nach dem Rendern neu übersetzen,
+  // sonst bleiben sie leer.
   updateI18nAttributes();
 
   initModalControls();
@@ -38,6 +43,24 @@ export function renderCards(containerSelector = '#topics-grid', data = topics) {
       }
     });
   });
+}
+
+/**
+ * Erstellt eine Kategorie-Sektion (Überschrift + Card-Grid). Leere Kategorien
+ * werden nicht gerendert.
+ * @param {string} category - Kategorie-Enum (DATA-SCHEMA §7)
+ * @param {Array} items - Themen dieser Kategorie
+ * @returns {string} HTML-String
+ */
+function createCategoryGroupHtml(category, items) {
+  if (items.length === 0) return '';
+
+  return `
+    <section class="topics-group" data-category="${category}">
+      <h3 class="topics-group__title" data-i18n="category.${category}"></h3>
+      <div class="topics-grid">${items.map(createCardHtml).join('')}</div>
+    </section>
+  `;
 }
 
 /**

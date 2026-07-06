@@ -142,6 +142,12 @@ export default {
   'filter.medium': 'Medium',
   'filter.hard': 'Hard',
 
+  // Category labels (see DATA-SCHEMA.md §6)
+  'category.gestaltung': 'Design Principles',
+  'category.farbe-typo': 'Color & Typography',
+  'category.bild-grafik': 'Image & Graphics',
+  'category.web-ux': 'Web & UX',
+
   // Topic Card
   'card.readMore': 'Read more',
   'card.readMoreSoon': 'Discover more',
@@ -156,7 +162,7 @@ export default {
 
   // Topics Section
   'topics.title': 'Topics',
-  'topics.subtitle': 'Discover the world of media technology',
+  'topics.subtitle': 'Discover the world of media design',
 
   // Bookmarks Section
   'bookmarks.title': 'My Bookmarks',

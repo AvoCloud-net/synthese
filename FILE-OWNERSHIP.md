@@ -25,10 +25,10 @@ Ziel: **keine Merge-Konflikte** + **einheitliche Dateinamen**. Jede Datei hat **
 
 | Datei                    | Issue | Regel                              |
 | ------------------------ | ----- | ---------------------------------- |
-| `data/grundlagen.js`     | #34   | nur diese                          |
-| `data/angriffe.js`       | #35   | nur diese                          |
-| `data/schutz.js`         | #36   | nur diese                          |
-| `data/infrastruktur.js`  | #37   | nur diese                          |
+| `data/gestaltung.js`     | #34   | nur diese                          |
+| `data/farbe-typo.js`     | #35   | nur diese                          |
+| `data/bild-grafik.js`    | #36   | nur diese                          |
+| `data/web-ux.js`         | #37   | nur diese                          |
 | `data.js` (Barrel + API) | —     | **nur LESEN**, nicht ändern (Lead) |
 
 ## 3. CSS (`src/css/`) — je Komponente eine Datei (alle: Design-Owner)

@@ -140,6 +140,12 @@ export default {
   'filter.medium': 'Mittel',
   'filter.hard': 'Schwer',
 
+  // Kategorie-Labels (siehe DATA-SCHEMA.md §6)
+  'category.gestaltung': 'Gestaltung',
+  'category.farbe-typo': 'Farbe & Typografie',
+  'category.bild-grafik': 'Bild & Grafik',
+  'category.web-ux': 'Web & UX',
+
   // Topic Card
   'card.readMore': 'Mehr lesen',
   'card.readMoreSoon': 'Entdecke mehr',
@@ -154,7 +160,7 @@ export default {
 
   // Topics Section
   'topics.title': 'Themen',
-  'topics.subtitle': 'Entdecke die Welt der Medientechnik',
+  'topics.subtitle': 'Entdecke die Welt des Mediendesigns',
 
   // Bookmarks Section
   'bookmarks.title': 'Meine Lesezeichen',

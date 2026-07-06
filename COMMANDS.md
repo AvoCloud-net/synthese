@@ -1,6 +1,15 @@
 # COMMANDS.md — Befehls-Spickzettel
 
-Alle Befehle im Projekt-Ordner ausführen (`cd .../synthese`).
+Alle Befehle im Projekt-Ordner ausführen (`cd synthese`).
+
+## Repo holen (einmalig)
+
+```bash
+git clone https://github.com/AvoCloud-net/synthese.git
+cd synthese
+```
+
+> Schon geklont? Neuesten Stand holen: `git checkout dev && git pull`.
 
 ## Setup (einmalig)
 

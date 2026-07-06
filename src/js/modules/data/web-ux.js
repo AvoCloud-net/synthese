@@ -360,5 +360,4 @@ t('de', 'greeting'); // "Hallo"`,
   },
   configs: [],
 },
-
 ];

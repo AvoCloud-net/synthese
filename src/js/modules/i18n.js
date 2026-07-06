@@ -11,11 +11,28 @@ let translations = {};
 
 export function setLanguage(lang) {
   if (!['de', 'en'].includes(lang)) lang = 'de';
+  const changed = lang !== currentLang;
+
   currentLang = lang;
   localStorage.setItem('plu-language', lang);
   document.documentElement.lang = lang;
   document.documentElement.dir = RTL_LANGS.has(lang) ? 'rtl' : 'ltr';
   updateI18nAttributes();
+
+  // Callbacks zentral hier auslösen, nicht nur im UI-Klick-Handler,
+  // damit JEDER Aufrufpfad von setLanguage() die Re-Render-Callbacks triggert.
+  if (changed && window.__i18nOnLangChange) {
+    window.__i18nOnLangChange.forEach((cb) => cb(lang));
+  }
+}
+
+/**
+ * Liefert die aktuelle Sprache ('de' | 'en').
+ * Kurzer Helper-Alias zu getLanguage(), für Module, die diesen Namen erwarten.
+ * @returns {string}
+ */
+export function getLang() {
+  return currentLang;
 }
 
 export function getLanguage() {
@@ -115,11 +132,8 @@ export function initLanguageSwitcher() {
     opt.addEventListener('click', () => {
       const lang = opt.dataset.lang;
       if (lang && lang !== currentLang) {
-        setLanguage(lang);
+        setLanguage(lang); // löst jetzt selbst die onLangChange-Callbacks aus
         updateActive();
-        if (window.__i18nOnLangChange) {
-          window.__i18nOnLangChange.forEach((cb) => cb(lang));
-        }
       }
       wrapper.classList.remove('is-open');
       btn.setAttribute('aria-expanded', 'false');

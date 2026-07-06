@@ -239,4 +239,107 @@ export default [
       },
     ],
   },
+  ,
+{
+  id: 'bildoptimierung-web',
+  category: 'bild-grafik',
+  difficulty: 'medium',
+  image: '',
+  icon: 'ph-image-square',
+  tags: ['web', 'optimierung', 'webp', 'avif', 'lazy-loading'],
+  related: ['bild-dateiformate', 'kompression-codecs'],
+  de: {
+    title: 'Bildoptimierung fürs Web',
+    summary: 'Optimierte Bilder machen Webseiten schneller und verbessern die Benutzererfahrung.',
+    content: `
+      <h3>Warum optimieren?</h3>
+      <p>Große Bilder verlängern die Ladezeit einer Website. Optimierte Bilder verbessern Performance und SEO.</p>
+
+      <h3>Empfehlungen</h3>
+      <ul>
+        <li><strong>WebP oder AVIF</strong> verwenden.</li>
+        <li><strong>Lazy Loading</strong> aktivieren.</li>
+        <li><strong>Responsive Bilder</strong> mit <code>srcset</code> nutzen.</li>
+        <li>Bilder nur so groß speichern wie nötig.</li>
+      </ul>
+
+      <h3>Ziel</h3>
+      <p>Möglichst kleine Dateigröße bei hoher Bildqualität.</p>
+    `,
+    didYouKnow: 'Optimierte Bilder können die Dateigröße um mehr als 70 % reduzieren.',
+  },
+  en: {
+    title: 'Image Optimization for the Web',
+    summary: 'Optimized images make websites faster and improve user experience.',
+    content: `
+      <h3>Why optimize?</h3>
+      <p>Large images slow down websites. Optimized images improve performance and SEO.</p>
+
+      <h3>Recommendations</h3>
+      <ul>
+        <li>Use <strong>WebP or AVIF</strong>.</li>
+        <li>Enable <strong>lazy loading</strong>.</li>
+        <li>Use responsive images with <code>srcset</code>.</li>
+        <li>Only save images as large as necessary.</li>
+      </ul>
+
+      <h3>Goal</h3>
+      <p>Keep file sizes as small as possible while maintaining good quality.</p>
+    `,
+    didYouKnow: 'Optimized images can reduce file size by more than 70%.',
+  },
+  configs: [
+    {
+      labelDe: 'Lazy Loading',
+      labelEn: 'Lazy Loading',
+      lang: 'html',
+      code: `<img
+  src="bild.webp"
+  loading="lazy"
+  alt="Beispiel"
+/>`,
+    },
+  ],
+},
+{
+  id: 'exif-metadaten',
+  category: 'bild-grafik',
+  difficulty: 'easy',
+  image: '',
+  icon: 'ph-info',
+  tags: ['exif', 'metadaten', 'gps', 'kamera'],
+  related: ['bild-dateiformate', 'aufloesung-dpi'],
+  de: {
+    title: 'EXIF & Metadaten',
+    summary: 'Digitale Bilder enthalten häufig zusätzliche Informationen über die Aufnahme.',
+    content: `
+      <h3>EXIF-Daten</h3>
+      <p>EXIF speichert Informationen wie Kameramodell, ISO, Belichtungszeit, Brennweite und Aufnahmedatum.</p>
+
+      <h3>GPS-Daten</h3>
+      <p>Viele Smartphones speichern zusätzlich den Aufnahmeort eines Fotos.</p>
+
+      <h3>Datenschutz</h3>
+      <p>Vor dem Teilen persönlicher Bilder sollten Metadaten überprüft oder entfernt werden.</p>
+    `,
+    didYouKnow: 'Ein Foto kann deinen Standort verraten, obwohl er auf dem Bild nicht sichtbar ist.',
+  },
+  en: {
+    title: 'EXIF & Metadata',
+    summary: 'Digital images often contain additional information about the photo.',
+    content: `
+      <h3>EXIF Data</h3>
+      <p>EXIF stores information such as camera model, ISO, exposure time, focal length and capture date.</p>
+
+      <h3>GPS Data</h3>
+      <p>Many smartphones also store the location where the photo was taken.</p>
+
+      <h3>Privacy</h3>
+      <p>Check or remove metadata before sharing personal photos.</p>
+    `,
+    didYouKnow: 'A photo can reveal your location even if it is not visible in the image.',
+  },
+  configs: [],
+},
+,
 ];

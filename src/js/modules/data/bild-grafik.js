@@ -342,5 +342,4 @@ export default [
     },
     configs: [],
   },
-  ,
 ];

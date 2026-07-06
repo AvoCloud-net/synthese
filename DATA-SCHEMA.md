@@ -41,17 +41,42 @@ Jedes Thema ist ein Objekt mit **genau** diesen Feldern:
       lang: 'css',                // 'css' | 'html' | 'svg' | 'js' | 'json'
       code: `:root {\n  --brand: #ff5a3c;\n}`
     }
+  ],
+
+  // NEU (Issue #52): Live-Code-Playground im Detail-Modal. Optional, top-level
+  // (nicht in de/en — Sandbox-Code ist sprachunabhängig). Fehlt das Feld,
+  // bleibt der Sandbox-Bereich im Modal versteckt. Jeder Teil (html/css/js)
+  // einzeln optional.
+  sandbox: {
+    html: `<button class="demo-btn">Klick mich</button>`,
+    css: `.demo-btn { padding: 8px 16px; }`,
+    js: `document.querySelector('.demo-btn').addEventListener('click', () => alert('Hi!'));`
+  },
+
+  // NEU: statische, fertig gerenderte visuelle Beispiele (Grafiken/Demos) in
+  // der Detail-Ansicht — zusätzlich zu oder statt einer Sandbox. Optional,
+  // top-level. Drei Formen: String (ein Beispiel), { html, caption } (ein
+  // Beispiel mit Bildunterschrift), oder Array aus beidem (mehrere Beispiele).
+  // html ist selbst-enthaltenes, inline-gestyltes HTML aus unseren eigenen
+  // Datendateien (vertrauenswürdig) — Inline-Styles hier erlaubt (anders als
+  // bei content), da es sich um fertige visuelle Demos handelt.
+  example: [
+    {
+      caption: 'Kurze Bildunterschrift.',
+      html: `<div style="...">...</div>`
+    }
   ]
 }
 ```
 
 **Regeln:**
 
-- **Pflichtfelder:** `id, category, difficulty, tags, related, de, en`. `image`/`icon`/`configs` optional (dann `''` bzw. `[]`).
+- **Pflichtfelder:** `id, category, difficulty, tags, related, de, en`. `image`/`icon`/`configs`/`sandbox`/`example` optional (dann `''`, `[]` bzw. Feld weglassen).
 - `tags` ist **top-level**, NICHT in `de`/`en`. (Häufiger Fehler!)
 - `de` und `en` haben **dieselben Keys**: `title, summary, content, didYouKnow`.
 - `related` verweist nur auf existierende `id`s.
-- `content` = HTML-String. Erlaubt: `<h3> <p> <ul> <li> <strong> <code>`. Keine Inline-Styles, keine `<script>`.
+- `content` = HTML-String. Erlaubt: `<h3> <p> <ul> <li> <strong> <em> <code>`. Keine Inline-Styles, keine `<script>`.
+- `sandbox`/`example` sind **top-level** (nicht in de/en). `example.html` darf Inline-Styles enthalten (fertige Demo, kein Fließtext).
 
 ---
 
@@ -123,6 +148,12 @@ renderBookmarks((containerSelector = '#bookmarks-list'));
 // related.js       (Content/Lead)
 getRelatedTopics(currentTopicId, (limit = 3)); // → Array<Topic>
 renderRelated(currentTopicId, (containerSelector = '#related-topics'));
+
+// sandbox.js       (Issue #52) — Live-Code-Playground
+renderSandbox(topicId, (containerSelector = '#topic-sandbox')); // rendert nur, wenn topic.sandbox existiert
+
+// example.js       — statische visuelle Beispiele
+renderExample(topicId, (containerSelector = '#topic-example')); // rendert nur, wenn topic.example existiert
 ```
 
 **Regel:** braucht dein Modul was Neues von einem anderen? → **erst mit Owner absprechen**, dann Signatur hier ergänzen. Nie still ändern.

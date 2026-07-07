@@ -101,3 +101,149 @@
     }
   }
 }
+/* ============================
+   Modal Overlay + Panel
+   ============================ */
+
+.challenge-modal {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-40); /* halbtransparentes Overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Aktivierter Zustand */
+.challenge-modal.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Panel */
+.challenge-modal__panel {
+  background: var(--surface-1);
+  border-radius: var(--radius-4);
+  max-width: 720px;
+  max-height: 85vh;
+  width: 100%;
+  overflow: auto; /* lange Themen scrollen im Panel */
+  padding: var(--space-6);
+  box-shadow: var(--shadow-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ============================
+   Titel + Inhalt
+   ============================ */
+
+.challenge-modal__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-2);
+}
+
+.challenge-modal__content {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-relaxed);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ============================
+   Did-You-Know Box
+   ============================ */
+
+.challenge-modal__didyouknow {
+  background: var(--surface-2);
+  border-left: 4px solid var(--accent);
+  padding: var(--space-4);
+  border-radius: var(--radius-2);
+  font-size: var(--font-size-sm);
+}
+
+/* ============================
+   Config Code Blocks
+   ============================ */
+
+.challenge-modal__config-block {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  font-family: var(--font-mono);
+  padding: var(--space-4);
+  border-radius: var(--radius-3);
+  overflow-x: auto; /* lange Zeilen scrollen */
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-snug);
+  border: 1px solid var(--border-strong);
+}
+
+/* Label über dem Code */
+.challenge-modal__config-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-2);
+}
+
+/* ============================
+   Related Links (Chips)
+   ============================ */
+
+.challenge-modal__related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.challenge-modal__related-link {
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-2);
+  border-radius: var(--radius-3);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  color: var(--text-1);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.challenge-modal__related-link:hover {
+  background: var(--surface-3);
+  transform: translateY(-2px);
+}
+
+.challenge-modal__related-link:focus-visible {
+  outline: 3px solid var(--avo-focus);
+  outline-offset: 3px;
+}
+
+/* ============================
+   Close Button
+   ============================ */
+
+.challenge-modal__close-btn {
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--radius-2);
+  color: var(--text-2);
+  transition: color 0.2s ease;
+}
+
+.challenge-modal__close-btn:hover {
+  color: var(--text-1);
+}
+
+.challenge-modal__close-btn:focus-visible {
+  outline: 3px solid var(--avo-focus);
+  outline-offset: 3px;
+}

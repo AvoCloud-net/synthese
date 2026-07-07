@@ -157,6 +157,9 @@
 
           <!-- Search Bar -->
           <div class="challenge-search">
+            <label class="u-sr-only" for="topic-search" data-i18n="hero.searchPlaceholder"
+              >Thema suchen</label
+            >
             <div class="challenge-search__input-wrapper">
               <i class="ph ph-magnifying-glass challenge-search__icon" aria-hidden="true"></i>
               <input
@@ -165,9 +168,9 @@
                 class="challenge-search__input"
                 data-i18n="hero.searchPlaceholder"
                 placeholder="Thema suchen..."
-                aria-label="Thema suchen"
               />
             </div>
+            <p class="challenge-search__no-results u-hidden" data-i18n="search.noResults"></p>
           </div>
 
           <!-- Filter Bar -->
@@ -244,6 +247,36 @@
         <div class="challenge-hero__scroll" aria-hidden="true">
           <span>Scroll</span>
           <i class="ph ph-caret-down"></i>
+        </div>
+      </section>
+
+      <!-- Topics Grid -->
+      <section class="section" aria-labelledby="topics-title">
+        <div class="u-container">
+          <h2 id="topics-title" class="section__title" data-i18n="topics.title">Themen</h2>
+          <p class="section__subtitle" data-i18n="topics.subtitle">
+            Entdecke die Welt des Mediendesigns
+          </p>
+
+          <div id="topics-grid" class="topics-groups"></div>
+
+          <!-- TODO: Team implementiert das Topic-Detail Modal -->
+          <div
+            id="topic-modal"
+            class="challenge-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            hidden
+          >
+            <div class="challenge-modal__backdrop"></div>
+            <div class="challenge-modal__content">
+              <button class="challenge-modal__close" type="button" aria-label="Schließen">
+                <i class="ph ph-x" aria-hidden="true"></i>
+              </button>
+              <div id="modal-body"></div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -468,36 +501,6 @@
                   Testet, poliert und präsentiert euer Kompendium der Klasse.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Topics Grid -->
-      <section class="section" aria-labelledby="topics-title">
-        <div class="u-container">
-          <h2 id="topics-title" class="section__title" data-i18n="topics.title">Themen</h2>
-          <p class="section__subtitle" data-i18n="topics.subtitle">
-            Entdecke die Welt des Mediendesigns
-          </p>
-
-          <div id="topics-grid" class="topics-grid"></div>
-
-          <!-- TODO: Team implementiert das Topic-Detail Modal -->
-          <div
-            id="topic-modal"
-            class="challenge-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-            hidden
-          >
-            <div class="challenge-modal__backdrop"></div>
-            <div class="challenge-modal__content">
-              <button class="challenge-modal__close" type="button" aria-label="Schließen">
-                <i class="ph ph-x" aria-hidden="true"></i>
-              </button>
-              <div id="modal-body"></div>
             </div>
           </div>
         </div>

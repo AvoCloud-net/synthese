@@ -1,39 +1,27 @@
 /**
  * SYNTHESE — Search Module
  * Echtzeit-Suche über alle Themen mit Debounce
- *
- * TODO: Implementiere die Suchfunktion
- * Anforderungen:
- * 1. Lies den Input-Wert aus `.challenge-search__input`
- * 2. Suche im `topics`-Array nach title, summary und tags
- * 3. Zeige nur passende Cards an (verstecke andere mit .u-hidden)
- * 4. Nutze Debounce (200ms), damit nicht bei jedem Tastenanschlag gesucht wird
- * 5. Wenn keine Ergebnisse: Zeige "Keine Ergebnisse"-Meldung
- *
- * KI-Prompt-Tipp:
- * "Erstelle ein Vanilla-JS Search-Modul mit Debounce (200ms).
- *  Suche über ein topics-Array nach title, summary und tags.
- *  Filtere sichtbare Cards. Keine Inline-Scripts, ES6 Module."
  */
 
-import { topics } from './data.js';
+import { searchTopics } from './data.js';
 
 /**
  * Initialisiert die Suche
- * @param {string} containerSelector - Selector für den Input
- * @param {string} cardSelector - Selector für die zu filternden Cards
+ * @param {string} inputSel - Selector für den Input
+ * @param {string} cardSel - Selector für die zu filternden Cards
  */
 export function initSearch(
-  containerSelector = '.challenge-search',
-  cardSelector = '.challenge-topic-card'
+  inputSel = '.challenge-search__input',
+  cardSel = '.challenge-topic-card'
 ) {
-  // TODO: Implementiere die Initialisierung
-  // 1. Query den Input
-  // 2. Füge Event-Listener für 'input' hinzu
-  // 3. Nutze debounce für die Suche
-  // 4. Filtere Cards basierend auf dem Suchbegriff
+  const input = document.querySelector(inputSel);
+  if (!input) return;
 
-  console.log('[TODO] initSearch() muss implementiert werden');
+  const runSearch = debounce(
+    () => filterCards(input.value, document.querySelectorAll(cardSel)),
+    200
+  );
+  input.addEventListener('input', runSearch);
 }
 
 /**
@@ -42,11 +30,11 @@ export function initSearch(
  * @param {NodeList} cards - Alle Topic-Cards
  */
 function filterCards(query, cards) {
-  // TODO: Implementiere die Filter-Logik
-  // 1. Normalisiere den Query (lowercase, trim)
-  // 2. Iteriere über alle Cards
-  // 3. Prüfe, ob title, summary oder tags den Query enthalten
-  // 4. Zeige/Verstecke Cards entsprechend
+  const hits = new Set(searchTopics(query).map((t) => t.id));
+  cards.forEach((card) => {
+    card.classList.toggle('u-hidden', !hits.has(card.dataset.id));
+  });
+  toggleNoResults(hits.size === 0 && cards.length > 0);
 }
 
 /**
@@ -56,16 +44,24 @@ function filterCards(query, cards) {
  * @returns {Function}
  */
 function debounce(fn, delay) {
-  // TODO: Implementiere Debounce
-  // Tipp: Nutze setTimeout und clearTimeout
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
 }
 
 /**
- * Zeigt "Keine Ergebnisse"-Meldung an
+ * Zeigt "Keine Ergebnisse"-Meldung an (legt Element bei Bedarf an)
  * @param {boolean} show - true = anzeigen, false = ausblenden
  */
 function toggleNoResults(show) {
-  // TODO: Implementiere die Anzeige einer "Keine Ergebnisse"-Meldung
-  // Erstelle ein Element mit Klasse `.challenge-search__no-results`
-  // oder nutze ein bestehendes Element im HTML
+  let el = document.querySelector('.challenge-search__no-results');
+  if (!el) {
+    el = document.createElement('p');
+    el.className = 'challenge-search__no-results u-hidden';
+    el.textContent = 'Keine Ergebnisse gefunden.';
+    document.querySelector('.challenge-search')?.appendChild(el);
+  }
+  el.classList.toggle('u-hidden', !show);
 }

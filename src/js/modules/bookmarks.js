@@ -145,7 +145,7 @@ export function renderBookmarks(containerSelector = '#bookmarks-list') {
     .filter(Boolean);
 
   if (topics.length === 0) {
-    box.innerHTML = '';
+    box.innerHTML = '<p class="challenge-bookmark-empty">Noch keine Lesezeichen — auf das Symbol oben rechts an einer Karte klicken.</p>';
     return;
   }
 
@@ -153,7 +153,32 @@ export function renderBookmarks(containerSelector = '#bookmarks-list') {
   box.innerHTML = topics
     .map((t) => {
       const title = (t[lang] || t.de || t.en || {}).title || t.id;
-      return `<a href="#" class="challenge-bookmark-item" data-id="${t.id}">${title}</a>`;
+      return `
+        <div class="challenge-bookmark-item" data-id="${t.id}">
+          <i class="ph ph-bookmark-simple challenge-bookmark-item__icon" aria-hidden="true"></i>
+          <span class="challenge-bookmark-item__title">${title}</span>
+          <button type="button" class="challenge-bookmark-item__remove" aria-label="Lesezeichen entfernen">
+            <i class="ph ph-x" aria-hidden="true"></i>
+          </button>
+        </div>
+      `;
     })
     .join('');
+
+  box.querySelectorAll('.challenge-bookmark-item').forEach((item) => {
+    const topicId = item.dataset.id;
+
+    item.querySelector('.challenge-bookmark-item__remove').addEventListener('click', (e) => {
+      e.stopPropagation();
+      removeBookmark(topicId);
+      renderBookmarks(containerSelector);
+      const cardBtn = document.querySelector(`.challenge-bookmark-btn[data-id="${topicId}"]`);
+      if (cardBtn) applyButtonState(cardBtn, false);
+    });
+
+    // Klick auf den Eintrag öffnet dieselbe Karte im Grid (nutzt deren bestehenden Klick-Handler).
+    item.addEventListener('click', () => {
+      document.querySelector(`.challenge-topic-card[data-id="${topicId}"]`)?.click();
+    });
+  });
 }

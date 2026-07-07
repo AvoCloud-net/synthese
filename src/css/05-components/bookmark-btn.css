@@ -47,4 +47,62 @@
   .challenge-topic-card__meta {
     padding-right: calc(2rem + var(--space-2));
   }
+
+  /* ---- Lesezeichen-Übersicht (#bookmarks-list, Issue #23) ---- */
+  .challenge-bookmark-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .challenge-bookmark-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--challenge-primary);
+  }
+
+  .challenge-bookmark-item__icon {
+    color: var(--challenge-warning);
+    font-size: var(--text-lg);
+    flex-shrink: 0;
+  }
+
+  .challenge-bookmark-item__title {
+    flex-grow: 1;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .challenge-bookmark-item__remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .challenge-bookmark-item__remove:hover {
+    color: var(--challenge-error);
+    background: rgba(239, 68, 68, 0.1);
+  }
+
+  .challenge-bookmark-empty {
+    grid-column: 1 / -1;
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+  }
 }

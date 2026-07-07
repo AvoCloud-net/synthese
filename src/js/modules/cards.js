@@ -7,9 +7,13 @@
  */
 
 import { topics, getTopicById, CATEGORIES } from './data.js';
-import { getLanguage, updateI18nAttributes } from './i18n.js';
+import { getLanguage, onLangChange, updateI18nAttributes } from './i18n.js';
 import { renderSandbox } from './sandbox.js';
 import { renderExample } from './example.js';
+
+// Zuletzt verwendete renderCards()-Argumente — damit der Sprachwechsel mit
+// demselben Container/Datensatz (z. B. gefiltert) neu rendern kann.
+let lastRenderArgs = null;
 
 /**
  * Rendert alle Topic-Cards, gruppiert nach Kategorie, in den Container
@@ -19,6 +23,9 @@ import { renderExample } from './example.js';
 export function renderCards(containerSelector = '#topics-grid', data = topics) {
   const container = document.querySelector(containerSelector);
   if (!container) return;
+
+  lastRenderArgs = [containerSelector, data];
+  initLangChangeRerender();
 
   container.innerHTML = CATEGORIES.map((category) =>
     createCategoryGroupHtml(
@@ -42,6 +49,40 @@ export function renderCards(containerSelector = '#topics-grid', data = topics) {
         openTopicDetail(card.dataset.id);
       }
     });
+  });
+}
+
+/**
+ * Registriert einmalig ein Neu-Rendern der Karten beim Sprachwechsel
+ * (DATA-SCHEMA §6): Titel/Summary stehen als Text im HTML und wechseln —
+ * anders als die data-i18n-Badges — nicht von selbst. Der u-hidden-Zustand
+ * der Suche (search.js) wird über die Topic-IDs gesichert und danach wieder
+ * angewendet, damit ein aktiver Such-/Filterzustand erhalten bleibt.
+ */
+let langChangeBound = false;
+function initLangChangeRerender() {
+  if (langChangeBound) return;
+  langChangeBound = true;
+
+  onLangChange(() => {
+    if (!lastRenderArgs) return;
+    const [containerSelector, data] = lastRenderArgs;
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    const hiddenIds = new Set(
+      Array.from(container.querySelectorAll('.challenge-topic-card.u-hidden')).map(
+        (card) => card.dataset.id
+      )
+    );
+
+    renderCards(containerSelector, data);
+
+    if (hiddenIds.size > 0) {
+      container.querySelectorAll('.challenge-topic-card').forEach((card) => {
+        card.classList.toggle('u-hidden', hiddenIds.has(card.dataset.id));
+      });
+    }
   });
 }
 

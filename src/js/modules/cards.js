@@ -10,6 +10,7 @@ import { topics, getTopicById, CATEGORIES } from './data.js';
 import { getLanguage, onLangChange, updateI18nAttributes } from './i18n.js';
 import { renderSandbox } from './sandbox.js';
 import { renderExample } from './example.js';
+import { initBookmarkButtons } from './bookmarks.js';
 
 // Zuletzt verwendete renderCards()-Argumente — damit der Sprachwechsel mit
 // demselben Container/Datensatz (z. B. gefiltert) neu rendern kann.
@@ -119,6 +120,13 @@ function createCardHtml(topic) {
              data-category="${topic.category}"
              data-difficulty="${topic.difficulty}"
              tabindex="0">
+      <button type="button"
+              class="challenge-topic-card__bookmark challenge-bookmark-btn"
+              data-id="${topic.id}"
+              aria-pressed="false"
+              aria-label="Lesezeichen setzen">
+        <i class="ph ph-bookmark-simple" aria-hidden="true"></i>
+      </button>
       <div class="challenge-topic-card__meta">
         <span class="challenge-topic-card__badge challenge-topic-card__badge--cat ${topic.category}"
               data-i18n="category.${topic.category}"></span>
@@ -174,6 +182,13 @@ function openTopicDetail(topicId) {
   const lang = getLanguage();
   const l = topic[lang] || topic.de || topic.en || {};
   body.innerHTML = `
+    <button type="button"
+            class="challenge-topic-card__bookmark challenge-bookmark-btn challenge-topic-detail__bookmark"
+            data-id="${topic.id}"
+            aria-pressed="false"
+            aria-label="Lesezeichen setzen">
+      <i class="ph ph-bookmark-simple" aria-hidden="true"></i>
+    </button>
     <h2 id="modal-title" class="challenge-topic-detail__title">${escapeHtml(l.title)}</h2>
     <div class="challenge-topic-detail__body">${l.content || `<p>${escapeHtml(l.summary)}</p>`}</div>
     <div id="topic-example" hidden></div>
@@ -184,6 +199,8 @@ function openTopicDetail(topicId) {
   renderExample(topicId);
   // Issue #52: Sandbox-Bereich (nur sichtbar, wenn topic.sandbox existiert).
   renderSandbox(topicId);
+  // Neuen Button im Modal binden (initBookmarkButtons() ist idempotent, s. bookmarks.js).
+  initBookmarkButtons();
 
   modal.hidden = false;
   // Seite dahinter sperren — nur der Detail-Inhalt scrollt. Klasse auf <html>,

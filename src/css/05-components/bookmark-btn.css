@@ -1,1 +1,47 @@
-/* Placeholder stylesheet kept for ITCSS component import order. */
+@layer components {
+  /* ============================================================
+     Bookmark-Button (.challenge-topic-card__bookmark / .challenge-bookmark-btn)
+     Sitzt oben rechts auf der Card bzw. im Detail-Modal (Issue #21/#22).
+     ============================================================ */
+  .challenge-topic-card__bookmark {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface);
+    box-shadow: var(--shadow-sm);
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: var(--text-lg);
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .challenge-topic-card__bookmark:hover {
+    color: var(--challenge-primary);
+    transform: scale(1.1);
+  }
+
+  .challenge-topic-card__bookmark.is-bookmarked {
+    color: var(--challenge-warning);
+    background: rgba(245, 158, 11, 0.15);
+    /* Nur "regular"-Phosphor-Icons eingebunden (kein "-fill"-Set) — Zustand
+       daher über Farbe/Hintergrund/Textschatten statt Icon-Wechsel sichtbar machen. */
+    text-shadow: 0 0 0 currentColor;
+  }
+
+  .challenge-topic-detail__bookmark {
+    position: relative;
+    top: 0;
+    right: 0;
+    float: right;
+  }
+}

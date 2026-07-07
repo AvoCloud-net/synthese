@@ -4,6 +4,7 @@
  */
 
 import { getTopicById } from './data.js';
+import { getLanguage } from './i18n.js';
 
 const STORAGE_KEY = 'synthese-bookmarks';
 
@@ -100,9 +101,11 @@ export function initBookmarkButtons() {
 
     syncButtonState(btn, topicId);
 
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Button sitzt auf der klickbaren Card — Card-Click (Detail öffnen) darf nicht mitfeuern
       const nowBookmarked = toggleBookmark(topicId);
       applyButtonState(btn, nowBookmarked);
+      renderBookmarks();
     });
   });
 }
@@ -122,6 +125,8 @@ function syncButtonState(btn, topicId) {
  * @param {boolean} on
  */
 function applyButtonState(btn, on) {
+  // Nur "regular"-Phosphor-Stylesheet eingebunden (index.html) — kein "-fill"-Icon
+  // verfügbar, daher Zustand rein über Farbe/Klasse (.is-bookmarked in bookmark-btn.css).
   btn.classList.toggle('is-bookmarked', on);
   btn.setAttribute('aria-pressed', String(on));
   btn.setAttribute('aria-label', on ? 'Lesezeichen entfernen' : 'Lesezeichen setzen');
@@ -144,7 +149,11 @@ export function renderBookmarks(containerSelector = '#bookmarks-list') {
     return;
   }
 
+  const lang = getLanguage();
   box.innerHTML = topics
-    .map((t) => `<a href="#" class="challenge-bookmark-item" data-id="${t.id}">${t.id}</a>`)
+    .map((t) => {
+      const title = (t[lang] || t.de || t.en || {}).title || t.id;
+      return `<a href="#" class="challenge-bookmark-item" data-id="${t.id}">${title}</a>`;
+    })
     .join('');
 }

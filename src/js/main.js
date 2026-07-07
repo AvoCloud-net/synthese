@@ -14,7 +14,7 @@ import { initXP } from './modules/xp.js';
 import { renderCards } from './modules/cards.js';
 import { initSearch } from './modules/search.js';
 // import { initFilter } from './modules/filter.js';
-// import { initBookmarkButtons, renderBookmarks } from './modules/bookmarks.js';
+import { initBookmarkButtons, renderBookmarks } from './modules/bookmarks.js';
 // import { renderRelated } from './modules/related.js';
 
 import de from '../translations/de.js';
@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCards(); // Issue #11 — muss zuerst laufen
   initSearch(); // Issue #14
   // initFilter();           // Issue #16 / #17
-  // initBookmarkButtons();  // Issue #22
-  // renderBookmarks();      // Issue #23
+  initBookmarkButtons(); // Issue #22
+  renderBookmarks(); // Issue #23
   // renderRelated wird aus dem Detail-Modal heraus aufgerufen (Issue #25), nicht hier.
 
   console.log('[SYNTHESE] Starter-Template geladen. Bereit für Team-Implementierung.');

@@ -33,9 +33,6 @@
   .challenge-topic-card__bookmark.is-bookmarked {
     color: var(--challenge-warning);
     background: rgba(245, 158, 11, 0.15);
-    /* Nur "regular"-Phosphor-Icons eingebunden (kein "-fill"-Set) — Zustand
-       daher über Farbe/Hintergrund/Textschatten statt Icon-Wechsel sichtbar machen. */
-    text-shadow: 0 0 0 currentColor;
   }
 
   .challenge-topic-detail__bookmark {
@@ -43,5 +40,11 @@
     top: 0;
     right: 0;
     float: right;
+  }
+
+  /* Meta-Zeile braucht rechts Platz, sonst überlappt ihr rechtsbündiges
+     Kategorie-Icon (margin-left: auto) mit dem absolut positionierten Bookmark-Button. */
+  .challenge-topic-card__meta {
+    padding-right: calc(2rem + var(--space-2));
   }
 }

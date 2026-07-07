@@ -157,6 +157,9 @@
 
           <!-- Search Bar -->
           <div class="challenge-search">
+            <label class="u-sr-only" for="topic-search" data-i18n="hero.searchPlaceholder"
+              >Thema suchen</label
+            >
             <div class="challenge-search__input-wrapper">
               <i class="ph ph-magnifying-glass challenge-search__icon" aria-hidden="true"></i>
               <input
@@ -165,9 +168,9 @@
                 class="challenge-search__input"
                 data-i18n="hero.searchPlaceholder"
                 placeholder="Thema suchen..."
-                aria-label="Thema suchen"
               />
             </div>
+            <p class="challenge-search__no-results u-hidden" data-i18n="search.noResults"></p>
           </div>
 
           <!-- Filter Bar -->

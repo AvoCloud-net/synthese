@@ -46,19 +46,23 @@ export function isRTL() {
 export function t(key, vars = {}) {
   const dict = translations[currentLang] || translations.de || {};
   let text = dict[key];
+
   if (text === undefined) {
-    text = (translations.de || {})[key] ?? key;
+    text = (translations.de || {})[key] ?? '';
   }
+
   return text.replace(/\{\{(\w+)\}\}/g, (_, k) => vars[k] ?? `{{${k}}}`);
 }
 
 export function tOr(key, vars = {}) {
   const dict = translations[currentLang] || translations.de || {};
   let text = dict[key];
+
   if (text === undefined) {
     text = (translations.de || {})[key];
   }
   if (text === undefined) return undefined;
+
   return text.replace(/\{\{(\w+)\}\}/g, (_, k) => vars[k] ?? `{{${k}}}`);
 }
 
@@ -155,4 +159,5 @@ export function initI18n(de, en) {
   loadTranslations(de, en);
   updateI18nAttributes();
   initLanguageSwitcher();
+  setLanguage(currentLang);
 }

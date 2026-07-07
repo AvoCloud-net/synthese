@@ -20,7 +20,7 @@ export default [
         <h3>Was ist ein Farbmodell?</h3>
         <p>Ein Farbmodell ist ein System, um Farben in Zahlen zu beschreiben, damit Geräte sie eindeutig darstellen können. Die zwei wichtigsten funktionieren gegensätzlich: das eine mischt <em>Licht</em>, das andere mischt <em>Farbstoff</em>. Wer das verwechselt, wundert sich, warum der Druck nie so leuchtet wie der Bildschirm.</p>
         <h3>Additiv: RGB</h3>
-        <p><strong>RGB</strong> mischt farbiges Licht aus den Grundfarben Rot, Grün und Blau. Alle drei voll = Weiß, alles aus = Schwarz — man <em>addiert</em> Licht. Jeder Kanal hat meist 8 Bit, also 256 Stufen (0–255); das ergibt 256³ ≈ <strong>16,7 Mio. Farben</strong>. Im Web schreibt man Farben oft als HEX (<code>#ff5a3c</code>), was nichts anderes als RGB in Hexadezimal ist. RGB gilt für alles, was selbst leuchtet: Bildschirme, Kameras, Beamer.</p>
+        <p><strong>RGB</strong> mischt farbiges Licht aus den Grundfarben Rot, Grün und Blau. Alle drei voll = Weiß, alles aus = Schwarz — man <em>addiert</em> Licht. Jeder Kanal hat meist 8 Bit, also 256 Stufen (0–255); das ergibt 256³ ≈ <strong>16,7 Mio. Farben</strong>. Im Web schreibt man Farben oft als HEX (<code>#ff5a3c</code>), was nichts anderes als RGB in Hexadezimal ist. RGB gilt überall, wo mit Licht gearbeitet wird: bei Bildschirmen und Beamern (sie senden Licht aus) ebenso wie bei Kamerasensoren (sie messen Licht).</p>
         <h3>Subtraktiv: CMYK</h3>
         <p><strong>CMYK</strong> mischt Druckfarbe auf Papier: Cyan, Magenta, Yellow und Key (Schwarz). Jede Farbschicht <em>schluckt</em> einen Teil des Lichts — je mehr Farbe, desto dunkler. Theoretisch ergäben C+M+Y Schwarz, praktisch aber ein schmutziges Braun; deshalb gibt es die separate Schwarzplatte K für satte Tiefen und scharfen Text.</p>
         <h3>Gamut &amp; der Praxis-Fallstrick</h3>
@@ -36,7 +36,7 @@ export default [
         <h3>What is a color model?</h3>
         <p>A color model is a system for describing colors as numbers so devices can reproduce them unambiguously. The two most important ones work in opposite ways: one mixes <em>light</em>, the other mixes <em>pigment</em>. Confuse them and you'll wonder why print never glows like the screen.</p>
         <h3>Additive: RGB</h3>
-        <p><strong>RGB</strong> mixes colored light from red, green and blue. All three full = white, all off = black — you <em>add</em> light. Each channel is usually 8 bit, i.e. 256 steps (0–255), giving 256³ ≈ <strong>16.7 million colors</strong>. On the web colors are often written as HEX (<code>#ff5a3c</code>), which is simply RGB in hexadecimal. RGB applies to anything that emits light: screens, cameras, projectors.</p>
+        <p><strong>RGB</strong> mixes colored light from red, green and blue. All three full = white, all off = black — you <em>add</em> light. Each channel is usually 8 bit, i.e. 256 steps (0–255), giving 256³ ≈ <strong>16.7 million colors</strong>. On the web colors are often written as HEX (<code>#ff5a3c</code>), which is simply RGB in hexadecimal. RGB applies wherever light is the medium: screens and projectors (they emit light) as well as camera sensors (they measure light).</p>
         <h3>Subtractive: CMYK</h3>
         <p><strong>CMYK</strong> mixes ink on paper: cyan, magenta, yellow and key (black). Each ink layer <em>absorbs</em> part of the light — the more ink, the darker. In theory C+M+Y would make black, but in practice a muddy brown; hence the separate black plate K for deep shadows and crisp text.</p>
         <h3>Gamut &amp; the practical trap</h3>
@@ -228,7 +228,7 @@ render();`,
         <p>Zwei Schriften reichen fast immer: eine für Überschriften, eine für den Text — oder sogar nur eine Familie mit mehreren Schnitten. Zu viele Schriften und Schnitte wirken unruhig und unprofessionell.</p>
       `,
       didYouKnow:
-        'Studien zeigen: eine Zeilenlänge von rund 66 Zeichen gilt als idealer Kompromiss aus Lesefluss und Augenbewegung.',
+        'Die klassische Typografie-Lehre — etwa Robert Bringhursts „Elements of Typographic Style" — nennt rund 66 Zeichen pro Zeile als ideale Satzbreite.',
     },
     en: {
       title: 'Typography Basics',
@@ -249,7 +249,7 @@ render();`,
         <p>Two typefaces almost always suffice: one for headings, one for body — or even a single family with several weights. Too many fonts and styles feel restless and unprofessional.</p>
       `,
       didYouKnow:
-        'Studies suggest a line length of around 66 characters is the ideal balance of reading flow and eye movement.',
+        'Classic typographic teaching — e.g. Robert Bringhurst’s "The Elements of Typographic Style" — cites around 66 characters per line as the ideal measure.',
     },
     configs: [
       {
@@ -376,7 +376,7 @@ render();`,
       <p>Farbbedeutungen sind kulturell geprägt: Weiß steht im Westen für Reinheit und Hochzeit, in Teilen Asiens für Trauer. Rot bedeutet in China Glück, anderswo Gefahr. Für internationale Produkte lohnt sich deshalb immer ein Blick auf Zielgruppe und Kontext.</p>
     `,
       didYouKnow:
-        'Rot steigert nachweislich die Herzfrequenz — deshalb wird es oft für Warnsignale genutzt.',
+        'Rot hat die längste Wellenlänge des sichtbaren Lichts (~700 nm) und bleibt in Luft auch über große Entfernung gut erkennbar — ein Grund, warum Warnsignale rot sind.',
     },
     en: {
       title: 'Color Psychology',
@@ -399,7 +399,7 @@ render();`,
       <p>Color meanings are culturally shaped: white means purity and weddings in the West, mourning in parts of Asia. Red means luck in China, danger elsewhere. For international products, always consider your audience and context.</p>
     `,
       didYouKnow:
-        'Red has been shown to increase heart rate — which is why it’s used for warnings.',
+        'Red has the longest wavelength of visible light (~700 nm) and stays clearly visible in air over long distances — one reason warning signals are red.',
     },
     configs: [],
     example: [

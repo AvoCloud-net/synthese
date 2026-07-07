@@ -184,7 +184,7 @@ export default [
         <p>Einmal komplett <strong>nur mit der Tastatur</strong> (Tab/Enter) durch die Seite, einen Screenreader ausprobieren, einen Kontrast-Checker nutzen und automatische Tools wie Lighthouse oder axe laufen lassen. Automatik findet aber nur einen Teil — der Handtest bleibt wichtig.</p>
       `,
       didYouKnow:
-        'In der EU verpflichtet der European Accessibility Act ab Juni 2025 viele digitale Produkte zur Barrierefreiheit.',
+        'In der EU verpflichtet der European Accessibility Act seit dem 28. Juni 2025 viele digitale Produkte und Dienstleistungen zur Barrierefreiheit.',
     },
     en: {
       title: 'Accessibility (A11y)',
@@ -206,7 +206,7 @@ export default [
         <p>Go through the whole page <strong>using only the keyboard</strong> (Tab/Enter) once, try a screen reader, use a contrast checker and run automated tools like Lighthouse or axe. Automation only catches part of it, though — the hands-on test remains essential.</p>
       `,
       didYouKnow:
-        'In the EU, the European Accessibility Act requires many digital products to be accessible from June 2025.',
+        'In the EU, the European Accessibility Act has required many digital products and services to be accessible since 28 June 2025.',
     },
     configs: [
       {

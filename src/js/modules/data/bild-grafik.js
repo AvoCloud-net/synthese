@@ -88,7 +88,7 @@ export default [
         <h3>Web vs. Druck</h3>
         <p>Fürs <strong>Web</strong> zählt allein die Pixelzahl. Der berühmte Wert „72 DPI" ist dort ein <em>Mythos ohne Wirkung</em> — der Browser interessiert sich nur für Pixel, nicht für DPI. Für den <strong>Druck</strong> dagegen braucht man meist <strong>300 DPI bei Endgröße</strong>: Ein Bild, das 10 cm breit gedruckt wird, benötigt also rund 1180 Pixel Breite. Zu wenig → es wirkt unscharf oder pixelig.</p>
         <h3>Retina &amp; Skalierung</h3>
-        <p>Moderne „Retina"-Displays haben doppelte Pixeldichte. Damit Bilder dort scharf sind, liefert man sie oft in doppelter Auflösung (2×). Grundregel: <strong>Runterskalieren</strong> (verkleinern) geht immer verlustfrei, <strong>Hochskalieren</strong> kostet Qualität. Deshalb lieber groß fotografieren/anlegen und bei Bedarf verkleinern.</p>
+        <p>Moderne „Retina"-Displays haben doppelte Pixeldichte. Damit Bilder dort scharf sind, liefert man sie oft in doppelter Auflösung (2×). Grundregel: <strong>Runterskalieren</strong> (verkleinern) sieht praktisch immer gut aus, <strong>Hochskalieren</strong> kostet sichtbar Qualität, weil fehlende Pixel „erfunden" werden müssen. Deshalb lieber groß fotografieren/anlegen und bei Bedarf verkleinern.</p>
       `,
       didYouKnow:
         'Die „72 DPI fürs Web"-Regel stammt aus alten Mac-Bildschirmen — heute ist für Web nur die Pixelanzahl relevant.',
@@ -102,7 +102,7 @@ export default [
         <h3>Web vs. print</h3>
         <p>For the <strong>web</strong>, only the pixel count matters. The famous "72 DPI" value is a <em>myth with no effect</em> there — the browser cares only about pixels, not DPI. For <strong>print</strong> you usually need <strong>300 DPI at final size</strong>: an image printed 10 cm wide needs about 1180 pixels of width. Too few → it looks blurry or pixelated.</p>
         <h3>Retina &amp; scaling</h3>
-        <p>Modern "Retina" displays have double pixel density. To stay sharp there, images are often supplied at double resolution (2×). Basic rule: <strong>scaling down</strong> is always lossless, <strong>scaling up</strong> costs quality. So shoot/create large and shrink when needed.</p>
+        <p>Modern "Retina" displays have double pixel density. To stay sharp there, images are often supplied at double resolution (2×). Basic rule: <strong>scaling down</strong> practically always looks good, <strong>scaling up</strong> visibly costs quality because missing pixels have to be "invented". So shoot/create large and shrink when needed.</p>
       `,
       didYouKnow:
         'The "72 DPI for web" rule comes from old Mac screens — today only the pixel count matters for web.',
@@ -224,7 +224,7 @@ export default [
         'Verlustbehaftet oder verlustfrei? Wie Codecs Bild, Video und Audio kleiner rechnen.',
       content: `
         <h3>Warum komprimieren?</h3>
-        <p>Rohdaten sind riesig: Ein 4K-Video ohne Kompression bräuchte mehrere Gigabyte <em>pro Sekunde</em>. Kompression macht Dateien klein genug zum Speichern und Streamen. Es gibt zwei grundsätzliche Wege.</p>
+        <p>Rohdaten sind riesig: Ein unkomprimiertes 4K-Video (60 Bilder/s) bräuchte rund 1,5 Gigabyte <em>pro Sekunde</em>. Kompression macht Dateien klein genug zum Speichern und Streamen. Es gibt zwei grundsätzliche Wege.</p>
         <h3>Verlustfrei vs. verlustbehaftet</h3>
         <ul>
           <li><strong>Verlustfrei</strong> (PNG, FLAC, ZIP): Die Originaldaten lassen sich exakt wiederherstellen. Sicher, aber die Ersparnis ist begrenzt. Nutzt Redundanz (z. B. „200× dasselbe Blau").</li>
@@ -243,7 +243,7 @@ export default [
       summary: 'Lossy or lossless? How codecs shrink image, video and audio.',
       content: `
         <h3>Why compress?</h3>
-        <p>Raw data is huge: uncompressed 4K video would need several gigabytes <em>per second</em>. Compression makes files small enough to store and stream. There are two fundamental approaches.</p>
+        <p>Raw data is huge: uncompressed 4K video (60 frames/s) would need about 1.5 gigabytes <em>per second</em>. Compression makes files small enough to store and stream. There are two fundamental approaches.</p>
         <h3>Lossless vs. lossy</h3>
         <ul>
           <li><strong>Lossless</strong> (PNG, FLAC, ZIP): the original data can be restored exactly. Safe, but savings are limited. Exploits redundancy (e.g. "the same blue 200×").</li>
@@ -384,9 +384,6 @@ export default [
       title: 'Image Optimization for the Web',
       summary: 'Optimized images make websites faster and improve user experience.',
       content: `
-      <h3>Why optimize?</h3>
-      <p>Large images slow down websites. Optimized images improve performance and SEO.</p>
-
       <h3>Why optimize?</h3>
       <p>Images are the largest data item on most websites. Unoptimized images noticeably increase load time — and slow pages cost visitors and Google ranking. Image optimization means delivering the smallest possible file at just-good-enough quality.</p>
       <h3>The key levers</h3>

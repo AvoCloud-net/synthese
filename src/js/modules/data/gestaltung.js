@@ -18,7 +18,7 @@ export default [
         'Wie unser Gehirn Elemente automatisch gruppiert — die Basis jeder guten visuellen Ordnung.',
       content: `
         <h3>Was sind Gestaltgesetze?</h3>
-        <p>Gestaltgesetze beschreiben, wie unser Gehirn einzelne Sinnesreize unbewusst zu Gruppen, Mustern und ganzen Formen zusammenfasst. Sie wurden Anfang des 20. Jahrhunderts von der Berliner Gestaltpsychologie (u.a. Max Wertheimer, Kurt Koffka, Wolfgang Köhler) formuliert. Der Kerngedanke: „Das Ganze ist mehr als die Summe seiner Teile." Wir sehen nicht viele einzelne Punkte, sondern sofort eine Reihe, eine Gruppe, ein Gesicht.</p>
+        <p>Gestaltgesetze beschreiben, wie unser Gehirn einzelne Sinnesreize unbewusst zu Gruppen, Mustern und ganzen Formen zusammenfasst. Sie wurden Anfang des 20. Jahrhunderts von der Berliner Gestaltpsychologie (u.a. Max Wertheimer, Kurt Koffka, Wolfgang Köhler) formuliert. Der Kerngedanke nach Kurt Koffka: „Das Ganze ist etwas anderes als die Summe seiner Teile" — das oft zitierte „mehr als die Summe" ist eine spätere Verkürzung. Wir sehen nicht viele einzelne Punkte, sondern sofort eine Reihe, eine Gruppe, ein Gesicht.</p>
         <p>Für Gestaltung heißt das: Du musst nichts „erzwingen". Wenn du Elemente richtig anordnest, erledigt die Wahrnehmung die Ordnung von selbst — der Blick weiß intuitiv, was zusammengehört.</p>
         <h3>Die wichtigsten Prinzipien</h3>
         <ul>
@@ -41,7 +41,7 @@ export default [
         'How the brain groups elements automatically — the basis of any strong visual order.',
       content: `
         <h3>What are Gestalt principles?</h3>
-        <p>Gestalt principles describe how our brain subconsciously combines single sensory cues into groups, patterns and whole shapes. They were formulated in the early 20th century by the Berlin school of Gestalt psychology (Max Wertheimer, Kurt Koffka, Wolfgang Köhler and others). The core idea: "The whole is greater than the sum of its parts." We don't see many separate dots — we instantly see a row, a group, a face.</p>
+        <p>Gestalt principles describe how our brain subconsciously combines single sensory cues into groups, patterns and whole shapes. They were formulated in the early 20th century by the Berlin school of Gestalt psychology (Max Wertheimer, Kurt Koffka, Wolfgang Köhler and others). The core idea, in Kurt Koffka's words: "The whole is something other than the sum of its parts" — the popular "greater than the sum" is a later simplification. We don't see many separate dots — we instantly see a row, a group, a face.</p>
         <p>For design this means you rarely have to "force" anything. Arrange elements well and perception does the ordering for you — the eye intuitively knows what belongs together.</p>
         <h3>The key principles</h3>
         <ul>
@@ -235,9 +235,9 @@ export default [
         <h3>Was ist Komposition?</h3>
         <p>Komposition ist die bewusste Anordnung aller Bildelemente, um den Blick des Betrachters zu lenken und eine Aussage zu treffen. Die Mitte wirkt oft statisch und langweilig — echte Spannung entsteht durch gezielte, leicht außermittige Platzierung. Gute Komposition entscheidet, was zuerst gesehen wird, wohin der Blick danach wandert und wo er zur Ruhe kommt.</p>
         <h3>Drittelregel</h3>
-        <p>Teile die Fläche mit zwei waagerechten und zwei senkrechten Linien in neun gleiche Felder. Platziere wichtige Elemente <strong>auf die Linien</strong> oder besser noch auf ihre vier <strong>Schnittpunkte</strong> („Kraftpunkte"). Ein Horizont gehört auf die obere oder untere Drittellinie, nicht in die Mitte. Die Drittelregel ist die einsteigerfreundliche, vereinfachte Variante des Goldenen Schnitts.</p>
+        <p>Teile die Fläche mit zwei waagerechten und zwei senkrechten Linien in neun gleiche Felder. Platziere wichtige Elemente <strong>auf die Linien</strong> oder besser noch auf ihre vier <strong>Schnittpunkte</strong> („Kraftpunkte"). Ein Horizont gehört auf die obere oder untere Drittellinie, nicht in die Mitte. Die Drittelregel wird oft als vereinfachter Goldener Schnitt beschrieben — historisch entstand sie aber unabhängig davon; ihre Linien liegen lediglich nahe an dessen Proportionen.</p>
         <h3>Goldener Schnitt</h3>
-        <p>Der Goldene Schnitt teilt eine Strecke so, dass sich der kleinere zum größeren Teil verhält wie der größere zum Ganzen — ein Verhältnis von rund <strong>1 : 1,618</strong> (Phi). Es taucht in Muschelschalen, Blütenständen und antiker Architektur auf und gilt seit der Renaissance als besonders harmonisch. Daraus abgeleitet ist die <strong>Goldene Spirale</strong>, an der man Motive entlangführt.</p>
+        <p>Der Goldene Schnitt teilt eine Strecke so, dass sich der kleinere zum größeren Teil verhält wie der größere zum Ganzen — ein Verhältnis von rund <strong>1 : 1,618</strong> (Phi). Es findet sich tatsächlich in vielen Blütenständen (etwa den Samenspiralen der Sonnenblume); die populären Beispiele Nautilus-Muschel und antike Architektur halten genauen Messungen dagegen meist nicht stand. Seit der Renaissance gilt das Verhältnis als besonders harmonisch. Daraus abgeleitet ist die <strong>Goldene Spirale</strong>, an der man Motive entlangführt.</p>
         <h3>Weitere Werkzeuge</h3>
         <ul>
           <li><strong>Blickführung:</strong> Linien, Wege und Blickrichtungen leiten das Auge ins Bild.</li>
@@ -246,7 +246,7 @@ export default [
         </ul>
       `,
       didYouKnow:
-        'Der Goldene Schnitt (≈1,618) wird oft mit dem griechischen Buchstaben Phi (φ) bezeichnet.',
+        'Der Begriff „Drittelregel" (rule of thirds) wurde bereits 1797 vom englischen Maler John Thomas Smith geprägt.',
     },
     en: {
       title: 'Composition & Golden Ratio',
@@ -256,9 +256,9 @@ export default [
         <h3>What is composition?</h3>
         <p>Composition is the deliberate arrangement of every visual element to guide the viewer's gaze and make a statement. The center often feels static and dull — real tension comes from purposeful, slightly off-center placement. Good composition decides what is seen first, where the eye travels next and where it comes to rest.</p>
         <h3>Rule of thirds</h3>
-        <p>Split the frame with two horizontal and two vertical lines into nine equal cells. Put important elements <strong>on the lines</strong> or, even better, on their four <strong>intersections</strong> ("power points"). A horizon belongs on the upper or lower third line, not in the middle. The rule of thirds is the beginner-friendly, simplified version of the golden ratio.</p>
+        <p>Split the frame with two horizontal and two vertical lines into nine equal cells. Put important elements <strong>on the lines</strong> or, even better, on their four <strong>intersections</strong> ("power points"). A horizon belongs on the upper or lower third line, not in the middle. The rule of thirds is often described as a simplified golden ratio — historically, though, it emerged independently; its lines merely sit close to those proportions.</p>
         <h3>Golden ratio</h3>
-        <p>The golden ratio splits a length so the smaller part relates to the larger as the larger relates to the whole — a ratio of about <strong>1 : 1.618</strong> (Phi). It appears in shells, flower heads and ancient architecture and has been considered especially harmonious since the Renaissance. From it comes the <strong>golden spiral</strong>, along which you can lead a subject.</p>
+        <p>The golden ratio splits a length so the smaller part relates to the larger as the larger relates to the whole — a ratio of about <strong>1 : 1.618</strong> (Phi). It genuinely appears in many flower heads (such as the seed spirals of a sunflower); the popular examples of the nautilus shell and ancient architecture, however, rarely hold up to precise measurement. Since the Renaissance the ratio has been considered especially harmonious. From it comes the <strong>golden spiral</strong>, along which you can lead a subject.</p>
         <h3>More tools</h3>
         <ul>
           <li><strong>Leading lines:</strong> paths and gaze directions draw the eye into the image.</li>
@@ -266,7 +266,8 @@ export default [
           <li><strong>Negative space:</strong> deliberate emptiness gives the main subject room and meaning.</li>
         </ul>
       `,
-      didYouKnow: 'The golden ratio (≈1.618) is often denoted by the Greek letter Phi (φ).',
+      didYouKnow:
+        'The term "rule of thirds" was coined as early as 1797 by the English painter John Thomas Smith.',
     },
     configs: [],
     example: [

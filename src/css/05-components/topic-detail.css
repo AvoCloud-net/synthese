@@ -6,98 +6,149 @@
  */
 
 @layer components {
-  /* Seite dahinter sperren, solange die Detail-Ansicht offen ist. */
-  html.is-detail-open,
-  html.is-detail-open body {
-    overflow: hidden;
-  }
 
-  /* Vollflächiger Container statt zentriertes Popup. */
+  /* ============================
+     Modal Overlay + Panel
+     ============================ */
+
   .challenge-modal {
-    display: block;
-    padding: 0;
+    position: fixed;
+    inset: 0;
+    background: var(--bg-overlay); /* echter Token */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.25s ease, transform 0.25s ease;
   }
 
-  /* Hintergrund wird zur deckenden Seitenfläche (kein Durchscheinen nötig). */
-  .challenge-modal__backdrop {
-    background: var(--bg-body);
-    backdrop-filter: none;
+  /* Modal ausblenden über hidden-Attribut */
+  .challenge-modal[hidden] {
+    display: none;
   }
 
-  /* Inhalt füllt den ganzen Viewport, scrollt bei Bedarf, kein Rahmen/Radius. */
-  .challenge-modal__content {
+  /* Panel */
+  .challenge-modal__panel {
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    max-width: 720px;
+    max-height: 85vh;
     width: 100%;
-    max-width: none;
-    height: 100vh;
-    height: 100dvh;
-    max-height: none;
-    border-radius: 0;
-    box-shadow: none;
-    overflow-y: auto;
-    /* Lese-Spalte zentriert, oben Platz für die fixe Schließen-Leiste. */
+    overflow: auto;
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-lg);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: clamp(4rem, 8vh, 6rem) var(--space-6, 1.5rem) var(--space-10, 4rem);
-    scroll-behavior: smooth;
+    gap: var(--space-lg);
   }
 
-  /* Direkte Inhaltsblöcke auf angenehme Lesebreite begrenzen. */
-  .challenge-modal__content > * {
-    width: 100%;
-    max-width: 820px;
-  }
+  /* ============================
+     Titel + Body
+     ============================ */
 
-  /* Schließen wird zum fixierten „Zurück"-Knopf oben rechts. */
-  .challenge-modal__close {
-    position: fixed;
-    top: var(--space-4, 1rem);
-    right: var(--space-4, 1rem);
-    width: 44px;
-    height: 44px;
-    font-size: 1.25rem;
-    z-index: 1;
-    color: var(--challenge-primary-on, #fff);
-    background: var(--challenge-primary);
-    border: none;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .challenge-modal__close:hover {
-    color: var(--challenge-primary-on, #fff);
-    background: var(--challenge-primary-light);
-  }
-
-  /* Titelblock als klare Seiten-Überschrift. */
   .challenge-topic-detail__title {
-    margin: 0 0 var(--space-4, 1rem);
-    font-size: clamp(1.75rem, 4vw, 2.75rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-sm);
   }
 
   .challenge-topic-detail__body {
-    font-size: 1.05rem;
-    line-height: 1.7;
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
   }
 
-  .challenge-topic-detail__body h3 {
-    margin-top: var(--space-6, 1.5rem);
-    font-size: 1.25rem;
+  /* ============================
+     DidYouKnow Box
+     ============================ */
+
+  .challenge-topic-detail__didyouknow {
+    background: var(--bg-surface-alt);
+    border-left: 4px solid var(--challenge-primary);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
   }
 
-  .challenge-topic-detail__body ul {
-    padding-left: 1.25rem;
+  /* ============================
+     Config Code Blocks
+     ============================ */
+
+  .challenge-topic-detail__config {
+    background: var(--bg-code);
+    color: var(--text-code);
+    font-family: var(--font-mono);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-snug);
+    border: 1px solid var(--border-strong);
   }
 
-  .challenge-topic-detail__body li {
-    margin-bottom: 0.4rem;
+  .challenge-topic-detail__config-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-xs);
   }
 
-  /* Mobil: schmalere Ränder, kleinere Kopfhöhe. */
-  @media (max-width: 640px) {
-    .challenge-modal__content {
-      padding: 4rem var(--space-4, 1rem) var(--space-8, 2rem);
-    }
+  /* ============================
+     Related Links
+     ============================ */
+
+  .challenge-topic-detail__related {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
   }
+
+  .challenge-topic-detail__related-link {
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--bg-surface-alt);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .challenge-topic-detail__related-link:hover {
+    background: var(--bg-surface-hover);
+    transform: translateY(-2px);
+  }
+
+  .challenge-topic-detail__related-link:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+
+  /* ============================
+     Close Button
+     ============================ */
+
+  .challenge-modal__close {
+    align-self: flex-end;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+  }
+
+  .challenge-modal__close:hover {
+    color: var(--text-primary);
+  }
+
+  .challenge-modal__close:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+
 }
+
